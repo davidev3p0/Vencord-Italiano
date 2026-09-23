@@ -1,0 +1,21 @@
+REALVOICETTS — OVERLAY PER IL TUO VENCORD ITALIANO
+
+Questo pacchetto NON crea un secondo repository Vencord.
+Va estratto direttamente dentro:
+C:\Users\Davide\Documents\Vencord
+
+Percorso finale previsto:
+src\userplugins\realVoiceTTS\index.tsx
+
+Dopo l'estrazione:
+1. pnpm build
+2. Se la build riesce, git add .
+3. git commit -m "Aggiunge RealVoiceTTS"
+4. Chiudi completamente Discord
+5. pnpm inject
+6. Seleziona Discord Stable
+7. Riapri Discord e cerca RealVoiceTTS nei Plugin
+
+Nota:
+Il plugin usa SpeechSynthesis locale di Chromium/Windows.
+Non invia il testo a un servizio TTS esterno scelto dal plugin.

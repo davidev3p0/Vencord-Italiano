@@ -25,7 +25,7 @@ const italianPluginNames: Record<string, string> = {
     BetterSessions: "Sessioni migliorate",
     BetterSettings: "Impostazioni migliorate",
     BetterUploadButton: "Pulsante caricamento migliorato",
-    BiggerStreamPreview: "Anteprima streaming più grande",
+    BiggerStreamPreview: "Anteprima streaming piÃ¹ grande",
     BlurNSFW: "Sfoca contenuti NSFW",
 
     CallTimer: "Timer chiamata",
@@ -33,7 +33,7 @@ const italianPluginNames: Record<string, string> = {
     ChatInputButtonAPI: "API pulsanti barra chat",
     ClearURLs: "Pulisci URL",
     ClientTheme: "Tema client",
-    ColorSighted: "Colori più visibili",
+    ColorSighted: "Colori piÃ¹ visibili",
     CommandsAPI: "API comandi",
     ConcatenatedComponentExtractor: "Estrattore componenti concatenati",
     ConsoleJanitor: "Pulizia console",
@@ -46,12 +46,12 @@ const italianPluginNames: Record<string, string> = {
     CrashHandler: "Gestione crash",
     CtrlEnterSend: "Invia con Ctrl+Invio",
     CustomCommands: "Comandi personalizzati",
-    CustomIdle: "Inattività personalizzata",
+    CustomIdle: "InattivitÃ  personalizzata",
     CustomRPC: "Rich Presence personalizzata",
 
     Dearrow: "DeArrow",
     Decor: "Decorazioni",
-    DisableCallIdle: "Disattiva inattività in chiamata",
+    DisableCallIdle: "Disattiva inattivitÃ  in chiamata",
     DontRoundMyTimestamps: "Non arrotondare i timestamp",
     DynamicImageModalAPI: "API modale immagini dinamiche",
 
@@ -64,7 +64,7 @@ const italianPluginNames: Record<string, string> = {
     FavoriteEmojiFirst: "Emoji preferite prima",
     FavoriteGifSearch: "Ricerca GIF preferite",
     FixCodeblockGap: "Correggi spazio blocchi codice",
-    FixImagesQuality: "Correggi qualità immagini",
+    FixImagesQuality: "Correggi qualitÃ  immagini",
     FixSpotifyEmbeds: "Correggi anteprime Spotify",
     FixYoutubeEmbeds: "Correggi anteprime YouTube",
     ForceOwnerCrown: "Forza corona proprietario",
@@ -73,13 +73,13 @@ const italianPluginNames: Record<string, string> = {
     FullSearchContext: "Contesto completo ricerca",
     FullUserInChatbox: "Utente completo nella chat",
 
-    GameActivityToggle: "Interruttore attività di gioco",
+    GameActivityToggle: "Interruttore attivitÃ  di gioco",
     GifPaste: "Incolla GIF",
     GreetStickerPicker: "Selettore sticker di saluto",
 
     HideMedia: "Nascondi contenuti multimediali",
 
-    IgnoreActivities: "Ignora attività",
+    IgnoreActivities: "Ignora attivitÃ ",
     ImageFilename: "Nome file immagine",
     ImageLink: "Link immagine",
     ImageZoom: "Zoom immagini",
@@ -104,10 +104,10 @@ const italianPluginNames: Record<string, string> = {
     MessageLogger: "Registro messaggi",
     MessagePopoverAPI: "API pulsanti messaggio",
     MessageUpdaterAPI: "API aggiornamento messaggi",
-    MoreCommands: "Più comandi",
-    MoreKaomoji: "Più kaomoji",
-    MoreQuickReactions: "Più reazioni rapide",
-    MoreUserTags: "Più etichette utente",
+    MoreCommands: "PiÃ¹ comandi",
+    MoreKaomoji: "PiÃ¹ kaomoji",
+    MoreQuickReactions: "PiÃ¹ reazioni rapide",
+    MoreUserTags: "PiÃ¹ etichette utente",
     Moyai: "Moyai",
     MusicRichPresence: "Rich Presence musicale",
     MutualGroupDMs: "Gruppi DM in comune",
@@ -141,7 +141,7 @@ const italianPluginNames: Record<string, string> = {
     OpenInApp: "Apri nell'app",
     OverrideForumDefaults: "Sovrascrivi impostazioni forum",
 
-    PartyMode: "Modalità festa",
+    PartyMode: "ModalitÃ  festa",
     PauseInvitesForever: "Pausa inviti permanente",
     PermissionFreeWill: "Permessi liberi",
     PermissionsViewer: "Visualizzatore permessi",
@@ -188,7 +188,7 @@ const italianPluginNames: Record<string, string> = {
     SpotifyShareCommands: "Comandi condivisione Spotify",
     StartupTimings: "Tempi di avvio",
     StickerPaste: "Incolla sticker",
-    StreamerModeOnStream: "Modalità streamer durante lo streaming",
+    StreamerModeOnStream: "ModalitÃ  streamer durante lo streaming",
     Summaries: "Riepiloghi",
     SuperReactionTweaks: "Modifiche Super Reaction",
     SupportHelper: "Assistente supporto",
@@ -196,7 +196,7 @@ const italianPluginNames: Record<string, string> = {
     TenorGifSearch: "Ricerca GIF Tenor",
     TextReplace: "Sostituzione testo",
     ThemeAttributes: "Attributi tema",
-    TimeBarAllActivities: "Barra tempo per tutte le attività",
+    TimeBarAllActivities: "Barra tempo per tutte le attivitÃ ",
     Translate: "Traduci",
     TypingIndicator: "Indicatore digitazione",
     TypingTweaks: "Miglioramenti digitazione",
@@ -226,7 +226,7 @@ const italianPluginNames: Record<string, string> = {
 
     XSOverlay: "Overlay XS",
 
-    YoutubeAdblock: "Blocco pubblicità YouTube"
+    YoutubeAdblock: "Blocco pubblicitÃ  YouTube"
 };
 
 export function getItalianPluginName(name: string): string {
