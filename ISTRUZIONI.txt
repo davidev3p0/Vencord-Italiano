@@ -1,21 +1,26 @@
-REALVOICETTS — OVERLAY PER IL TUO VENCORD ITALIANO
+RealVoiceTTS - Google + Ctrl/Clic
 
-Questo pacchetto NON crea un secondo repository Vencord.
-Va estratto direttamente dentro:
-C:\Users\Davide\Documents\Vencord
+MODIFICHE:
+- Preferisce automaticamente una voce Google italiana, se Discord/Chromium la espone.
+- Se la voce Google italiana non è disponibile, usa la migliore voce italiana disponibile.
+- Ctrl + clic sinistro è ora la modalità predefinita per leggere un messaggio.
+- La migrazione alle nuove impostazioni avviene una sola volta: dopo potrai cambiare voce/modalità senza che il plugin le sovrascriva a ogni avvio.
 
-Percorso finale previsto:
-src\userplugins\realVoiceTTS\index.tsx
+INSTALLAZIONE:
+1) Chiudi Discord.
+2) Estrai questo ZIP dentro:
+   C:\Users\Davide\Documents\Vencord
+   sovrascrivendo il file esistente.
+3) Da PowerShell nella cartella Vencord:
+   pnpm build
+4) Se la build riesce:
+   git add .
+   git commit -m "RealVoiceTTS Google e Ctrl click"
+5) Esegui:
+   pnpm inject
+6) Seleziona Discord Stable e riapri Discord.
 
-Dopo l'estrazione:
-1. pnpm build
-2. Se la build riesce, git add .
-3. git commit -m "Aggiunge RealVoiceTTS"
-4. Chiudi completamente Discord
-5. pnpm inject
-6. Seleziona Discord Stable
-7. Riapri Discord e cerca RealVoiceTTS nei Plugin
-
-Nota:
-Il plugin usa SpeechSynthesis locale di Chromium/Windows.
-Non invia il testo a un servizio TTS esterno scelto dal plugin.
+NOTA GOOGLE:
+Il plugin usa l'API SpeechSynthesis di Chromium/Discord.
+Una voce Google può essere usata soltanto se compare tra le voci esposte dal client.
+Se non compare, il plugin mostra un avviso e usa automaticamente la migliore voce italiana disponibile.
