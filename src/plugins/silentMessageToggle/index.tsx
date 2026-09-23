@@ -28,7 +28,7 @@ let lastState = false;
 const settings = definePluginSettings({
     persistState: {
         type: OptionType.BOOLEAN,
-        description: "Whether to persist the state of the silent message toggle when changing channels",
+        description: "Mantieni lo stato dell'interruttore messaggio silenzioso quando cambi canale",
         default: false,
         onChange(newValue: boolean) {
             if (newValue === false) lastState = false;
@@ -36,7 +36,7 @@ const settings = definePluginSettings({
     },
     autoDisable: {
         type: OptionType.BOOLEAN,
-        description: "Automatically disable the silent message toggle again after sending one",
+        description: "Disabilita automaticamente l'interruttore messaggio silenzioso dopo averne inviato uno",
         default: true
     }
 });
@@ -103,7 +103,7 @@ const SilentMessageToggle: ChatBarButtonFactory = ({ isMainChat }) => {
 export default definePlugin({
     name: "SilentMessageToggle",
     authors: [Devs.Nuckyz, Devs.CatNoir],
-    description: "Adds a button to the chat bar to toggle sending a silent message.",
+    description: "Aggiunge alla barra chat un pulsante per attivare/disattivare l'invio di messaggi silenziosi.",
     tags: ["Chat", "Utility"],
     settings,
 

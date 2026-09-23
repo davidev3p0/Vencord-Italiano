@@ -31,10 +31,10 @@ const settings = definePluginSettings({
     greetMode: {
         type: OptionType.SELECT,
         options: [
-            { label: "Greet (you can only greet 3 times)", value: GreetMode.Greet, default: true },
-            { label: "Normal Message (you can greet spam)", value: GreetMode.NormalMessage }
+            { label: "Saluto (puoi salutare solo 3 volte)", value: GreetMode.Greet, default: true },
+            { label: "Messaggio normale (puoi salutare ripetutamente)", value: GreetMode.NormalMessage }
         ],
-        description: "Choose the greet mode"
+        description: "Scegli la modalità di saluto"
     }
 }).withPrivateSettings<{
     multiGreetChoices?: string[];
@@ -75,10 +75,10 @@ function GreetMenu({ channel, message }: { message: Message, channel: Channel; }
         <Menu.Menu
             navId="greet-sticker-picker"
             onClose={() => FluxDispatcher.dispatch({ type: "CONTEXT_MENU_CLOSE" })}
-            aria-label="Greet Sticker Picker"
+            aria-label="Selettore sticker di saluto"
         >
             <Menu.MenuGroup
-                label="Greet Mode"
+                label="Modalità saluto"
             >
                 {Object.values(GreetMode).map(mode => (
                     <Menu.MenuRadioItem
@@ -95,7 +95,7 @@ function GreetMenu({ channel, message }: { message: Message, channel: Channel; }
             <Menu.MenuSeparator />
 
             <Menu.MenuGroup
-                label="Greet Stickers"
+                label="Sticker di saluto"
             >
                 {WELCOME_STICKERS.map(sticker => (
                     <Menu.MenuItem
@@ -112,7 +112,7 @@ function GreetMenu({ channel, message }: { message: Message, channel: Channel; }
                     <Menu.MenuSeparator />
 
                     <Menu.MenuItem
-                        label="Unholy Multi-Greet"
+                        label="Saluto multiplo"
                         id="unholy-multi-greet"
                     >
                         {WELCOME_STICKERS.map(sticker => {
@@ -137,7 +137,7 @@ function GreetMenu({ channel, message }: { message: Message, channel: Channel; }
                         <Menu.MenuSeparator />
                         <Menu.MenuItem
                             id="multi-greet-submit"
-                            label="Send Greets"
+                            label="Invia saluti"
                             action={() => greet(channel, message, multiGreetChoices!)}
                             disabled={multiGreetChoices.length === 0}
                         />
@@ -151,7 +151,7 @@ function GreetMenu({ channel, message }: { message: Message, channel: Channel; }
 
 export default definePlugin({
     name: "GreetStickerPicker",
-    description: "Allows you to use any greet sticker instead of only the random one by right-clicking the 'Wave to say hi!' button",
+    description: "Consente di usare qualsiasi adesivo di saluto invece di quello casuale facendo clic destro sul pulsante 'Saluta con la mano!'",
     tags: ["Emotes", "Customisation"],
     authors: [Devs.Ven],
 
@@ -168,7 +168,7 @@ export default definePlugin({
         {
             find: '"Wumpus waves hello"',
             replacement: {
-                match: /(?<==)(?=\[{id:"749054660769218631",format_type:\d,description:"Wumpus waves hello")/,
+                match: /(?<==)(?=\[{id:"749054660769218631",format_type:\d,description: "Wumpus saluta con la mano")/,
                 replace: "$self.WELCOME_STICKERS="
             }
         }

@@ -21,7 +21,7 @@ import definePlugin from "@utils/types";
 
 export default definePlugin({
     name: "AlwaysAnimate",
-    description: "Animates anything that can be animated",
+    description: "Anima tutto ciò che può essere animato",
     tags: ["Appearance", "Fun"],
     authors: [Devs.FieryFlames],
 

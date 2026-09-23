@@ -93,14 +93,14 @@ function TimingSection({ title, logs, traceEnd }: TimingSectionProps) {
             <code>
                 {traceEnd && (
                     <div style={{ color: "var(--text-strong)", marginBottom: 5, userSelect: "text" }}>
-                        Trace ended at: {(new Date(traceEnd)).toTimeString()}
+                        Traccia terminata alle: {(new Date(traceEnd)).toTimeString()}
                     </div>
                 )}
                 <div style={{ color: "var(--text-strong)", display: "grid", gridTemplateColumns: "repeat(3, auto) 1fr", gap: "2px 10px", userSelect: "text" }}>
-                    <span>Start</span>
-                    <span>Interval</span>
+                    <span>Avvio</span>
+                    <span>Intervallo</span>
                     <span>Delta</span>
-                    <span style={{ marginBottom: 5 }}>Event</span>
+                    <span style={{ marginBottom: 5 }}>Evento</span>
                     {AppStartPerformance.logs.map((log, i) => (
                         <TimerItem key={i} {...log} instance={timings[i]} />
                     ))}
@@ -119,7 +119,7 @@ function ServerTrace({ trace }: ServerTraceProps) {
 
     return (
         <section>
-            <Forms.FormTitle tag="h3">Server Trace</Forms.FormTitle>
+            <Forms.FormTitle tag="h3">Traccia server</Forms.FormTitle>
             <code>
                 <Flex flexDirection="column" gap="5px" style={{ color: "var(--text-strong)", userSelect: "text" }}>
                     {lines.map((line, idx) => (
@@ -132,14 +132,14 @@ function ServerTrace({ trace }: ServerTraceProps) {
 }
 
 function StartupTimingPage() {
-    if (!AppStartPerformance?.logs) return <div>Loading...</div>;
+    if (!AppStartPerformance?.logs) return <div>Caricamento...</div>;
 
     const serverTrace = AppStartPerformance.logGroups.find(g => g.serverTrace)?.serverTrace;
 
     return (
         <React.Fragment>
             <TimingSection
-                title="Startup Timings"
+                title="Tempi di avvio"
                 logs={AppStartPerformance.logs}
                 traceEnd={AppStartPerformance.endTime_}
             />

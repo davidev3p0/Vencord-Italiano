@@ -139,7 +139,7 @@ async function fetchCategories(): Promise<TrendingCategories | null> {
 
 export default definePlugin({
     name: "TenorGifSearch",
-    description: "Restore Tenor GIF search",
+    description: "Ripristina la ricerca GIF di Tenor",
     authors: [Devs.Lunascape],
 
     patches: [

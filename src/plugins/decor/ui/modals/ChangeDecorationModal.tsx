@@ -136,11 +136,11 @@ function ChangeDecorationModal(props: RenderModalProps) {
 
     return <Modal
         {...props}
-        title="Change Decoration"
+        title="Cambia decorazione"
         size="lg"
         actions={[
             {
-                text: "Cancel",
+                text: "Annulla",
                 variant: "secondary",
                 onClick: props.onClose
             },
@@ -155,7 +155,7 @@ function ChangeDecorationModal(props: RenderModalProps) {
         ]}
         preview={
             <div className={cl("modal-footer-btn-container", Margins.top8)}>
-                <Tooltip text="Join Decor's Discord Server for notifications on your decoration's review, and when new presets are released">
+                <Tooltip text="Entra nel server Discord di Decor per ricevere notifiche sulla revisione della decorazione e sui nuovi preset">
                     {tooltipProps => <NewButton
                         {...tooltipProps}
                         onClick={async () => {
@@ -173,17 +173,17 @@ function ChangeDecorationModal(props: RenderModalProps) {
                         }}
                         variant="link"
                     >
-                        Discord Server
+                        Server Discord
                     </NewButton>}
                 </Tooltip>
                 <NewButton
                     onClick={() => openModal(modalProps => (
                         <ConfirmModal
                             {...modalProps}
-                            title="Log Out"
-                            subtitle="Are you sure you want to log out of Decor?"
-                            confirmText="Log Out"
-                            cancelText="Cancel"
+                            title="Disconnetti"
+                            subtitle="Vuoi davvero disconnetterti da Decor?"
+                            confirmText="Disconnetti"
+                            cancelText="Annulla"
                             onConfirm={() => {
                                 useAuthorizationStore.getState().remove(UserStore.getCurrentUser().id);
                                 props.onClose();
@@ -192,7 +192,7 @@ function ChangeDecorationModal(props: RenderModalProps) {
                     ))}
                     variant="dangerSecondary"
                 >
-                    Log Out
+                    Disconnetti
                 </NewButton>
             </div>
         }
@@ -209,7 +209,7 @@ function ChangeDecorationModal(props: RenderModalProps) {
                                     onSelect={() => setTryingDecoration(null)}
                                 />;
                             case "create":
-                                return <Tooltip text="You already have a decoration pending review" shouldShow={hasDecorationPendingReview}>
+                                return <Tooltip text="Hai già una decorazione in attesa di revisione" shouldShow={hasDecorationPendingReview}>
                                     {tooltipProps => <DecorationGridCreate
                                         className={cl("change-decoration-modal-decoration")}
                                         {...tooltipProps}
@@ -242,7 +242,7 @@ function ChangeDecorationModal(props: RenderModalProps) {
                     avatarDecoration={avatarDecoration}
                     user={UserStore.getCurrentUser()}
                 />
-                {isActiveDecorationPreset && <Forms.FormTitle className="">Part of the {activeDecorationPreset.name} Preset</Forms.FormTitle>}
+                {isActiveDecorationPreset && <Forms.FormTitle className="">Parte di {activeDecorationPreset.name} Preset</Forms.FormTitle>}
                 {typeof activeSelectedDecoration === "object" &&
                     <Text
                         variant="text-sm/semibold"
@@ -253,12 +253,12 @@ function ChangeDecorationModal(props: RenderModalProps) {
                 }
                 {activeDecorationHasAuthor && (
                     <Text key={`createdBy-${activeSelectedDecoration.authorId}`}>
-                        Created by {Parser.parse(`<@${activeSelectedDecoration.authorId}>`)}
+                        Creato da {Parser.parse(`<@${activeSelectedDecoration.authorId}>`)}
                     </Text>
                 )}
                 {isActiveDecorationPreset && (
                     <Button onClick={() => copyWithToast(activeDecorationPreset.id)}>
-                        Copy Preset ID
+                        Copia ID preset
                     </Button>
                 )}
             </div>

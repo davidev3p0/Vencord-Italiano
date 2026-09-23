@@ -9,13 +9,13 @@ import { Margins } from "@utils/margins";
 import { Forms, Parser, TextInput, useEffect, useState } from "@webpack/common";
 
 const RegexGuide = {
-    "\\i": "Special regex escape sequence that matches identifiers (varnames, classnames, etc.)",
-    "$$": "Insert a $",
-    "$&": "Insert the entire match",
-    "$`\u200b": "Insert the substring before the match",
-    "$'": "Insert the substring after the match",
-    "$n": "Insert the nth capturing group ($1, $2...)",
-    "$self": "Insert the plugin instance",
+    "\\i": "Sequenza di escape regex speciale che corrisponde agli identificatori (nomi variabili, classi, ecc.)",
+    "$$": "Inserisci un $",
+    "$&": "Inserisci l’intera corrispondenza",
+    "$`\u200b": "Inserisci la sottostringa precedente alla corrispondenza",
+    "$'": "Inserisci la sottostringa successiva alla corrispondenza",
+    "$n": "Inserisci l’n-esimo gruppo di cattura ($1, $2...)",
+    "$self": "Inserisci l’istanza del plugin",
 } as const;
 
 export function ReplacementInput({ replacement, setReplacement, replacementError }) {
@@ -32,7 +32,7 @@ export function ReplacementInput({ replacement, setReplacement, replacementError
                     setReplacement(() => func);
 
                 else
-                    setError("Replacement must be a function");
+                    setError("La sostituzione deve essere una funzione");
             } catch (e) {
                 setReplacement(v);
                 setError((e as Error).message);
@@ -52,7 +52,7 @@ export function ReplacementInput({ replacement, setReplacement, replacementError
     return (
         <>
             {/* FormTitle adds a class if className is not set, so we set it to an empty string to prevent that */}
-            <Forms.FormTitle className="">Replacement</Forms.FormTitle>
+            <Forms.FormTitle className="">Sostituzione</Forms.FormTitle>
             <TextInput
                 value={replacement?.toString()}
                 onChange={onChange}
@@ -60,7 +60,7 @@ export function ReplacementInput({ replacement, setReplacement, replacementError
             />
             {!isFunc && (
                 <div>
-                    <Forms.FormTitle className={Margins.top8}>Cheat Sheet</Forms.FormTitle>
+                    <Forms.FormTitle className={Margins.top8}>Promemoria</Forms.FormTitle>
 
                     {Object.entries(RegexGuide).map(([placeholder, desc]) => (
                         <Forms.FormText key={placeholder}>
@@ -74,8 +74,8 @@ export function ReplacementInput({ replacement, setReplacement, replacementError
                 className={Margins.top16}
                 value={isFunc}
                 onChange={setIsFunc}
-                title={"Treat Replacement as function"}
-                description='"Replacement" will be evaluated as a function if this is enabled'
+                title={"Tratta la sostituzione come funzione"}
+                description='Se abilitato, "Sostituzione" verrà valutata come funzione'
                 hideBorder
             />
         </>

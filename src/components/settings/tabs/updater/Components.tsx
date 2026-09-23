@@ -60,7 +60,7 @@ export function Newer(props: CommonProps) {
     return (
         <>
             <Forms.FormText className={Margins.bottom8}>
-                Your local copy has more recent commits. Please stash or reset them.
+                La copia locale contiene commit più recenti. Salvali con stash oppure ripristinali.
             </Forms.FormText>
             <Changes {...props} updates={changes} />
         </>
@@ -78,14 +78,14 @@ export function Updatable(props: CommonProps) {
         <>
             {!updates && updateError ? (
                 <>
-                    <Forms.FormText>Failed to check updates. Check the console for more info</Forms.FormText>
+                    <Forms.FormText>Impossibile controllare gli aggiornamenti. Controlla la console per maggiori informazioni</Forms.FormText>
                     <ErrorCard style={{ padding: "1em" }}>
-                        <p>{updateError.stderr || updateError.stdout || "An unknown error occurred"}</p>
+                        <p>{updateError.stderr || updateError.stdout || "Si è verificato un errore sconosciuto"}</p>
                     </ErrorCard>
                 </>
             ) : (
                 <Forms.FormText className={Margins.bottom8}>
-                    {isOutdated ? (updates.length === 1 ? "There is 1 Update" : `There are ${updates.length} Updates`) : "Up to Date!"}
+                    {isOutdated ? (updates.length === 1 ? "È disponibile 1 aggiornamento" : `Sono disponibili ${updates.length} aggiornamenti`) : "Aggiornato!"}
                 </Forms.FormText>
             )}
 
@@ -103,10 +103,10 @@ export function Updatable(props: CommonProps) {
                                     openModal(props => (
                                         <ConfirmModal
                                             {...props}
-                                            title="Update Success!"
-                                            subtitle="Successfully updated. Restart now to apply the changes?"
-                                            confirmText="Restart"
-                                            cancelText="Not now!"
+                                            title="Aggiornamento riuscito!"
+                                            subtitle="Aggiornamento completato. Riavviare ora per applicare le modifiche?"
+                                            confirmText="Riavvia"
+                                            cancelText="Non ora!"
                                             variant="primary"
                                             onConfirm={() => {
                                                 relaunch();
@@ -119,7 +119,7 @@ export function Updatable(props: CommonProps) {
                             }
                         })}
                     >
-                        Update Now
+                        Aggiorna ora
                     </Button>
                 )}
                 <Button
@@ -133,7 +133,7 @@ export function Updatable(props: CommonProps) {
                             setUpdates([]);
 
                             Toasts.show({
-                                message: "No updates found!",
+                                message: "Nessun aggiornamento trovato!",
                                 id: Toasts.genId(),
                                 type: Toasts.Type.MESSAGE,
                                 options: {
@@ -143,7 +143,7 @@ export function Updatable(props: CommonProps) {
                         }
                     })}
                 >
-                    Check for Updates
+                    Controlla aggiornamenti
                 </Button>
             </Flex>
         </>

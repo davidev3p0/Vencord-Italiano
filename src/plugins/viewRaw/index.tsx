@@ -94,9 +94,9 @@ function openViewRawModal(json: string, type: string, msgContent?: string) {
             >
                 {!!msgContent && (
                     <>
-                        <HeadingSecondary>Message Content</HeadingSecondary>
+                        <HeadingSecondary>Contenuto messaggio</HeadingSecondary>
                         <CodeBlock className="vc-viewRaw-codeBlock" content={msgContent} lang="" />
-                        <HeadingSecondary className={Margins.top16}>Message Data</HeadingSecondary>
+                        <HeadingSecondary className={Margins.top16}>Dati messaggio</HeadingSecondary>
                     </>
                 )}
                 <CodeBlock className="vc-viewRaw-codeBlock" content={json} lang="json" />
@@ -114,15 +114,15 @@ function openViewRawModalMessage(msg: Message) {
 
 const settings = definePluginSettings({
     clickMethod: {
-        description: "Change the button to view the raw content/data of any message.",
+        description: "Cambia il pulsante per visualizzare contenuto/dati grezzi di un messaggio.",
         type: OptionType.SELECT,
         options: [
-            { label: "Left Click to view the raw content.", value: "Left", default: true },
-            { label: "Right click to view the raw content.", value: "Right" }
+            { label: "Clic sinistro per visualizzare il contenuto grezzo.", value: "Left", default: true },
+            { label: "Clic destro per visualizzare il contenuto grezzo.", value: "Right" }
         ]
     },
     messageContextMenu: {
-        description: "Show in message context menu",
+        description: "Mostra nel menu contestuale dei messaggi",
         type: OptionType.BOOLEAN,
         default: false
     }
@@ -148,7 +148,7 @@ function MakeContextCallback(name: "Guild" | "Role" | "User" | "Channel" | "Mess
         (devContainer ?? children).splice(-1, 0,
             <Menu.MenuItem
                 id={id}
-                label="View Raw"
+                label="Visualizza dati grezzi"
                 action={action}
                 icon={CopyRawIcon}
                 leadingAccessory={{ type: "icon", icon: CopyRawIcon }}
@@ -167,7 +167,7 @@ const devContextCallback: NavContextMenuPatchCallback = (children, { id }: { id:
     children.push(
         <Menu.MenuItem
             id={"vc-view-role-raw"}
-            label="View Raw"
+            label="Visualizza dati grezzi"
             action={() => openViewRawModal(JSON.stringify(role, null, 4), "Role")}
             icon={CopyRawIcon}
             leadingAccessory={{ type: "icon", icon: CopyRawIcon }}
@@ -177,7 +177,7 @@ const devContextCallback: NavContextMenuPatchCallback = (children, { id }: { id:
 
 export default definePlugin({
     name: "ViewRaw",
-    description: "Copy and view the raw content/data of any message, channel or guild",
+    description: "Copia e visualizza contenuto/dati grezzi di qualsiasi messaggio, canale o server",
     tags: ["Chat", "Developers"],
     authors: [Devs.KingFish, Devs.Ven, Devs.rad, Devs.ImLvna],
     settings,

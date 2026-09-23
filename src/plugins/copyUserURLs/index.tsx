@@ -36,7 +36,7 @@ const UserContextMenuPatch: NavContextMenuPatchCallback = (children, { user }: U
     children.push(
         <Menu.MenuItem
             id="vc-copy-user-url"
-            label="Copy User URL"
+            label="Copia URL utente"
             action={() => copyToClipboard(`<https://discord.com/users/${user.id}>`)}
             icon={LinkIcon}
             leadingAccessory={{ type: "icon", icon: LinkIcon }}
@@ -47,7 +47,7 @@ const UserContextMenuPatch: NavContextMenuPatchCallback = (children, { user }: U
 export default definePlugin({
     name: "CopyUserURLs",
     authors: [Devs.castdrian],
-    description: "Adds a 'Copy User URL' option to the user context menu.",
+    description: "Aggiunge l'opzione 'Copia URL utente' al menu contestuale dell'utente.",
     tags: ["Utility", "Friends"],
     contextMenus: {
         "user-context": UserContextMenuPatch

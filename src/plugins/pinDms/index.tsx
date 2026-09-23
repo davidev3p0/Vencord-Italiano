@@ -40,22 +40,22 @@ export const enum PinOrder {
 export const settings = definePluginSettings({
     pinOrder: {
         type: OptionType.SELECT,
-        description: "Which order should pinned DMs be displayed in?",
+        description: "In quale ordine devono essere visualizzati i messaggi diretti fissati?",
         options: [
-            { label: "Most recent message", value: PinOrder.LastMessage, default: true },
-            { label: "Custom (right click channels to reorder)", value: PinOrder.Custom }
+            { label: "Messaggio più recente", value: PinOrder.LastMessage, default: true },
+            { label: "Personalizzato (clic destro sui canali per riordinare)", value: PinOrder.Custom }
         ]
     },
     canCollapseDmSection: {
         type: OptionType.BOOLEAN,
-        displayName: "Can Collapse DM Section",
-        description: "Allow uncategorised DMs section to be collapsable",
+        displayName: "Consenti compressione sezione messaggi diretti",
+        description: "Consenti di comprimere la sezione dei messaggi diretti non categorizzati",
         default: false
     },
     dmSectionCollapsed: {
         type: OptionType.BOOLEAN,
-        displayName: "DM Section Collapsed",
-        description: "Collapse DM section",
+        displayName: "Sezione messaggi diretti compressa",
+        description: "Comprimi la sezione dei messaggi diretti",
         default: false,
         hidden: true
     },
@@ -67,7 +67,7 @@ export const settings = definePluginSettings({
 
 export default definePlugin({
     name: "PinDMs",
-    description: "Allows you to pin private channels to the top of your DM list. To pin/unpin or re-order pins, right click DMs",
+    description: "Consente di fissare i canali privati in cima all'elenco dei messaggi diretti. Per fissare, rimuovere o riordinare, fai clic destro sui messaggi diretti",
     tags: ["Friends", "Organisation"],
     authors: [Devs.Ven, Devs.Aria],
     settings,
@@ -270,11 +270,11 @@ export default definePlugin({
                             navId="vc-pindms-header-menu"
                             onClose={() => FluxDispatcher.dispatch({ type: "CONTEXT_MENU_CLOSE" })}
                             color="danger"
-                            aria-label="Pin DMs Category Menu"
+                            aria-label="Menu categorie messaggi diretti fissati"
                         >
                             <Menu.MenuItem
                                 id="vc-pindms-edit-category"
-                                label="Edit Category"
+                                label="Modifica categoria"
                                 action={() => openCategoryModal(category.id, null)}
                             />
 
@@ -284,14 +284,14 @@ export default definePlugin({
                                         {
                                             canMoveCategoryInDirection(category.id, -1) && <Menu.MenuItem
                                                 id="vc-pindms-move-category-up"
-                                                label="Move Up"
+                                                label="Sposta su"
                                                 action={() => moveCategory(category.id, -1)}
                                             />
                                         }
                                         {
                                             canMoveCategoryInDirection(category.id, 1) && <Menu.MenuItem
                                                 id="vc-pindms-move-category-down"
-                                                label="Move Down"
+                                                label="Sposta giù"
                                                 action={() => moveCategory(category.id, 1)}
                                             />
                                         }
@@ -304,7 +304,7 @@ export default definePlugin({
                             <Menu.MenuItem
                                 id="vc-pindms-delete-category"
                                 color="danger"
-                                label="Delete Category"
+                                label="Elimina categoria"
                                 action={() => removeCategory(category.id)}
                             />
 

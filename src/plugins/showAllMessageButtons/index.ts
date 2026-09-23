@@ -21,7 +21,7 @@ import definePlugin from "@utils/types";
 
 export default definePlugin({
     name: "ShowAllMessageButtons",
-    description: "Always show all message buttons no matter if you are holding the shift key or not.",
+    description: "Mostra sempre tutti i pulsanti dei messaggi, indipendentemente dal tasto Maiusc.",
     tags: ["Chat", "Utility"],
     authors: [Devs.Nuckyz],
 

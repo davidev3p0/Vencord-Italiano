@@ -57,66 +57,66 @@ const MessageClasses = findCssClassesLazy("edited", "communicationDisabled", "is
 const settings = definePluginSettings({
     deleteStyle: {
         type: OptionType.SELECT,
-        description: "The style of deleted messages",
+        description: "Stile dei messaggi eliminati",
         default: "text",
         options: [
-            { label: "Red text", value: "text", default: true },
-            { label: "Red overlay", value: "overlay" }
+            { label: "Testo rosso", value: "text", default: true },
+            { label: "Sovrapposizione rossa", value: "overlay" }
         ],
         onChange: () => addDeleteStyle()
     },
     logDeletes: {
         type: OptionType.BOOLEAN,
-        description: "Whether to log deleted messages",
+        description: "Registra i messaggi eliminati",
         default: true,
     },
     collapseDeleted: {
         type: OptionType.BOOLEAN,
-        description: "Whether to collapse deleted messages, similar to blocked messages",
+        description: "Comprimi i messaggi eliminati, come quelli degli utenti bloccati",
         default: false,
         restartNeeded: true,
     },
     logEdits: {
         type: OptionType.BOOLEAN,
-        description: "Whether to log edited messages",
+        description: "Registra i messaggi modificati",
         default: true,
     },
     logDeletedAttachments: {
         type: OptionType.BOOLEAN,
-        description: "Whether to log deleted attachments",
+        description: "Registra gli allegati eliminati",
         default: true,
         restartNeeded: true,
     },
     inlineEdits: {
         type: OptionType.BOOLEAN,
-        description: "Whether to display edit history as part of message content",
+        description: "Mostra la cronologia delle modifiche come parte del contenuto del messaggio",
         default: true
     },
     ignoreBots: {
         type: OptionType.BOOLEAN,
-        description: "Whether to ignore messages by bots",
+        description: "Ignora i messaggi dei bot",
         default: true
     },
     ignoreSelf: {
         type: OptionType.BOOLEAN,
-        description: "Whether to ignore messages by yourself",
+        description: "Ignora i tuoi messaggi",
         default: false
     },
     ignoreUsers: {
         type: OptionType.STRING,
-        description: "Comma-separated list of user IDs to ignore",
+        description: "Elenco di ID utente da ignorare separati da virgole",
         default: "",
         multiline: true
     },
     ignoreChannels: {
         type: OptionType.STRING,
-        description: "Comma-separated list of channel IDs to ignore",
+        description: "Elenco di ID canale da ignorare separati da virgole",
         default: "",
         multiline: true
     },
     ignoreGuilds: {
         type: OptionType.STRING,
-        description: "Comma-separated list of guild IDs to ignore",
+        description: "Elenco di ID server da ignorare separati da virgole",
         default: "",
         multiline: true
     },
@@ -182,7 +182,7 @@ const patchMessageContextMenu: NavContextMenuPatchCallback = (children, props) =
             <Menu.MenuItem
                 id={TOGGLE_DELETE_STYLE_ID}
                 key={TOGGLE_DELETE_STYLE_ID}
-                label="Toggle Deleted Highlight"
+                label="Attiva/disattiva evidenziazione eliminati"
                 leadingAccessory={{ type: "icon", icon: EyeIcon }}
                 action={() => domElement.classList.toggle("messagelogger-deleted")}
             />
@@ -193,7 +193,7 @@ const patchMessageContextMenu: NavContextMenuPatchCallback = (children, props) =
         <Menu.MenuItem
             id={REMOVE_HISTORY_ID}
             key={REMOVE_HISTORY_ID}
-            label="Remove Message History"
+            label="Rimuovi cronologia messaggio"
             leadingAccessory={{ type: "icon", icon: DeleteIcon }}
             color="danger"
             action={() => {
@@ -211,7 +211,7 @@ const patchChannelContextMenu: NavContextMenuPatchCallback = (children, { channe
     group.push(
         <Menu.MenuItem
             id="vc-ml-clear-channel"
-            label="Clear Message Log"
+            label="Svuota registro messaggi"
             color="danger"
             action={() => {
                 messages.forEach(msg => {
@@ -236,7 +236,7 @@ export function parseEditContent(content: string, message: Message) {
 
 export default definePlugin({
     name: "MessageLogger",
-    description: "Temporarily logs deleted and edited messages.",
+    description: "Registra temporaneamente i messaggi eliminati e modificati.",
     tags: ["Chat", "Utility"],
     authors: [Devs.rushii, Devs.Ven, Devs.AutumnVN, Devs.Nickyux, Devs.Kyuuhachi, Devs.sadan],
     dependencies: ["MessageUpdaterAPI"],

@@ -17,7 +17,7 @@ const SummaryStore = findByPropsLazy("allSummaries", "findSummary");
 const settings = definePluginSettings({
     summaryExpiryThresholdDays: {
         type: OptionType.SLIDER,
-        description: "The time in days before a summary is removed. Note that only up to 50 summaries are kept per channel",
+        description: "Numero di giorni prima che un riepilogo venga rimosso. Nota: vengono mantenuti al massimo 50 riepiloghi per canale",
         markers: [1, 3, 5, 7, 10, 15, 20, 25, 30],
         stickToMarkers: false,
         default: 3,
@@ -65,7 +65,7 @@ function createChannelSummaryFromServer(s: Summary, channelId: string): ChannelS
 
 export default definePlugin({
     name: "Summaries",
-    description: "Enables Discord's experimental Summaries feature on every server, displaying AI generated summaries of conversations",
+    description: "Abilita la funzione sperimentale Riepiloghi di Discord in ogni server, mostrando riepiloghi delle conversazioni generati dall'IA",
     tags: ["Chat", "Fun"],
     authors: [Devs.mantikafasi],
     settings,

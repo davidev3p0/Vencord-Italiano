@@ -43,7 +43,7 @@ const AccountPanelContextMenu = ErrorBoundary.wrap(() => {
             />
             <Menu.MenuCheckboxItem
                 id="vc-ap-prioritize-server-profile"
-                label="Prioritize Server Profile"
+                label="Dai priorità al profilo server"
                 checked={prioritizeServerProfile}
                 action={() => settings.store.prioritizeServerProfile = !prioritizeServerProfile}
             />
@@ -54,14 +54,14 @@ const AccountPanelContextMenu = ErrorBoundary.wrap(() => {
 const settings = definePluginSettings({
     prioritizeServerProfile: {
         type: OptionType.BOOLEAN,
-        description: "Prioritize Server Profile when left clicking your account panel",
+        description: "Dai priorità al profilo server quando fai clic sinistro sul pannello account",
         default: false
     }
 });
 
 export default definePlugin({
     name: "AccountPanelServerProfile",
-    description: "Right click your account panel in the bottom left to view your profile in the current server",
+    description: "Fai clic destro sul pannello account in basso a sinistra per visualizzare il tuo profilo nel server corrente",
     tags: ["Appearance", "Servers"],
     authors: [Devs.Nuckyz, Devs.relitrix],
     settings,

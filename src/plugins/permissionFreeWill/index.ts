@@ -13,20 +13,20 @@ const settings = definePluginSettings({
     lockout: {
         type: OptionType.BOOLEAN,
         default: true,
-        description: 'Bypass the permission lockout prevention ("Pretty sure you don\'t want to do this")',
+        description: 'Ignora la protezione contro il blocco dei permessi ("Sei sicuro di volerlo fare?")',
         restartNeeded: true
     },
     onboarding: {
         type: OptionType.BOOLEAN,
         default: true,
-        description: 'Bypass the onboarding requirements ("Making this change will make your server incompatible [...]")',
+        description: 'Ignora i requisiti di onboarding ("Questa modifica renderà il tuo server incompatibile [...]")',
         restartNeeded: true
     }
 });
 
 export default definePlugin({
     name: "PermissionFreeWill",
-    description: "Disables the client-side restrictions for channel permission management.",
+    description: "Disabilita le restrizioni lato client per la gestione dei permessi dei canali.",
     tags: ["Servers", "Roles"],
     authors: [Devs.lewisakura],
 

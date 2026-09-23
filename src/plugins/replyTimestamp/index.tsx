@@ -57,7 +57,7 @@ function ReplyTimestamp({
 
 export default definePlugin({
     name: "ReplyTimestamp",
-    description: "Shows a timestamp on replied-message previews",
+    description: "Mostra un timestamp nelle anteprime dei messaggi a cui si risponde",
     tags: ["Chat", "Appearance"],
     authors: [Devs.Kyuuhachi],
 

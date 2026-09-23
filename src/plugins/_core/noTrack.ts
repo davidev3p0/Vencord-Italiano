@@ -26,7 +26,7 @@ import { Flux, FluxDispatcher } from "@webpack/common";
 const settings = definePluginSettings({
     disableAnalytics: {
         type: OptionType.BOOLEAN,
-        description: "Disable Discord's tracking (analytics/'science')",
+        description: "Disabilita il tracciamento di Discord (analisi/'science')",
         default: true,
         restartNeeded: true
     }
@@ -34,7 +34,7 @@ const settings = definePluginSettings({
 
 export default definePlugin({
     name: "NoTrack",
-    description: "Disable Discord's tracking (analytics/'science'), metrics and Sentry crash reporting",
+    description: "Disabilita il tracciamento di Discord (analisi/'science'), le metriche e la segnalazione crash di Sentry",
     authors: [Devs.Cyn, Devs.Ven, Devs.Nuckyz, Devs.Arrow],
     required: true,
 
@@ -160,12 +160,12 @@ export default definePlugin({
                     ok: false,
                     status: 500,
                     body: {
-                        message: "Analytics tracking is disabled by NoTrack",
+                        message: "Il tracciamento analitico è disabilitato da NoTrack",
                         code: 0
                     },
                     headers: {},
                     text: JSON.stringify({
-                        message: "Analytics tracking is disabled by NoTrack",
+                        message: "Il tracciamento analitico è disabilitato da NoTrack",
                         code: 0
                     })
                 };

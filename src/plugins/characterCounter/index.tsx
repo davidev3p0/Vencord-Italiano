@@ -18,7 +18,7 @@ const cl = classNameFactory("vc-charCounter-");
 const settings = definePluginSettings({
     colorEffects: {
         type: OptionType.BOOLEAN,
-        description: "Enable yellow/red colouring as you get closer to the character limit",
+        description: "Abilita la colorazione gialla/rossa quando ti avvicini al limite di caratteri",
         default: true,
     }
 });
@@ -33,7 +33,7 @@ function getCounterColor(percentage: number) {
 
 export default definePlugin({
     name: "CharacterCounter",
-    description: "Adds a character counter to the chat input",
+    description: "Aggiunge un contatore di caratteri al campo di testo della chat",
     authors: [Devs.thororen, Devs.creations],
     tags: ["Utility"],
     settings,

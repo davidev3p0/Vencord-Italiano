@@ -65,7 +65,7 @@ interface FindData {
 
 const settings = definePluginSettings({
     notifyOnAutoConnect: {
-        description: "Whether to notify when Dev Companion has automatically connected.",
+        description: "Notifica quando Dev Companion si connette automaticamente.",
         type: OptionType.BOOLEAN,
         default: true
     }
@@ -245,7 +245,7 @@ function initWs(isManual = false) {
 
 export default definePlugin({
     name: "DevCompanion",
-    description: "Dev Companion Plugin",
+    description: "Plugin Dev Companion",
     tags: ["Developers", "Utility"],
     authors: [Devs.Ven],
     reporterTestable: ReporterTestable.None,

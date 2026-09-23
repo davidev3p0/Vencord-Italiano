@@ -79,13 +79,13 @@ const DEFAULT_STICKER_SIZE = 160;
 
 const settings = definePluginSettings({
     enableEmojiBypass: {
-        description: "Allows sending fake emojis (also bypasses missing permission to use custom emojis)",
+        description: "Consente di inviare emoji simulate, aggirando anche la mancanza del permesso per usare emoji personalizzate",
         type: OptionType.BOOLEAN,
         default: true,
         restartNeeded: true
     },
     emojiSize: {
-        description: "Size of the emojis when sending",
+        description: "Dimensione delle emoji durante l'invio",
         type: OptionType.SELECT,
         default: DEFAULT_EMOJI_SIZE,
         options: mediaSizes.map(size => ({
@@ -94,19 +94,19 @@ const settings = definePluginSettings({
         }))
     },
     transformEmojis: {
-        description: "Whether to transform fake emojis into real ones",
+        description: "Trasforma le emoji simulate in emoji reali",
         type: OptionType.BOOLEAN,
         default: true,
         restartNeeded: true
     },
     enableStickerBypass: {
-        description: "Allows sending fake stickers (also bypasses missing permission to use stickers)",
+        description: "Consente di inviare adesivi simulati, aggirando anche la mancanza del permesso per usare adesivi",
         type: OptionType.BOOLEAN,
         default: true,
         restartNeeded: true
     },
     stickerSize: {
-        description: "Size of the stickers when sending",
+        description: "Dimensione degli adesivi durante l'invio",
         type: OptionType.SELECT,
         default: DEFAULT_STICKER_SIZE,
         options: mediaSizes.map(size => ({
@@ -115,34 +115,34 @@ const settings = definePluginSettings({
         }))
     },
     transformStickers: {
-        description: "Whether to transform fake stickers into real ones",
+        description: "Trasforma gli adesivi simulati in adesivi reali",
         type: OptionType.BOOLEAN,
         default: true,
         restartNeeded: true
     },
     transformCompoundSentence: {
-        description: "Whether to transform fake stickers and emojis in compound sentences (sentences with more content than just the fake emoji or sticker link)",
+        description: "Trasforma emoji e adesivi simulati anche nelle frasi composte, cioè con altro contenuto oltre al link dell'emoji o adesivo",
         type: OptionType.BOOLEAN,
         default: false
     },
     enableStreamQualityBypass: {
-        description: "Allow streaming in nitro quality",
+        description: "Consenti streaming in qualità Nitro",
         type: OptionType.BOOLEAN,
         default: true,
         restartNeeded: true
     },
     useHyperLinks: {
-        description: "Whether to use hyperlinks when sending fake emojis and stickers",
+        description: "Usa collegamenti ipertestuali quando invii emoji e adesivi simulati",
         type: OptionType.BOOLEAN,
         default: true
     },
     hyperLinkText: {
-        description: "What text the hyperlink should use. {{NAME}} will be replaced with the emoji/sticker name.",
+        description: "Testo da usare per il collegamento. {{NAME}} verrà sostituito con il nome dell'emoji/adesivo.",
         type: OptionType.STRING,
         default: "{{NAME}}"
     },
     disableEmbedPermissionCheck: {
-        description: "Whether to disable the embed permission check when sending fake emojis and stickers",
+        description: "Disabilita il controllo del permesso di incorporamento quando invii emoji e adesivi simulati",
         type: OptionType.BOOLEAN,
         default: false
     }
@@ -170,10 +170,10 @@ function CannotEmbedNoticeModal({ modalProps, resolve }: { modalProps: RenderMod
     return (
         <ConfirmModal
             {...modalProps}
-            title="Hold on!"
-            subtitle="You are trying to send/edit a message that contains a FakeNitro emoji or sticker, however you do not have permissions to embed links in the current channel. Are you sure you want to send this message? Your FakeNitro items will appear as a link only."
-            confirmText="Send Anyway"
-            cancelText="Cancel"
+            title="Attenzione!"
+            subtitle="Stai tentando di inviare o modificare un messaggio che contiene un emoji o uno sticker FakeNitro, ma non hai il permesso di incorporare link nel canale corrente. Vuoi davvero inviare il messaggio? Gli elementi FakeNitro verranno visualizzati solo come link."
+            confirmText="Invia comunque"
+            cancelText="Annulla"
             onConfirm={() => resolve(true)}
             onCloseCallback={() => setImmediate(() => resolve(false))}
             checkboxProps={{
@@ -193,7 +193,7 @@ function showCannotEmbedNotice() {
 export default definePlugin({
     name: "FakeNitro",
     authors: [Devs.Arjix, Devs.D3SOX, Devs.Ven, Devs.fawn, Devs.captain, Devs.Nuckyz, Devs.AutumnVN, Devs.sadan],
-    description: "Allows you to send fake emojis/stickers, use nitro themes, and stream in nitro quality",
+    description: "Consente di inviare emoji/adesivi simulati, usare temi Nitro e trasmettere in qualità Nitro",
     tags: ["Emotes", "Appearance", "Customisation", "Chat"],
     dependencies: ["MessageEventsAPI"],
 
@@ -860,14 +860,13 @@ export default definePlugin({
                         openModal(props => (
                             <ConfirmModal
                                 {...props}
-                                title="Hold on!"
+                                title="Attenzione!"
                                 confirmText="OK"
                                 variant="primary"
                             >
                                 <div>
                                     <Forms.FormText>
-                                        You cannot send this message because it contains an animated FakeNitro sticker,
-                                        and you do not have permissions to attach files in the current channel. Please remove the sticker to proceed.
+                                        Non puoi inviare questo messaggio perché contiene uno sticker FakeNitro animato e non hai il permesso di allegare file nel canale corrente. Rimuovi lo sticker per continuare.
                                     </Forms.FormText>
                                 </div>
                             </ConfirmModal>

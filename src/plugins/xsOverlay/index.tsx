@@ -95,7 +95,7 @@ const logger = new Logger("XSOverlay");
 const settings = definePluginSettings({
     webSocketPort: {
         type: OptionType.NUMBER,
-        description: "Websocket port",
+        description: "Porta WebSocket",
         default: 42070,
         async onChange() {
             await start();
@@ -103,66 +103,66 @@ const settings = definePluginSettings({
     },
     preferUDP: {
         type: OptionType.BOOLEAN,
-        displayName: "Prefer UDP",
-        description: "Enable if you use an older build of XSOverlay unable to connect through websockets. This setting is ignored on web.",
+        displayName: "Preferisci UDP",
+        description: "Abilita se usi una versione meno recente di XSOverlay che non riesce a connettersi tramite WebSocket. Questa impostazione viene ignorata sul web.",
         default: false,
         disabled: () => IS_WEB
     },
     botNotifications: {
         type: OptionType.BOOLEAN,
-        description: "Allow bot notifications",
+        description: "Consenti notifiche dei bot",
         default: false
     },
     serverNotifications: {
         type: OptionType.BOOLEAN,
-        description: "Allow server notifications",
+        description: "Consenti notifiche dei server",
         default: true
     },
     dmNotifications: {
         type: OptionType.BOOLEAN,
-        displayName: "DM Notifications",
-        description: "Allow Direct Message notifications",
+        displayName: "Notifiche messaggi diretti",
+        description: "Consenti notifiche dei messaggi diretti",
         default: true
     },
     groupDmNotifications: {
         type: OptionType.BOOLEAN,
-        displayName: "Group DM Notifications",
-        description: "Allow Group DM notifications",
+        displayName: "Notifiche messaggi diretti di gruppo",
+        description: "Consenti notifiche dei messaggi diretti di gruppo",
         default: true
     },
     callNotifications: {
         type: OptionType.BOOLEAN,
-        description: "Allow call notifications",
+        description: "Consenti notifiche delle chiamate",
         default: true
     },
     pingColor: {
         type: OptionType.STRING,
-        description: "User mention color",
+        description: "Colore menzioni utente",
         default: "#7289da"
     },
     channelPingColor: {
         type: OptionType.STRING,
-        description: "Channel mention color",
+        description: "Colore menzioni canale",
         default: "#8a2be2"
     },
     soundPath: {
         type: OptionType.STRING,
-        description: "Notification sound (default/warning/error)",
+        description: "Suono notifica (predefinito/avviso/errore)",
         default: "default"
     },
     timeout: {
         type: OptionType.NUMBER,
-        description: "Notification duration (secs)",
+        description: "Durata notifica (secondi)",
         default: 3,
     },
     lengthBasedTimeout: {
         type: OptionType.BOOLEAN,
-        description: "Extend duration with message length",
+        description: "Estendi la durata in base alla lunghezza del messaggio",
         default: true
     },
     opacity: {
         type: OptionType.SLIDER,
-        description: "Notif opacity",
+        description: "Opacità notifica",
         default: 1,
         markers: makeRange(0, 1, 0.1)
     },
@@ -190,7 +190,7 @@ const Native = VencordNative.pluginHelpers.XSOverlay as PluginNative<typeof impo
 
 export default definePlugin({
     name: "XSOverlay",
-    description: "Forwards discord notifications to XSOverlay, for easy viewing in VR",
+    description: "Inoltra le notifiche di Discord a XSOverlay per visualizzarle facilmente in VR",
     tags: ["Notifications"],
     authors: [Devs.Nyako],
     searchTerms: ["vr", "notify"],
@@ -311,7 +311,7 @@ export default definePlugin({
     settingsAboutComponent: () => (
         <>
             <Button onClick={() => sendOtherNotif("This is a test notification! explode", "Hello from Vendor!")}>
-                Send test notification
+                Invia notifica di prova
             </Button>
         </>
     )

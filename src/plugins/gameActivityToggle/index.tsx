@@ -49,15 +49,15 @@ const ShowCurrentGame = getUserSettingLazy<boolean>("status", "showCurrentGame")
 const settings = definePluginSettings({
     oldIcon: {
         type: OptionType.BOOLEAN,
-        description: "Use the old icon style before Discord icon redesign",
+        description: "Usa lo stile delle icone precedente al redesign di Discord",
         default: false
     },
     location: {
         type: OptionType.SELECT,
-        description: "Where to show the game activity toggle button",
+        description: "Dove mostrare il pulsante per attivare/disattivare l'attività di gioco",
         options: [
-            { label: "Next to Mute/Deafen", value: "PANEL", default: true },
-            { label: "Vencord Toolbox", value: "TOOLBOX" }
+            { label: "Accanto a Microfono/Audio", value: "PANEL", default: true },
+            { label: "Strumenti Vencord", value: "TOOLBOX" }
         ],
         get hidden() {
             return !isPluginEnabled(VencordToolboxPlugin.name);
@@ -109,7 +109,7 @@ function GameActivityToggleButton(props: { nameplate?: any; }) {
     if (location !== "PANEL" && isPluginEnabled(VencordToolboxPlugin.name)) return null;
 
     const buttonProps = {
-        tooltipText: showCurrentGame ? "Disable Game Activity" : "Enable Game Activity",
+        tooltipText: showCurrentGame ? "Disable Game Activity" : "Abilita attività di gioco",
         icon: Icon,
         role: "switch",
         ariaChecked: !showCurrentGame,
@@ -133,7 +133,7 @@ function GameActivityToggleButton(props: { nameplate?: any; }) {
                 <Menu.Menu navId="vc-gameActivityToggle-menu" onClose={closePopout}>
                     <Menu.MenuCheckboxItem
                         id="vc-toggle-spotify"
-                        label="Share Spotify Activity"
+                        label="Condividi attività Spotify"
                         checked={shareSpotifyActivity}
                         action={async () => {
                             ConnectedAccountActions.setShowActivity(spotifyAccount.type, spotifyAccount.id, !shareSpotifyActivity);
@@ -156,7 +156,7 @@ function GameActivityToggleButton(props: { nameplate?: any; }) {
 
 export default definePlugin({
     name: "GameActivityToggle",
-    description: "Adds a button next to the mic and deafen button to toggle game activity. Right click it to toggle Spotify activity.",
+    description: "Aggiunge un pulsante accanto a microfono e disattivazione audio per attivare/disattivare l'attività di gioco. Fai clic destro per attivare/disattivare l'attività Spotify.",
     tags: ["Activity", "Shortcuts"],
     authors: [Devs.Nuckyz, Devs.RuukuLada],
     dependencies: ["UserSettingsAPI"],
@@ -183,7 +183,7 @@ export default definePlugin({
         return (
             <Menu.MenuCheckboxItem
                 id="game-activity-toggle-toolbox"
-                label="Enable Game Activity"
+                label="Abilita attività di gioco"
                 checked={showCurrentGame}
                 action={() => ShowCurrentGame.updateSetting(old => !old)}
             />

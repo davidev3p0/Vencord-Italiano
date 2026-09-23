@@ -27,28 +27,28 @@ const noQuotesQuote = "Did you really disable all loading quotes? What a buffoon
 
 const settings = definePluginSettings({
     replaceEvents: {
-        description: "Should this plugin also apply during events with special event themed quotes? (e.g. Halloween)",
+        description: "Applicare il plugin anche durante eventi con citazioni a tema speciale? (es. Halloween)",
         type: OptionType.BOOLEAN,
         default: true
     },
     enablePluginPresetQuotes: {
-        description: "Enable the quotes preset by this plugin",
+        description: "Abilita le citazioni predefinite da questo plugin",
         type: OptionType.BOOLEAN,
         default: true
     },
     enableDiscordPresetQuotes: {
-        description: "Enable Discord's preset quotes (including event quotes, during events)",
+        description: "Abilita le citazioni predefinite di Discord, incluse quelle degli eventi durante gli eventi",
         type: OptionType.BOOLEAN,
         default: false
     },
     additionalQuotes: {
-        description: "Additional custom quotes to possibly appear, separated by the below delimiter",
+        description: "Citazioni personalizzate aggiuntive che possono apparire, separate dal delimitatore indicato sotto",
         type: OptionType.STRING,
         default: "",
         multiline: true
     },
     additionalQuotesDelimiter: {
-        description: "Delimiter for additional quotes",
+        description: "Delimitatore per le citazioni aggiuntive",
         type: OptionType.STRING,
         default: "|",
     },
@@ -56,7 +56,7 @@ const settings = definePluginSettings({
 
 export default definePlugin({
     name: "LoadingQuotes",
-    description: "Replace Discords loading quotes",
+    description: "Sostituisce le citazioni di caricamento di Discord",
     tags: ["Appearance", "Fun", "Customisation"],
     authors: [Devs.Ven, Devs.KraXen72, Devs.UlyssesZhan],
 

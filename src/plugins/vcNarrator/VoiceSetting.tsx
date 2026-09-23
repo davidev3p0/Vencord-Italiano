@@ -33,7 +33,7 @@ function SimplePicker({ voice, voices }: PickerProps) {
 
     return (
         <SearchableSelect
-            placeholder="Select a voice"
+            placeholder="Seleziona una voce"
             maxVisibleItems={5}
             options={options}
             value={options.find(o => o.value === voice)?.value}
@@ -83,16 +83,16 @@ function ComplexPicker({ voice, voices }: PickerProps) {
 
     return (
         <>
-            <Forms.FormTitle>Language</Forms.FormTitle>
+            <Forms.FormTitle>Lingua</Forms.FormTitle>
             <SearchableSelect
-                placeholder="Select a language"
+                placeholder="Seleziona una lingua"
                 options={languageOptions}
                 value={languageOptions.find(l => l.value === selectedLanguage)?.value}
                 onChange={v => setSelectedLanguage(v)}
                 maxVisibleItems={5}
                 closeOnSelect
             />
-            <Forms.FormTitle>Voice</Forms.FormTitle>
+            <Forms.FormTitle>Voce</Forms.FormTitle>
             <SimplePicker
                 voice={voice}
                 voices={voicesForLanguage}
@@ -107,7 +107,7 @@ function VoiceSetting() {
     const { voice } = settings.use(["voice"]);
 
     if (!voices.length)
-        return <Forms.FormText>No voices found.</Forms.FormText>;
+        return <Forms.FormText>Nessuna voce trovata.</Forms.FormText>;
 
     // espeak on Linux has a ridiculous amount of voices (26k for me).
     // If there are more than 20 voices, we split it up into two pickers, one for language, then one with only the voices for that language.
@@ -119,7 +119,7 @@ function VoiceSetting() {
 export function VoiceSettingSection() {
     return (
         <section>
-            <Forms.FormTitle>Voice</Forms.FormTitle>
+            <Forms.FormTitle>Voce</Forms.FormTitle>
             <VoiceSetting />
         </section>
     );

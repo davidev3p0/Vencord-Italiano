@@ -19,29 +19,29 @@ export function WindowsMaterialSettings() {
 
     return (
         <ErrorBoundary noop>
-            <Heading tag="h5">Background Material</Heading>
+            <Heading tag="h5">Materiale dello sfondo</Heading>
             <Paragraph className={Margins.bottom8}>
-                Windows transparent background effects. You need a theme that supports transparency or this will do nothing. A restart is required after changing this setting.
+                Effetti di sfondo trasparente di Windows. Serve un tema che supporti la trasparenza, altrimenti questa opzione non avrà effetto. Dopo aver modificato questa impostazione è necessario riavviare.
             </Paragraph>
 
             <Select
-                placeholder="None"
+                placeholder="Nessuno"
                 options={[
                     {
-                        label: "None",
+                        label: "Nessuno",
                         value: "none",
                         default: true
                     },
                     {
-                        label: "Mica (incorporates system theme + desktop wallpaper to paint the background)",
+                        label: "Mica (usa tema di sistema e sfondo desktop per creare lo sfondo)",
                         value: "mica"
                     },
                     {
-                        label: "Tabbed (variant of Mica with stronger background tinting)",
+                        label: "Tabbed (variante di Mica con colorazione di sfondo più intensa)",
                         value: "tabbed"
                     },
                     {
-                        label: "Acrylic (blurs the window behind Vesktop for a translucent background)",
+                        label: "Acrylic (sfoca la finestra dietro Vesktop per uno sfondo traslucido)",
                         value: "acrylic"
                     }
                 ]}

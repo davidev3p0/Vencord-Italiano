@@ -40,7 +40,7 @@ function Icon({ height = 24, width = 24, className = "icon" }: { height?: number
 export default definePlugin({
     name: "QuickMention",
     authors: [Devs.kemo],
-    description: "Adds a quick mention button to the message actions bar",
+    description: "Aggiunge un pulsante di menzione rapida alla barra delle azioni dei messaggi",
     tags: ["Chat", "Shortcuts"],
 
     messagePopoverButton: {
@@ -50,7 +50,7 @@ export default definePlugin({
             if (channel.guild_id && !PermissionStore.can(PermissionsBits.SEND_MESSAGES, channel)) return null;
 
             return {
-                label: "Quick Mention",
+                label: "Menzione rapida",
                 icon: Icon,
                 message: msg,
                 channel,

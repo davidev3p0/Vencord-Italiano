@@ -155,7 +155,7 @@ function playSample(type: string) {
 
 export default definePlugin({
     name: "VcNarrator",
-    description: "Announces when users join, leave, or move voice channels via narrator",
+    description: "Annuncia tramite narratore quando gli utenti entrano, escono o si spostano tra i canali vocali",
     tags: ["Voice", "Accessibility"],
     authors: [Devs.Ven],
     reporterTestable: ReporterTestable.None,
@@ -242,21 +242,21 @@ export default definePlugin({
                 : "Try installing some in the Narrator settings of your Operating System";
             errorComponent = <ErrorCard>{error}</ErrorCard>;
         } else if (!hasEnglishVoices) {
-            errorComponent = <ErrorCard>You don't have any English voices installed, so the narrator might sound weird</ErrorCard>;
+            errorComponent = <ErrorCard>Non hai installato voci inglesi, quindi il narratore potrebbe avere una pronuncia insolita</ErrorCard>;
         }
 
         return (
             <section>
                 <Forms.FormText>
-                    You can customise the spoken messages below. You can disable specific messages by setting them to nothing
+                    Puoi personalizzare i messaggi vocali qui sotto. Per disabilitare un messaggio specifico, lascialo vuoto
                 </Forms.FormText>
                 <Forms.FormText>
-                    The special placeholders <code>{"{{USER}}"}</code>, <code>{"{{DISPLAY_NAME}}"}</code>, <code>{"{{NICKNAME}}"}</code> and <code>{"{{CHANNEL}}"}</code>{" "}
-                    will be replaced with the user's name (nothing if it's yourself), the user's display name, the user's nickname on current server and the channel's name respectively
+                    I segnaposto speciali <code>{"{{USER}}"}</code>, <code>{"{{DISPLAY_NAME}}"}</code>, <code>{"{{NICKNAME}}"}</code> e <code>{"{{CHANNEL}}"}</code>{" "}
+                    verranno sostituiti rispettivamente con il nome dell’utente (vuoto se sei tu), il nome visualizzato, il soprannome nel server corrente e il nome del canale
                 </Forms.FormText>
                 {hasEnglishVoices && (
                     <>
-                        <Forms.FormTitle className={Margins.top20} tag="h3">Play Example Sounds</Forms.FormTitle>
+                        <Forms.FormTitle className={Margins.top20} tag="h3">Riproduci suoni di esempio</Forms.FormTitle>
                         <div
                             style={{
                                 display: "grid",

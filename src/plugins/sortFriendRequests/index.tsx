@@ -43,7 +43,7 @@ function getSince(user: User) {
 const settings = definePluginSettings({
     showDates: {
         type: OptionType.BOOLEAN,
-        description: "Show dates on friend requests",
+        description: "Mostra le date nelle richieste di amicizia",
         default: false,
         restartNeeded: true
     }
@@ -52,7 +52,7 @@ const settings = definePluginSettings({
 export default definePlugin({
     name: "SortFriendRequests",
     authors: [Devs.Megu],
-    description: "Sorts friend requests by date of receipt",
+    description: "Ordina le richieste di amicizia per data di ricezione",
     tags: ["Friends", "Organisation"],
     settings,
 

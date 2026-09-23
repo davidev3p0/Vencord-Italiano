@@ -43,22 +43,22 @@ const CONNECT = 1n << 20n;
 
 export const settings = definePluginSettings({
     hideUnreads: {
-        description: "Hide Unreads",
+        description: "Nascondi non letti",
         type: OptionType.BOOLEAN,
         default: true,
         restartNeeded: true
     },
     showMode: {
-        description: "The mode used to display hidden channels.",
+        description: "Modalità usata per visualizzare i canali nascosti.",
         type: OptionType.SELECT,
         options: [
-            { label: "Plain style with Lock Icon instead", value: ShowMode.LockIcon, default: true },
-            { label: "Muted style with hidden eye icon on the right", value: ShowMode.HiddenIconWithMutedStyle },
+            { label: "Stile semplice con icona lucchetto", value: ShowMode.LockIcon, default: true },
+            { label: "Stile attenuato con icona occhio nascosto a destra", value: ShowMode.HiddenIconWithMutedStyle },
         ],
         restartNeeded: true
     },
     defaultAllowedUsersAndRolesDropdownState: {
-        description: "Whether the allowed users and roles dropdown on hidden channels should be open by default",
+        description: "Apri per impostazione predefinita il menu a discesa di utenti e ruoli consentiti nei canali nascosti",
         type: OptionType.BOOLEAN,
         default: true
     }
@@ -70,7 +70,7 @@ function isUncategorized(objChannel: { channel: Channel; comparator: number; }) 
 
 export default definePlugin({
     name: "ShowHiddenChannels",
-    description: "Show channels that you do not have access to view.",
+    description: "Mostra i canali che non hai il permesso di visualizzare.",
     tags: ["Servers", "Utility"],
     authors: [Devs.BigDuck, Devs.AverageReactEnjoyer, Devs.D3SOX, Devs.Ven, Devs.Nuckyz, Devs.Nickyux, Devs.Rini],
     settings,
@@ -571,7 +571,7 @@ export default definePlugin({
     ), { noop: true }),
 
     HiddenChannelIcon: ErrorBoundary.wrap(() => (
-        <Tooltip text="Hidden Channel">
+        <Tooltip text="Canale nascosto">
             {({ onMouseLeave, onMouseEnter }) => (
                 <svg
                     onMouseLeave={onMouseLeave}

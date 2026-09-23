@@ -21,7 +21,7 @@ import definePlugin from "@utils/types";
 
 export default definePlugin({
     name: "MessageAccessoriesAPI",
-    description: "API to add message accessories.",
+    description: "API per aggiungere accessori ai messaggi.",
     authors: [Devs.Cyn],
     patches: [
         {

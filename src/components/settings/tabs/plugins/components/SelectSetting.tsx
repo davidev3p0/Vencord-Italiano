@@ -42,7 +42,7 @@ export function SelectSetting({ setting, pluginSettings, definedSettings, onChan
     return (
         <SettingsSection name={setting.displayName} id={id} description={setting.description} error={error}>
             <Select
-                placeholder={setting.placeholder ?? "Select an option"}
+                placeholder={setting.placeholder ?? "Seleziona un'opzione"}
                 options={setting.options}
                 maxVisibleItems={5}
                 closeOnSelect={true}

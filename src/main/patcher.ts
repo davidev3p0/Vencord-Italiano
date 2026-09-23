@@ -55,7 +55,7 @@ if (!IS_VANILLA) {
                 const { submenu } = template[0];
                 if (Array.isArray(submenu)) {
                     submenu.push({
-                        label: "Quit (Hidden)",
+                        label: "Esci (nascosto)",
                         visible: false,
                         acceleratorWorksWhenHidden: true,
                         accelerator: "Control+Q",

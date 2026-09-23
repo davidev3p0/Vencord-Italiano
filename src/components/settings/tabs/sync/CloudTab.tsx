@@ -41,7 +41,7 @@ function validateUrl(url: string) {
         new URL(url);
         return true;
     } catch {
-        return "Invalid URL";
+        return "URL non valido";
     }
 }
 
@@ -70,18 +70,18 @@ function CloudSetupSection() {
 
     return (
         <section>
-            <SectionHeading text="Cloud Integrations" />
+            <SectionHeading text="Integrazioni cloud" />
 
             <Paragraph size="md" className={Margins.bottom20}>
-                Vencord comes with a cloud integration that adds goodies like settings sync across devices.
-                It <Link href="https://vencord.dev/cloud/privacy">respects your privacy</Link>, and
-                the <Link href="https://github.com/Vencord/Backend">source code</Link> is AGPL 3.0 licensed so you
-                can host it yourself.
+                Vencord include un’integrazione cloud che aggiunge funzioni come la sincronizzazione delle impostazioni tra dispositivi.
+                <Link href="https://vencord.dev/cloud/privacy">Rispetta la tua privacy</Link> e il
+                <Link href="https://github.com/Vencord/Backend">codice sorgente</Link> è distribuito con licenza AGPL 3.0, quindi
+                puoi ospitarlo autonomamente.
             </Paragraph>
             <FormSwitch
                 key="backend"
-                title="Enable Cloud Integrations"
-                description="This will request authorization if you have not yet set up cloud integrations."
+                title="Abilita integrazioni cloud"
+                description="Verrà richiesta l’autorizzazione se non hai ancora configurato le integrazioni cloud."
                 value={cloud.authenticated}
                 onChange={v => {
                     if (v)
@@ -90,9 +90,9 @@ function CloudSetupSection() {
                         cloud.authenticated = v;
                 }}
             />
-            <Heading tag="h5" className={Margins.top16}>Backend URL</Heading>
+            <Heading tag="h5" className={Margins.top16}>URL backend</Heading>
             <Paragraph className={Margins.bottom8}>
-                Which backend to use when using cloud integrations.
+                Backend da utilizzare per le integrazioni cloud.
             </Paragraph>
             <CheckedTextInput
                 key="backendUrl"
@@ -116,7 +116,7 @@ function CloudSetupSection() {
                     }}
                     Icon={RestartIcon}
                 >
-                    Reauthorise
+                    Autorizza di nuovo
                 </ButtonWithIcon>
             </Grid>
         </section>
@@ -130,12 +130,12 @@ function SettingsSyncSection() {
 
     return (
         <section>
-            <SectionHeading text="Settings Sync" />
+            <SectionHeading text="Sincronizzazione impostazioni" />
             <Flex flexDirection="column" gap="1em">
                 <FormSwitch
                     key="cloud-sync"
-                    title="Enable Settings Sync"
-                    description="Save your Vencord settings to the cloud so you can easily keep them the same on all your devices"
+                    title="Abilita sincronizzazione impostazioni"
+                    description="Salva le impostazioni di Vencord nel cloud per mantenerle facilmente sincronizzate su tutti i tuoi dispositivi"
                     value={cloud.settingsSync}
                     onChange={v => { cloud.settingsSync = v; }}
                     disabled={!cloud.authenticated}
@@ -144,29 +144,29 @@ function SettingsSyncSection() {
 
                 <div>
                     <Heading tag="h5">
-                        Sync Rules for This Device
+                        Regole di sincronizzazione per questo dispositivo
                     </Heading>
                     <Paragraph className={Margins.bottom8}>
-                        This setting controls how settings move between <strong>this device</strong> and the cloud.
-                        You can let changes flow both ways, or choose one place to be the main source of truth.
+                        Questa impostazione controlla come vengono trasferite le impostazioni tra <strong>questo dispositivo</strong> e il cloud.
+                        Puoi sincronizzare le modifiche in entrambe le direzioni oppure scegliere una sorgente principale.
                     </Paragraph>
                     <Select
                         options={[
                             {
-                                label: "Two-way sync (changes go both directions)",
+                                label: "Sincronizzazione bidirezionale (le modifiche vanno in entrambe le direzioni)",
                                 value: "both",
                                 default: true,
                             },
                             {
-                                label: "This device is the source (upload only)",
+                                label: "Questo dispositivo è la sorgente (solo caricamento)",
                                 value: "push",
                             },
                             {
-                                label: "The cloud is the source (download only)",
+                                label: "Il cloud è la sorgente (solo download)",
                                 value: "pull",
                             },
                             {
-                                label: "Do not sync automatically (manual sync via buttons below only)",
+                                label: "Non sincronizzare automaticamente (solo sincronizzazione manuale tramite i pulsanti sotto)",
                                 value: "manual",
                             }
                         ]}
@@ -187,9 +187,9 @@ function SettingsSyncSection() {
                         onClick={() => putCloudSettings(true)}
                         Icon={CloudUploadIcon}
                     >
-                        Upload Settings
+                        Carica impostazioni
                     </ButtonWithIcon>
-                    <Tooltip text="This will replace your current settings with the ones saved in the cloud. Be careful!">
+                    <Tooltip text="Le impostazioni correnti verranno sostituite con quelle salvate nel cloud. Attenzione!">
                         {({ onMouseLeave, onMouseEnter }) => (
                             <ButtonWithIcon
                                 variant="dangerPrimary"
@@ -199,7 +199,7 @@ function SettingsSyncSection() {
                                 onClick={() => getCloudSettings(true, true)}
                                 Icon={CloudDownloadIcon}
                             >
-                                Download Settings
+                                Scarica impostazioni
                             </ButtonWithIcon>
                         )}
                     </Tooltip>
@@ -214,7 +214,7 @@ function ResetSection() {
 
     return (
         <section>
-            <SectionHeading text="Reset Cloud Data" />
+            <SectionHeading text="Reimposta dati cloud" />
 
             <Grid columns={2} gap="1em">
                 <ButtonWithIcon
@@ -223,7 +223,7 @@ function ResetSection() {
                     onClick={() => deleteCloudSettings()}
                     Icon={DeleteIcon}
                 >
-                    Delete Settings from Cloud
+                    Elimina impostazioni dal cloud
                 </ButtonWithIcon>
                 <ButtonWithIcon
                     variant="dangerPrimary"
@@ -231,16 +231,16 @@ function ResetSection() {
                     onClick={() => openModal(props => (
                         <ConfirmModal
                             {...props}
-                            title="Are you sure?"
-                            subtitle="Once your data is erased, we cannot recover it. There's no going back!"
+                            title="Sei sicuro?"
+                            subtitle="Una volta cancellati, i dati non potranno essere recuperati. L’operazione è irreversibile!"
                             onConfirm={eraseAllCloudData}
-                            confirmText="Erase it!"
-                            cancelText="Nevermind"
+                            confirmText="Cancella"
+                            cancelText="Annulla"
                         />
                     ))}
                     Icon={DeleteIcon}
                 >
-                    Delete your Cloud Account
+                    Elimina account cloud
                 </ButtonWithIcon>
             </Grid>
         </section>

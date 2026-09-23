@@ -37,7 +37,7 @@ const CONTRIBUTOR_BADGE = "https://cdn.discordapp.com/emojis/1092089799109775453
 
 const ContributorBadge: ProfileBadge = {
     id: "vencord_contributor_badge",
-    description: "Vencord Contributor",
+    description: "Collaboratore Vencord",
     iconSrc: CONTRIBUTOR_BADGE,
     position: BadgePosition.START,
     shouldShow: ({ userId }) => shouldShowContributorBadge(userId),
@@ -62,12 +62,12 @@ function BadgeContextMenu({ badge }: { badge: Omit<ProfileBadge, "id"> & BadgeUs
         <Menu.Menu
             navId="vc-badge-context"
             onClose={ContextMenuApi.closeContextMenu}
-            aria-label="Badge Options"
+            aria-label="Opzioni badge"
         >
             {badge.description && (
                 <Menu.MenuItem
                     id="vc-badge-copy-name"
-                    label="Copy Badge Name"
+                    label="Copia nome badge"
                     action={() => copyWithToast(badge.description!)}
                     leadingAccessory={{ type: "icon", icon: CopyIcon }}
                 />
@@ -75,7 +75,7 @@ function BadgeContextMenu({ badge }: { badge: Omit<ProfileBadge, "id"> & BadgeUs
             {badge.iconSrc && (
                 <Menu.MenuItem
                     id="vc-badge-copy-link"
-                    label="Copy Badge Image Link"
+                    label="Copia link immagine badge"
                     action={() => copyWithToast(badge.iconSrc!)}
                     leadingAccessory={{ type: "icon", icon: LinkIcon }}
                 />
@@ -86,7 +86,7 @@ function BadgeContextMenu({ badge }: { badge: Omit<ProfileBadge, "id"> & BadgeUs
 
 export default definePlugin({
     name: "BadgeAPI",
-    description: "API to add badges to users",
+    description: "API per aggiungere badge agli utenti",
     authors: [Devs.Megu, Devs.Ven, Devs.TheSun],
     required: true,
     patches: [
@@ -133,7 +133,7 @@ export default definePlugin({
             await loadBadges(true);
             Toasts.show({
                 id: Toasts.genId(),
-                message: "Successfully refetched badges!",
+                message: "Badge aggiornati correttamente!",
                 type: Toasts.Type.SUCCESS
             });
         }
@@ -216,7 +216,7 @@ export default definePlugin({
                                 >
                                     <Flex justifyContent="center" alignItems="center" gap="0.5em">
                                         <Heart />
-                                        Vencord Donor
+                                        Sostenitore Vencord
                                     </Flex>
                                 </Forms.FormTitle>
                             }
@@ -238,10 +238,10 @@ export default definePlugin({
                                 </Flex>
                                 <div style={{ padding: "1em" }}>
                                     <Forms.FormText>
-                                        This Badge is a special perk for Vencord Donors
+                                        Questo badge è un vantaggio speciale riservato ai sostenitori di Vencord
                                     </Forms.FormText>
                                     <Forms.FormText className={Margins.top20}>
-                                        Please consider supporting the development of Vencord by becoming a donor. It would mean a lot!!
+                                        Valuta la possibilità di sostenere lo sviluppo di Vencord con una donazione. Sarebbe di grande aiuto!
                                     </Forms.FormText>
                                 </div>
                             </div>

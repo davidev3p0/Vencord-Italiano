@@ -45,14 +45,14 @@ export default function DecorSection({ hideTitle = false, hideDivider = false, n
                 variant="primary"
                 size="small"
             >
-                Change Decoration
+                Cambia decorazione
             </Button>
             {selectedDecoration && authorization.isAuthorized() && <Button
                 onClick={() => selectDecoration(null)}
                 variant="secondary"
                 size={"small"}
             >
-                Remove Decoration
+                Rimuovi decorazione
             </Button>}
         </Flex>
     </CustomizationSection>;

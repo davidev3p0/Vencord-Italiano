@@ -21,7 +21,7 @@ import definePlugin from "@utils/types";
 
 export default definePlugin({
     name: "MessageEventsAPI",
-    description: "Api required by anything using message events.",
+    description: "API richiesta da tutto ciò che usa gli eventi dei messaggi.",
     authors: [Devs.Arjix, Devs.hunt, Devs.Ven],
     patches: [
         {

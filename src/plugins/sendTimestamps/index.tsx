@@ -30,7 +30,7 @@ import { Forms, Modal,openModal, Parser, Select, useMemo, useState } from "@webp
 
 const settings = definePluginSettings({
     replaceMessageContents: {
-        description: "Replace timestamps in message contents",
+        description: "Sostituisci i timestamp nel contenuto dei messaggi",
         type: OptionType.BOOLEAN,
         default: true,
     },
@@ -68,7 +68,7 @@ function PickerModal(props: RenderModalProps) {
     return (
         <Modal
             {...props}
-            title="Timestamp Picker"
+            title="Selettore timestamp"
             actions={[{
                 text: "Insert",
                 variant: "primary",
@@ -88,7 +88,7 @@ function PickerModal(props: RenderModalProps) {
                 }}
             />
 
-            <Forms.FormTitle>Timestamp Format</Forms.FormTitle>
+            <Forms.FormTitle>Formato timestamp</Forms.FormTitle>
             <div className={cl("format-select")}>
                 <Select
                     options={
@@ -109,7 +109,7 @@ function PickerModal(props: RenderModalProps) {
                 />
             </div>
 
-            <Forms.FormTitle className={Margins.bottom8}>Preview</Forms.FormTitle>
+            <Forms.FormTitle className={Margins.bottom8}>Anteprima</Forms.FormTitle>
             <Forms.FormText className={cl("preview-text")}>
                 {rendered} ({formatted})
             </Forms.FormText>
@@ -152,7 +152,7 @@ const SendTimestampButton: ChatBarButtonFactory = ({ isAnyChat }) => {
 
 export default definePlugin({
     name: "SendTimestamps",
-    description: "Send timestamps easily via chat box button & text shortcuts. Read the extended description!",
+    description: "Invia facilmente timestamp tramite il pulsante nella chat e scorciatoie testuali. Leggi la descrizione estesa!",
     tags: ["Chat", "Commands"],
     authors: [Devs.Ven, Devs.Tyler, Devs.Grzesiek11],
     settings,
@@ -181,14 +181,13 @@ export default definePlugin({
         return (
             <>
                 <Forms.FormText>
-                    To quickly send time only timestamps, include timestamps formatted as `HH:MM` (including the backticks!) in your message
+                    Per inviare rapidamente timestamp con solo l’orario, inserisci nel messaggio timestamp nel formato `HH:MM` (inclusi gli apici inversi!)
                 </Forms.FormText>
                 <Forms.FormText>
-                    See below for examples.
-                    If you need anything more specific, use the Date button in the chat bar!
+                    Vedi gli esempi qui sotto. Se ti serve qualcosa di più specifico, usa il pulsante Data nella barra della chat!
                 </Forms.FormText>
                 <Forms.FormText>
-                    Examples:
+                    Esempi:
                     <ul>
                         {samples.map(s => (
                             <li key={s}>

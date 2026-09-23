@@ -60,7 +60,7 @@ function CreateDecorationModal(props: RenderModalProps) {
     return <Modal
         {...props}
         size="lg"
-        title="Create Decoration"
+        title="Crea decorazione"
         actions={[
             {
                 text: "Cancel",
@@ -82,11 +82,11 @@ function CreateDecorationModal(props: RenderModalProps) {
         <div className={cl("create-decoration-modal-content", DecorationModalClasses.modal)}>
             <ErrorBoundary>
                 <HelpMessage messageType={HelpMessageTypes.WARNING}>
-                    Make sure your decoration does not violate <Link
+                    Assicurati che la decorazione non violi <Link
                         href="https://github.com/decor-discord/.github/blob/main/GUIDELINES.md"
                     >
-                        the guidelines
-                    </Link> before submitting it.
+                        le linee guida
+                    </Link> prima di inviarla.
                 </HelpMessage>
                 <div className={cl("create-decoration-modal-form-preview-container")}>
                     <div className={cl("create-decoration-modal-form")}>
@@ -95,24 +95,24 @@ function CreateDecorationModal(props: RenderModalProps) {
                             <Forms.FormTitle tag="h5">File</Forms.FormTitle>
                             <FileUpload
                                 filename={file?.name}
-                                placeholder="Choose a file"
+                                placeholder="Scegli un file"
                                 buttonText="Browse"
                                 filters={[{ name: "Decoration file", extensions: ["png", "apng"] }]}
                                 onFileSelect={setFile}
                             />
                             <Forms.FormText className={Margins.top8}>
-                                File should be APNG or PNG.
+                                Il file deve essere APNG o PNG.
                             </Forms.FormText>
                         </section>
                         <section>
-                            <Forms.FormTitle tag="h5">Name</Forms.FormTitle>
+                            <Forms.FormTitle tag="h5">Nome</Forms.FormTitle>
                             <TextInput
                                 placeholder="Companion Cube"
                                 value={name}
                                 onChange={setName}
                             />
                             <Forms.FormText className={Margins.top8}>
-                                This name will be used when referring to this decoration.
+                                Questo nome verrà usato per identificare la decorazione.
                             </Forms.FormText>
                         </section>
                     </div>
@@ -124,7 +124,7 @@ function CreateDecorationModal(props: RenderModalProps) {
                     </div>
                 </div>
                 <HelpMessage messageType={HelpMessageTypes.INFO} className={Margins.bottom8}>
-                    To receive updates on your decoration's review, join <Link
+                    Per ricevere aggiornamenti sulla revisione della decorazione, entra nel <Link
                         href={`https://discord.gg/${INVITE_KEY}`}
                         onClick={async e => {
                             e.preventDefault();
@@ -141,8 +141,8 @@ function CreateDecorationModal(props: RenderModalProps) {
                             }
                         }}
                     >
-                        Decor's Discord server
-                    </Link> and allow direct messages.
+                        server Discord di Decor
+                    </Link> e consenti i messaggi diretti.
                 </HelpMessage>
             </ErrorBoundary>
         </div>

@@ -59,17 +59,17 @@ const badge: ProfileBadge = {
 
 const indicatorLocations = {
     list: {
-        description: "In the member list",
+        description: "Nell'elenco membri",
         onEnable: () => addMemberListDecorator("platform-indicator", ({ user }) => renderPlatformIndicators(user, true)),
         onDisable: () => removeMemberListDecorator("platform-indicator")
     },
     badges: {
-        description: "In user profiles, as badges",
+        description: "Nei profili utente, come badge",
         onEnable: () => addProfileBadge(badge),
         onDisable: () => removeProfileBadge(badge)
     },
     messages: {
-        description: "Inside messages",
+        description: "Nei messaggi",
         onEnable: () => addMessageDecoration("platform-indicator", props => renderPlatformIndicators(props.message?.author, false)),
         onDisable: () => removeMessageDecoration("platform-indicator")
     }
@@ -97,7 +97,7 @@ const settings = definePluginSettings({
     ),
     colorMobileIndicator: {
         type: OptionType.BOOLEAN,
-        description: "Whether to make the mobile indicator match the color of the user status.",
+        description: "Fa corrispondere il colore dell'indicatore mobile allo stato dell'utente.",
         default: true,
         restartNeeded: true
     }
@@ -219,7 +219,7 @@ function OtherUserPlatformIndicators({ user, small = false }: { user: User; smal
 
 export default definePlugin({
     name: "PlatformIndicators",
-    description: "Adds platform indicators (Desktop, Mobile, Web...) to users",
+    description: "Aggiunge agli utenti indicatori di piattaforma (Desktop, Mobile, Web...)",
     tags: ["Appearance"],
     authors: [Devs.kemo, Devs.TheSun, Devs.Nuckyz, Devs.Ven],
     dependencies: ["MessageDecorationsAPI", "MemberListDecoratorsAPI"],

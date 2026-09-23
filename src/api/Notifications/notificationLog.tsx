@@ -139,7 +139,7 @@ export function NotificationLog({ log, pending }: { log: PersistentNotificationD
             <div>
                 <div className={cl("empty")} />
                 <Forms.FormText style={{ textAlign: "center" }}>
-                    No notifications yet
+                    Nessuna notifica
                 </Forms.FormText>
             </div>
         );
@@ -163,7 +163,7 @@ function LogModal(props: RenderModalProps) {
         <Modal
             {...props}
             size="xl"
-            title="Notification Log"
+            title="Registro notifiche"
             actions={[
                 {
                     text: "Notification Settings",
@@ -178,9 +178,9 @@ function LogModal(props: RenderModalProps) {
                         openModal(props =>
                             <ConfirmModal
                                 {...props}
-                                title="Are you sure?"
+                                title="Sei sicuro?"
                                 subtitle={`This will permanently remove ${log.length} notification${log.length === 1 ? "" : "s"}. This action cannot be undone.`}
-                                confirmText="Do it!"
+                                confirmText="Conferma"
                                 onConfirm={async () => {
                                     await DataStore.set(KEY, []);
                                     signals.forEach(x => x());

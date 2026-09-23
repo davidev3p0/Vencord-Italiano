@@ -38,12 +38,12 @@ const BlobMask = findComponentByCodeLazy("!1,lowerBadgeSize:");
 const settings = definePluginSettings({
     backgroundCheck: {
         type: OptionType.BOOLEAN,
-        description: "Check for new sessions in the background, and display notifications when they are detected",
+        description: "Controlla in background la presenza di nuove sessioni e mostra una notifica quando vengono rilevate",
         default: false,
         restartNeeded: true
     },
     checkInterval: {
-        description: "How often to check for new sessions in the background (if enabled), in minutes",
+        description: "Frequenza, in minuti, con cui controllare nuove sessioni in background, se abilitato",
         type: OptionType.NUMBER,
         default: 20,
         restartNeeded: true
@@ -52,7 +52,7 @@ const settings = definePluginSettings({
 
 export default definePlugin({
     name: "BetterSessions",
-    description: "Enhances the sessions (devices) menu. Allows you to view exact timestamps, give each session a custom name, and receive notifications about new sessions.",
+    description: "Migliora il menu delle sessioni (dispositivi). Permette di vedere data e ora esatte, assegnare un nome personalizzato a ogni sessione e ricevere notifiche per le nuove sessioni.",
     authors: [Devs.amia],
     tags: ["Notifications", "Customisation", "Utility"],
     settings: settings,

@@ -27,7 +27,7 @@ let style: HTMLStyleElement;
 const settings = definePluginSettings({
     blurAmount: {
         type: OptionType.NUMBER,
-        description: "Blur Amount (in pixels)",
+        description: "Intensità sfocatura (in pixel)",
         default: 10,
         onChange: setCss
     }
@@ -49,7 +49,7 @@ function setCss() {
 
 export default definePlugin({
     name: "BlurNSFW",
-    description: "Blur attachments in NSFW channels until hovered",
+    description: "Sfoca gli allegati nei canali NSFW finché non ci passi sopra con il mouse",
     tags: ["Privacy", "Appearance"],
     authors: [Devs.Ven],
     settings,

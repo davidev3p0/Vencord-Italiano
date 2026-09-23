@@ -42,7 +42,7 @@ const settings = definePluginSettings({
     // menu handler instead of the web one, which breaks the other menus that aren't enabled
     addBack: {
         type: OptionType.BOOLEAN,
-        description: "Add back the Discord context menus for images, links and the chat input bar",
+        description: "Ripristina i menu contestuali di Discord per immagini, link e barra di input della chat",
         default: false,
         restartNeeded: true,
         // Web slate menu has proper spellcheck suggestions and image context menu is also pretty good,
@@ -77,7 +77,7 @@ function fixImageUrl(urlString: string) {
 
 export default definePlugin({
     name: "WebContextMenus",
-    description: "Re-adds context menus missing in the web version of Discord: Links & Images (Copy/Open Link/Image), Text Area (Copy, Cut, Paste, SpellCheck)",
+    description: "Ripristina i menu contestuali mancanti nella versione web di Discord: Link e immagini (Copia/Apri link/immagine), Area di testo (Copia, Taglia, Incolla, Controllo ortografico)",
     tags: ["Utility"],
     authors: [Devs.Ven],
     enabledByDefault: true,

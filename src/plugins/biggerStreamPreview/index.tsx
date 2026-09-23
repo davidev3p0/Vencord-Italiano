@@ -67,7 +67,7 @@ export const addViewStreamContext: NavContextMenuPatchCallback = (children, { us
 
     const streamPreviewItem = (
         <Menu.MenuItem
-            label="View Stream Preview"
+            label="Visualizza anteprima streaming"
             id="view-stream-preview"
             icon={ScreenshareIcon}
             leadingAccessory={{ type: "icon", icon: ScreenshareIcon }}
@@ -89,7 +89,7 @@ export const userContextPatch: NavContextMenuPatchCallback = (children, { user }
 
 export default definePlugin({
     name: "BiggerStreamPreview",
-    description: "This plugin allows you to enlarge stream previews",
+    description: "Questo plugin consente di ingrandire le anteprime degli streaming",
     tags: ["Media", "Appearance"],
     authors: [Devs.phil],
     contextMenus: {

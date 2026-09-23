@@ -70,19 +70,19 @@ const AllowLevelSettings = ErrorBoundary.wrap(() => {
 const settings = definePluginSettings({
     disableLoggers: {
         type: OptionType.BOOLEAN,
-        description: "Disables Discords loggers",
+        description: "Disabilita i logger di Discord",
         default: false,
         restartNeeded: true
     },
     disableSpotifyLogger: {
         type: OptionType.BOOLEAN,
-        description: "Disable the Spotify logger, which leaks account information and access token",
+        description: "Disabilita il logger di Spotify, che espone informazioni dell'account e token di accesso",
         default: true,
         restartNeeded: true
     },
     whitelistedLoggers: {
         type: OptionType.STRING,
-        description: "Semicolon (;) separated list of loggers to allow even if others are hidden",
+        description: "Elenco di logger separati da punto e virgola (;) da consentire anche se gli altri sono nascosti",
         default: "GatewaySocket; Routing/Utils",
         multiline: true,
         onChange(newVal: string) {
@@ -106,7 +106,7 @@ const settings = definePluginSettings({
 
 export default definePlugin({
     name: "ConsoleJanitor",
-    description: "Disables annoying console messages/errors",
+    description: "Disabilita fastidiosi messaggi/errori della console",
     authors: [Devs.Nuckyz, Devs.sadan],
     tags: ["Developers", "Console", "Utility"],
     settings,

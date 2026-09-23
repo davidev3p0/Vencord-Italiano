@@ -17,23 +17,23 @@ const StatusSettings = getUserSettingLazy<string>("status", "status")!;
 const settings = definePluginSettings({
     statusToSet: {
         type: OptionType.SELECT,
-        description: "Status to set while playing a game",
+        description: "Stato da impostare mentre giochi",
         options: [
             {
                 label: "Online",
                 value: "online",
             },
             {
-                label: "Idle",
+                label: "Inattivo",
                 value: "idle",
             },
             {
-                label: "Do Not Disturb",
+                label: "Non disturbare",
                 value: "dnd",
                 default: true
             },
             {
-                label: "Invisible",
+                label: "Invisibile",
                 value: "invisible",
             }
         ]
@@ -59,7 +59,7 @@ async function setStatus(status: string) {
 
 export default definePlugin({
     name: "AutoDNDWhilePlaying",
-    description: "Automatically updates your online status (online, idle, dnd) when launching games",
+    description: "Aggiorna automaticamente il tuo stato online (online, inattivo, non disturbare) quando avvii un gioco",
     tags: ["Activity", "Utility"],
     authors: [Devs.thororen],
     settings,

@@ -54,7 +54,7 @@ export function NumberSetting({ setting, pluginSettings, definedSettings, id, on
             <TextInput
                 type="number"
                 pattern="-?[0-9]+"
-                placeholder={setting.placeholder ?? "Enter a number"}
+                placeholder={setting.placeholder ?? "Inserisci un numero"}
                 value={state}
                 onChange={handleChange}
                 disabled={isSettingDisabled(definedSettings, setting)}

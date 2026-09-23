@@ -50,7 +50,7 @@ function ContributorModal({ user, modalProps }: { user: User; modalProps: Render
             .sort((a, b) => Number(a.required ?? false) - Number(b.required ?? false));
     }, [user.id, user.username]);
 
-    const ContributedHyperLink = <Link href="https://vencord.dev/source">contributed</Link>;
+    const ContributedHyperLink = <Link href="https://vencord.dev/source">contribuito</Link>;
 
     return (
         <Modal
@@ -84,12 +84,12 @@ function ContributorModal({ user, modalProps }: { user: User; modalProps: Render
                 plugins.length
                     ? (
                         <Forms.FormText>
-                            This person has {ContributedHyperLink} to {pluralise(plugins.length, "plugin")}!
+                            Questa persona ha {ContributedHyperLink} a {pluralise(plugins.length, "plugin")}!
                         </Forms.FormText>
                     )
                     : (
                         <Forms.FormText>
-                            This person has not made any plugins. They likely {ContributedHyperLink} to Vencord in other ways!
+                            Questa persona non ha creato plugin. Probabilmente ha {ContributedHyperLink} a Vencord in altri modi!
                         </Forms.FormText>
                     )
             }
@@ -101,7 +101,7 @@ function ContributorModal({ user, modalProps }: { user: User; modalProps: Render
                             key={p.name}
                             plugin={p}
                             disabled={p.required ?? false}
-                            onRestartNeeded={() => showToast("Restart to apply changes!")}
+                            onRestartNeeded={() => showToast("Riavvia per applicare le modifiche!")}
                         />
                     )}
                 </div>

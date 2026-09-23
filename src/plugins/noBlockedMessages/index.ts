@@ -33,13 +33,13 @@ interface MessageDeleteProps {
 migratePluginSetting("NoBlockedMessages", "ignoreBlockedMessages", "ignoreMessages");
 const settings = definePluginSettings({
     ignoreMessages: {
-        description: "Completely ignores incoming messages from blocked and ignored (if enabled) users",
+        description: "Ignora completamente i messaggi in arrivo da utenti bloccati e, se abilitato, ignorati",
         type: OptionType.BOOLEAN,
         default: false,
         restartNeeded: true
     },
     applyToIgnoredUsers: {
-        description: "Additionally apply to 'ignored' users",
+        description: "Applica anche agli utenti 'ignorati'",
         type: OptionType.BOOLEAN,
         default: true,
         restartNeeded: false
@@ -48,7 +48,7 @@ const settings = definePluginSettings({
 
 export default definePlugin({
     name: "NoBlockedMessages",
-    description: "Hides all blocked/ignored messages from chat completely",
+    description: "Nasconde completamente dalla chat tutti i messaggi di utenti bloccati/ignorati",
     authors: [Devs.rushii, Devs.Samu, Devs.jamesbt365],
     tags: ["Accessibility", "Chat"],
     settings,

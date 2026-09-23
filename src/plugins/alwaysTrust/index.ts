@@ -24,20 +24,20 @@ const settings = definePluginSettings({
     domain: {
         type: OptionType.BOOLEAN,
         default: true,
-        description: "Remove the untrusted domain popup when opening links",
+        description: "Rimuovi l'avviso di dominio non attendibile quando apri i link",
         restartNeeded: true
     },
     file: {
         type: OptionType.BOOLEAN,
         default: true,
-        description: "Remove the 'Potentially Dangerous Download' popup when opening links",
+        description: "Rimuovi l'avviso 'Download potenzialmente pericoloso' quando apri i link",
         restartNeeded: true
     }
 });
 
 export default definePlugin({
     name: "AlwaysTrust",
-    description: "Removes the annoying untrusted domain and suspicious file popup",
+    description: "Rimuove i fastidiosi avvisi per domini non attendibili e file sospetti",
     tags: ["Utility"],
     authors: [Devs.zt, Devs.Trwy],
     patches: [

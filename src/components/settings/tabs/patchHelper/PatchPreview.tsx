@@ -48,12 +48,12 @@ function Match({ matchResult }: { matchResult: RegExpMatchArray | null; }) {
         ? makeCodeblock(matchResult[0], "js")
         : "";
     const groups = matchResult.length > 1
-        ? makeCodeblock(matchResult.slice(1).map((g, i) => `Group ${i + 1}: ${g}`).join("\n"), "yml")
+        ? makeCodeblock(matchResult.slice(1).map((g, i) => `Gruppo ${i + 1}: ${g}`).join("\n"), "yml")
         : "";
 
     return (
         <>
-            <Forms.FormTitle>Match</Forms.FormTitle>
+            <Forms.FormTitle>Corrispondenza</Forms.FormTitle>
             <div style={{ userSelect: "text" }}>{Parser.parse(fullMatch)}</div>
             <div style={{ userSelect: "text" }}>{Parser.parse(groups)}</div>
         </>
@@ -83,7 +83,7 @@ function Diff({ diff }: { diff: Change[] | null; }) {
 
     return (
         <>
-            <Forms.FormTitle>Diff</Forms.FormTitle>
+            <Forms.FormTitle>Differenze</Forms.FormTitle>
             {diffLines}
         </>
     );
@@ -118,7 +118,7 @@ export function PatchPreview({ module, match, replacement, setReplacementError }
 
     return (
         <>
-            <Forms.FormTitle>Module {id}</Forms.FormTitle>
+            <Forms.FormTitle>Modulo {id}</Forms.FormTitle>
 
             <Match matchResult={matchResult} />
             <Diff diff={diff} />
@@ -132,13 +132,13 @@ export function PatchPreview({ module, match, replacement, setReplacementError }
                             const wrappedCode = "0," + (!isArrowFunction ? "function" : "") + patchedCode.slice(patchedCode.indexOf("("));
                             Function(wrappedCode);
 
-                            setCompileResult([true, "Compiled successfully"]);
+                            setCompileResult([true, "Compilazione riuscita"]);
                         } catch (err) {
                             setCompileResult([false, (err as Error).message]);
                         }
                     }}
                 >
-                    Compile
+                    Compila
                 </Button>
             )}
 

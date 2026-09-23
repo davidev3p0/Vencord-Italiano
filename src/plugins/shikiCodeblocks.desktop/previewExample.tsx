@@ -9,5 +9,5 @@ export const Example: React.FC<{
     shigged?: number,
 }> = ({ real, shigged }) => <>
     <p>{`Shigg${real ? `ies${shigged === 0x1B ? "t" : ""}` : "y"}`}</p>
-    <button onClick={handleClick}>Click Me</button>
+    <button onClick={handleClick}>Fai clic</button>
 </>;

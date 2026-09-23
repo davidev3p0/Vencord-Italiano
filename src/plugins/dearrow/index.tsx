@@ -119,7 +119,7 @@ function DearrowButton({ component }: { component: Component<Props>; }) {
                         width="24px"
                         height="24px"
                         viewBox="0 0 36 36"
-                        aria-label="Toggle Dearrow"
+                        aria-label="Attiva/disattiva Dearrow"
                         className="vc-dearrow-icon"
                     >
                         <path
@@ -144,23 +144,23 @@ function DearrowButton({ component }: { component: Component<Props>; }) {
 
 const settings = definePluginSettings({
     hideButton: {
-        description: "Hides the Dearrow button from YouTube embeds",
+        description: "Nasconde il pulsante Dearrow dagli incorporamenti YouTube",
         type: OptionType.BOOLEAN,
         default: false,
         restartNeeded: true
     },
     replaceElements: {
-        description: "Choose which elements of the embed will be replaced",
+        description: "Scegli quali elementi dell'incorporamento verranno sostituiti",
         type: OptionType.SELECT,
         restartNeeded: true,
         options: [
-            { label: "Everything (Titles & Thumbnails)", value: ReplaceElements.ReplaceAllElements, default: true },
-            { label: "Titles", value: ReplaceElements.ReplaceTitlesOnly },
-            { label: "Thumbnails", value: ReplaceElements.ReplaceThumbnailsOnly },
+            { label: "Tutto (titoli e miniature)", value: ReplaceElements.ReplaceAllElements, default: true },
+            { label: "Titoli", value: ReplaceElements.ReplaceTitlesOnly },
+            { label: "Miniature", value: ReplaceElements.ReplaceThumbnailsOnly },
         ],
     },
     dearrowByDefault: {
-        description: "Dearrow videos automatically",
+        description: "Applica Dearrow automaticamente ai video",
         type: OptionType.BOOLEAN,
         default: true,
         restartNeeded: false
@@ -169,7 +169,7 @@ const settings = definePluginSettings({
 
 export default definePlugin({
     name: "Dearrow",
-    description: "Makes YouTube embed titles and thumbnails less sensationalist, powered by Dearrow",
+    description: "Rende meno sensazionalistici titoli e miniature degli incorporamenti YouTube tramite Dearrow",
     tags: ["Media", "Utility"],
     authors: [Devs.Ven],
     settings,

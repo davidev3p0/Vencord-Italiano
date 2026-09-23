@@ -29,7 +29,7 @@ import alignedChatInputFix from "./alignedChatInputFix.css?managed";
 const settings = definePluginSettings({
     format: {
         type: OptionType.SELECT,
-        description: "The timer format. This can be any valid moment.js format",
+        description: "Formato del timer. Può essere qualsiasi formato valido di moment.js",
         options: [
             {
                 label: "30d 23:00:42",
@@ -48,7 +48,7 @@ const settings = definePluginSettings({
 
 export default definePlugin({
     name: "CallTimer",
-    description: "Adds a timer to vcs",
+    description: "Aggiunge un timer alle chat vocali",
     tags: ["Voice", "Utility"],
     authors: [Devs.Ven],
     managedStyle: alignedChatInputFix,

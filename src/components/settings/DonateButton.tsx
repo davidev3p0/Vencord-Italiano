@@ -34,7 +34,7 @@ export default function DonateButton({
             className="vc-donate-button"
         >
             <Heart />
-            Donate
+            Dona
         </Button>
     );
 }

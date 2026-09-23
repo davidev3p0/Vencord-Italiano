@@ -41,14 +41,14 @@ export function TextSetting({ setting, pluginSettings, definedSettings, id, onCh
         <SettingsSection name={setting.displayName} id={id} description={setting.description} error={error}>
             {setting.multiline
                 ? <TextArea
-                    placeholder={setting.placeholder ?? "Enter a value"}
+                    placeholder={setting.placeholder ?? "Inserisci un valore"}
                     value={state}
                     onChange={handleChange}
                     disabled={isSettingDisabled(definedSettings, setting)}
                     {...setting.componentProps} />
                 : <TextInput
                     type="text"
-                    placeholder={setting.placeholder ?? "Enter a value"}
+                    placeholder={setting.placeholder ?? "Inserisci un valore"}
                     value={state}
                     onChange={handleChange}
                     maxLength={null}

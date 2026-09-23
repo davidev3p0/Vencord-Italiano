@@ -22,12 +22,12 @@ import { OptionType } from "@utils/types";
 export const settings = definePluginSettings({
     noiseSuppression: {
         type: OptionType.BOOLEAN,
-        description: "Noise Suppression",
+        description: "Soppressione del rumore",
         default: true,
     },
     echoCancellation: {
         type: OptionType.BOOLEAN,
-        description: "Echo Cancellation",
+        description: "Cancellazione dell'eco",
         default: true,
     },
 });

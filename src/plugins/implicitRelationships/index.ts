@@ -27,7 +27,7 @@ const settings = definePluginSettings(
         sortByAffinity: {
             type: OptionType.BOOLEAN,
             default: true,
-            description: "Whether to sort implicit relationships by their affinity to you.",
+            description: "Ordina le relazioni implicite in base alla loro affinità con te.",
             restartNeeded: true
         },
     }
@@ -35,7 +35,7 @@ const settings = definePluginSettings(
 
 export default definePlugin({
     name: "ImplicitRelationships",
-    description: "Shows your implicit relationships in the Friends tab.",
+    description: "Mostra le tue relazioni implicite nella scheda Amici.",
     tags: ["Friends", "Servers"],
     authors: [Devs.Dolfies],
     settings,

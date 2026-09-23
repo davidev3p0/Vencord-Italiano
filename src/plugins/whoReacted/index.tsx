@@ -120,7 +120,7 @@ function ReactionUsers({ message, users }: { message: Message, users: User[]; })
 
 const settings = definePluginSettings({
     clickableAvatars: {
-        description: "While this is enabled, clicking a reacting user's avatar will open their profile instead of adding the reaction",
+        description: "Quando è abilitato, facendo clic sull'avatar di un utente che ha reagito aprirai il suo profilo invece di aggiungere la reazione",
         type: OptionType.BOOLEAN,
         default: true,
         restartNeeded: true
@@ -129,7 +129,7 @@ const settings = definePluginSettings({
 
 export default definePlugin({
     name: "WhoReacted",
-    description: "Renders the avatars of users who reacted to a message",
+    description: "Mostra gli avatar degli utenti che hanno reagito a un messaggio",
     tags: ["Reactions", "Chat", "Appearance"],
     authors: [Devs.Ven, Devs.KannaDev, Devs.newwares, Devs.paige],
     settings,

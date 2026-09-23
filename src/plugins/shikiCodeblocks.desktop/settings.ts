@@ -33,7 +33,7 @@ export type ShikiSettings = typeof settings.store;
 export const settings = definePluginSettings({
     theme: {
         type: OptionType.SELECT,
-        description: "Default themes",
+        description: "Temi predefiniti",
         options: themeNames.map(themeName => ({
             label: wordsToTitle(wordsFromPascal(themeName)),
             value: themes[themeName],
@@ -43,7 +43,7 @@ export const settings = definePluginSettings({
     },
     customTheme: {
         type: OptionType.STRING,
-        description: "A link to a custom vscode theme",
+        description: "Link a un tema VS Code personalizzato",
         placeholder: themes.MaterialCandy,
         onChange: value => {
             shiki.setTheme(value || settings.store.theme);
@@ -51,43 +51,43 @@ export const settings = definePluginSettings({
     },
     tryHljs: {
         type: OptionType.SELECT,
-        displayName: "Try Highlight.js",
-        description: "Use the more lightweight default Discord highlighter and theme.",
+        displayName: "Prova Highlight.js",
+        description: "Usa l'evidenziatore e il tema predefiniti di Discord, più leggeri.",
         options: [
             {
-                label: "Never",
+                label: "Mai",
                 value: HljsSetting.Never,
             },
             {
-                label: "Prefer Shiki instead of Highlight.js",
+                label: "Preferisci Shiki a Highlight.js",
                 value: HljsSetting.Secondary,
                 default: true,
             },
             {
-                label: "Prefer Highlight.js instead of Shiki",
+                label: "Preferisci Highlight.js a Shiki",
                 value: HljsSetting.Primary,
             },
             {
-                label: "Always",
+                label: "Sempre",
                 value: HljsSetting.Always,
             },
         ],
     },
     useDevIcon: {
         type: OptionType.SELECT,
-        description: "How to show language icons on codeblocks",
+        description: "Come mostrare le icone dei linguaggi nei blocchi di codice",
         options: [
             {
-                label: "Disabled",
+                label: "Disabilitato",
                 value: DeviconSetting.Disabled,
             },
             {
-                label: "Colorless",
+                label: "Senza colori",
                 value: DeviconSetting.Greyscale,
                 default: true,
             },
             {
-                label: "Colored",
+                label: "Colorato",
                 value: DeviconSetting.Color,
             },
         ],
@@ -98,7 +98,7 @@ export const settings = definePluginSettings({
     },
     bgOpacity: {
         type: OptionType.SLIDER,
-        description: "Background opacity",
+        description: "Opacità sfondo",
         markers: [0, 20, 40, 60, 80, 100],
         default: 100,
         stickToMarkers: false,

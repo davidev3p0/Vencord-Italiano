@@ -10,16 +10,16 @@ import { ConfirmModal,openModal, Parser } from "@webpack/common";
 
 function getErrorMessage(e: any) {
     if (!e?.code || !e.cmd)
-        return "An unknown error occurred.\nPlease try again or see the console for more info.";
+        return "Si è verificato un errore sconosciuto.\nRiprova oppure controlla la console per maggiori informazioni.";
 
     const { code, path, cmd, stderr } = e;
 
     if (code === "ENOENT")
-        return `Command \`${path}\` not found.\nPlease install it and try again.`;
+        return `Comando \`${path}\` non trovato.\nInstallalo e riprova.`;
 
-    const extra = stderr || `Code \`${code}\`. See the console for more info.`;
+    const extra = stderr || `Codice \`${code}\`. Controlla la console per maggiori informazioni.`;
 
-    return `An error occurred while running \`${cmd}\`:\n${extra}`;
+    return `Si è verificato un errore durante l’esecuzione di \`${cmd}\`:\n${extra}`;
 }
 
 export function runWithDispatch(dispatch: React.Dispatch<React.SetStateAction<boolean>>, action: () => any) {
@@ -36,7 +36,7 @@ export function runWithDispatch(dispatch: React.Dispatch<React.SetStateAction<bo
             openModal(props => (
                 <ConfirmModal
                     {...props}
-                    title="Oops!"
+                    title="Ops!"
                     confirmText="OK"
                     variant="primary"
                 >

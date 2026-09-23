@@ -75,46 +75,46 @@ const messageFetchQueue = new Queue();
 
 const settings = definePluginSettings({
     messageBackgroundColor: {
-        description: "Background color for messages in rich embeds",
+        description: "Colore di sfondo dei messaggi negli incorporamenti avanzati",
         type: OptionType.BOOLEAN
     },
     automodEmbeds: {
-        description: "Use automod embeds instead of rich embeds (smaller but less info)",
+        description: "Usa gli incorporamenti AutoMod invece di quelli avanzati (più piccoli ma con meno informazioni)",
         type: OptionType.SELECT,
         options: [
             {
-                label: "Always use automod embeds",
+                label: "Usa sempre gli incorporamenti AutoMod",
                 value: "always"
             },
             {
-                label: "Prefer automod embeds, but use rich embeds if some content can't be shown",
+                label: "Preferisci gli incorporamenti AutoMod, ma usa quelli avanzati se alcuni contenuti non possono essere mostrati",
                 value: "prefer"
             },
             {
-                label: "Never use automod embeds",
+                label: "Non usare mai gli incorporamenti AutoMod",
                 value: "never",
                 default: true
             }
         ]
     },
     listMode: {
-        description: "Whether to use ID list as blacklist or whitelist",
+        description: "Usa l'elenco ID come lista nera o lista consentita",
         type: OptionType.SELECT,
         options: [
             {
-                label: "Blacklist",
+                label: "Lista nera",
                 value: "blacklist",
                 default: true
             },
             {
-                label: "Whitelist",
+                label: "Lista consentita",
                 value: "whitelist"
             }
         ]
     },
     idList: {
-        displayName: "ID List",
-        description: "Guild/channel/user IDs to blacklist or whitelist (separate with comma)",
+        displayName: "Elenco ID",
+        description: "ID di server/canali/utenti da inserire nella lista nera o consentita, separati da virgole",
         type: OptionType.STRING,
         default: "",
         multiline: true,
@@ -123,7 +123,7 @@ const settings = definePluginSettings({
         type: OptionType.COMPONENT,
         component: () => (
             <Button onClick={() => messageCache.clear()}>
-                Clear the linked message cache
+                Svuota cache dei messaggi collegati
             </Button>
         )
     }
@@ -382,7 +382,7 @@ function AutomodEmbedAccessory(props: MessageEmbedProps): JSX.Element | null {
 
 export default definePlugin({
     name: "MessageLinkEmbeds",
-    description: "Adds a preview to messages that link another message",
+    description: "Aggiunge un'anteprima ai messaggi che contengono il link a un altro messaggio",
     tags: ["Chat", "Appearance"],
     authors: [Devs.TheSun, Devs.Ven, Devs.RyanCaoDev],
     dependencies: ["MessageAccessoriesAPI", "MessageUpdaterAPI", "UserSettingsAPI"],

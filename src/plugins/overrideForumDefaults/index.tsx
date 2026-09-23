@@ -12,24 +12,24 @@ const settings = definePluginSettings({
     defaultLayout: {
         type: OptionType.SELECT,
         options: [
-            { label: "List", value: 1, default: true },
-            { label: "Gallery", value: 2 }
+            { label: "Elenco", value: 1, default: true },
+            { label: "Galleria", value: 2 }
         ],
-        description: "Which layout to use as default"
+        description: "Layout da usare come predefinito"
     },
     defaultSortOrder: {
         type: OptionType.SELECT,
         options: [
-            { label: "Recently Active", value: 0, default: true },
-            { label: "Date Posted", value: 1 }
+            { label: "Attivi di recente", value: 0, default: true },
+            { label: "Data di pubblicazione", value: 1 }
         ],
-        description: "Which sort order to use as default"
+        description: "Ordinamento da usare come predefinito"
     }
 });
 
 export default definePlugin({
     name: "OverrideForumDefaults",
-    description: "Allows you to override default forum layout/sort order. you can still change it on a per-channel basis",
+    description: "Consente di sostituire il layout e l'ordinamento predefiniti dei forum. Puoi comunque modificarli per ogni singolo canale",
     tags: ["Servers", "Organisation", "Customisation"],
     authors: [Devs.Inbestigator],
     patches: [

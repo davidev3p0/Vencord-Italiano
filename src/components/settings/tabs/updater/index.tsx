@@ -44,19 +44,19 @@ function VesktopSection() {
     return (
         <Flex className={Margins.bottom20} flexDirection="column" gap="1em">
             <Card variant="info">
-                <HeadingSecondary>Vesktop & Vencord</HeadingSecondary>
-                <Paragraph>Vesktop and Vencord are two separate things. This updater is for Vencord.</Paragraph>
+                <HeadingSecondary>Vesktop e Vencord</HeadingSecondary>
+                <Paragraph>Vesktop e Vencord sono due elementi separati. Questo strumento aggiorna Vencord.</Paragraph>
                 <Paragraph className={Margins.top8}>
-                    You receive separate popups for Vesktop updates. You can also manually update by installing the <Link href="https://vesktop.dev/install">latest version</Link>.
+                    Riceverai avvisi separati per gli aggiornamenti di Vesktop. Puoi anche aggiornarlo manualmente installando la <Link href="https://vesktop.dev/install">versione più recente</Link>.
                 </Paragraph>
             </Card>
 
             {isVesktopOutdated && (
                 <Card variant="warning">
-                    <HeadingSecondary>Vesktop Outdated</HeadingSecondary>
+                    <HeadingSecondary>Vesktop non aggiornato</HeadingSecondary>
                     <Flex flexDirection="column" gap="0.5em">
-                        <Paragraph>Your version of Vesktop is outdated!</Paragraph>
-                        <Button variant="link" onClick={() => VesktopNative.app.openUpdater()}>Open Vesktop Updater</Button>
+                        <Paragraph>La tua versione di Vesktop non è aggiornata!</Paragraph>
+                        <Button variant="link" onClick={() => VesktopNative.app.openUpdater()}>Apri aggiornamento Vesktop</Button>
                     </Flex>
                 </Card>
             )}
@@ -68,8 +68,8 @@ function Updater() {
     const settings = useSettings(["autoUpdate", "autoUpdateNotification"]);
 
     const [repo, err, repoPending] = useAwaiter(getRepo, {
-        fallbackValue: "Loading...",
-        onError: e => UpdateLogger.error("Failed to retrieve repo", err)
+        fallbackValue: "Caricamento...",
+        onError: e => UpdateLogger.error("Impossibile recuperare il repository", err)
     });
 
     const commonProps: CommonProps = {
@@ -83,15 +83,15 @@ function Updater() {
 
             <div className="vc-settings-switches">
                 <FormSwitch
-                    title="Automatically update"
-                    description="Automatically update Vencord without confirmation prompt"
+                    title="Aggiorna automaticamente"
+                    description="Aggiorna automaticamente Vencord senza chiedere conferma"
                     value={settings.autoUpdate}
                     onChange={(v: boolean) => settings.autoUpdate = v}
                     hideBorder
                 />
                 <FormSwitch
-                    title="Get notified when an automatic update completes"
-                    description="Show a notification when Vencord automatically updates"
+                    title="Notifica al termine di un aggiornamento automatico"
+                    description="Mostra una notifica quando Vencord viene aggiornato automaticamente"
                     value={settings.autoUpdateNotification}
                     onChange={(v: boolean) => settings.autoUpdateNotification = v}
                     disabled={!settings.autoUpdate}
@@ -99,13 +99,13 @@ function Updater() {
                 />
             </div>
 
-            <Forms.FormTitle tag="h5" className={Margins.top20}>Repo</Forms.FormTitle>
+            <Forms.FormTitle tag="h5" className={Margins.top20}>Repository</Forms.FormTitle>
 
             <Forms.FormText>
                 {repoPending
                     ? repo
                     : err
-                        ? "Failed to retrieve - check console"
+                        ? "Recupero non riuscito - controlla la console"
                         : (
                             <Link href={repo}>
                                 {repo.split("/").slice(-2).join("/")}
@@ -118,7 +118,7 @@ function Updater() {
 
             <Divider className={classes(Margins.top16, Margins.bottom16)} />
 
-            <Forms.FormTitle tag="h5">Updates</Forms.FormTitle>
+            <Forms.FormTitle tag="h5">Aggiornamenti</Forms.FormTitle>
 
             {isNewer
                 ? <Newer {...commonProps} />
@@ -130,4 +130,4 @@ function Updater() {
 
 export default IS_UPDATER_DISABLED
     ? null
-    : wrapTab(Updater, "Updater");
+    : wrapTab(Updater, "Aggiornamenti");

@@ -19,26 +19,26 @@ export const settings = definePluginSettings({
         type: OptionType.COMPONENT,
         component({ closePluginSettings }) {
             if (!DecorPlugin.started) return <Forms.FormText>
-                Enable Decor and restart your client to change your avatar decoration.
+                Abilita Decor e riavvia il client per cambiare la decorazione dell’avatar.
             </Forms.FormText>;
 
             return <div>
                 <DecorSection hideTitle hideDivider noMargin />
                 <Forms.FormText className={classes(Margins.top8, Margins.bottom8)}>
-                    You can also access Decor decorations from the <TextButton
+                    Puoi accedere alle decorazioni Decor anche dalla pagina <TextButton
                         variant="link"
                         onClick={async () => {
                             closePluginSettings();
                             SettingsRouter.openUserSettings("profile_panel");
                         }}
-                    >Profiles</TextButton> page.
+                    >Profili</TextButton>
                 </Forms.FormText>
             </div>;
         }
     },
     agreedToGuidelines: {
         type: OptionType.BOOLEAN,
-        description: "Agreed to guidelines",
+        description: "Linee guida accettate",
         hidden: true,
         default: false
     }

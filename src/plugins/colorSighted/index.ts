@@ -21,7 +21,7 @@ import definePlugin from "@utils/types";
 
 export default definePlugin({
     name: "ColorSighted",
-    description: "Removes the colorblind-friendly icons from statuses, just like 2015-2017 Discord",
+    description: "Rimuove le icone accessibili ai daltonici dagli stati, come in Discord 2015-2017",
     authors: [Devs.lewisakura],
     tags: ["Appearance", "Accessibility"],
     patches: [

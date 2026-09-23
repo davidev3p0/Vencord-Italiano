@@ -66,7 +66,7 @@ export function authorize(callback?: () => void) {
 
                     const { token } = await res.json();
                     updateAuth({ token });
-                    showToast("Successfully logged in!", Toasts.Type.SUCCESS);
+                    showToast("Accesso effettuato correttamente!", Toasts.Type.SUCCESS);
                     callback?.();
                 } catch (e) {
                     new Logger("ReviewDB").error("Failed to authorize", e);

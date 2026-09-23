@@ -69,7 +69,7 @@ export function AddonCard({ disabled, isNew, name, infoButton, footer, author, e
                                 {name}
                             </div>
                         </div>
-                        {isNew && <AddonBadge text="NEW" color="#ED4245" />}
+                        {isNew && <AddonBadge text="NUOVO" color="#ED4245" />}
                     </Text>
 
                     {!!author && (

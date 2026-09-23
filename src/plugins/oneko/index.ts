@@ -21,7 +21,7 @@ import definePlugin from "@utils/types";
 
 export default definePlugin({
     name: "oneko",
-    description: "cat follow mouse (real)",
+    description: "il gatto segue il mouse (davvero)",
     tags: ["Fun", "Appearance"],
     // Listing adryd here because this literally just evals her script
     authors: [Devs.Ven, Devs.adryd],

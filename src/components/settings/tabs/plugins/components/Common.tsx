@@ -6,7 +6,7 @@
 
 import { classNameFactory } from "@utils/css";
 import { classes } from "@utils/misc";
-import { wordsFromCamel, wordsToTitle } from "@utils/text";
+import { italianSettingName } from "@utils/italian";
 import { DefinedSettings, PluginSettingDefCommon } from "@utils/types";
 import { Text } from "@webpack/common";
 import { PropsWithChildren } from "react";
@@ -31,7 +31,7 @@ export type ComponentSettingProps<T extends Omit<PluginSettingDefCommon, "descri
 export function resolveError(isValidResult: boolean | string) {
     if (typeof isValidResult === "string") return isValidResult;
 
-    return isValidResult ? null : "Invalid input provided";
+    return isValidResult ? null : "Valore inserito non valido";
 }
 
 interface SettingsSectionProps extends PropsWithChildren {
@@ -48,7 +48,7 @@ export function SettingsSection({ tag: Tag = "div", name, id, description, error
         <Tag className={cl("section")}>
             <div className={classes(cl("content"), inlineSetting && cl("inline"))}>
                 <div className={cl("label")}>
-                    <Text className={cl("title")} variant="text-md/medium">{name ?? wordsToTitle(wordsFromCamel(id))}</Text>
+                    <Text className={cl("title")} variant="text-md/medium">{name ?? italianSettingName(id)}</Text>
                     {description && <Text className={cl("description")} variant="text-sm/normal">{description}</Text>}
                 </div>
                 {children}

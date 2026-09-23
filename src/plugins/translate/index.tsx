@@ -39,7 +39,7 @@ const messageCtxPatch: NavContextMenuPatchCallback = (children, { message }: { m
     group.splice(group.findIndex(c => c?.props?.id === "copy-text") + 1, 0, (
         <Menu.MenuItem
             id="vc-trans"
-            label="Translate"
+            label="Traduci"
             icon={TranslateIcon}
             leadingAccessory={{ type: "icon", icon: TranslateIcon }}
             action={async () => {
@@ -63,8 +63,8 @@ function getMessageContent(message: Message) {
 let tooltipTimeout: any;
 
 export default definePlugin({
-    name: "Translate",
-    description: "Translate messages with Google Translate, DeepL or Kagi.",
+    name: "Traduci",
+    description: "Traduci i messaggi con Google Translate, DeepL o Kagi.",
     tags: ["Chat", "Utility"],
     authors: [Devs.Ven, Devs.AshtonMemer, Devs.koish1],
     settings,
@@ -88,7 +88,7 @@ export default definePlugin({
             if (!content) return null;
 
             return {
-                label: "Translate",
+                label: "Traduci",
                 icon: TranslateIcon,
                 message,
                 channel: ChannelStore.getChannel(message.channel_id),

@@ -30,35 +30,35 @@ export const settings = definePluginSettings({
         type: OptionType.COMPONENT,
         component: () => (
             <Button onClick={() => authorize()}>
-                Authorize with ReviewDB
+                Autorizza con ReviewDB
             </Button>
         )
     },
     notifyReviews: {
         type: OptionType.BOOLEAN,
-        description: "Notify about new reviews on startup",
+        description: "Notifica nuove recensioni all'avvio",
         default: true,
     },
     showWarning: {
         type: OptionType.BOOLEAN,
-        description: "Display warning to be respectful at the top of the reviews list",
+        description: "Mostra un avviso per invitare al rispetto in cima all'elenco recensioni",
         default: true,
     },
     hideTimestamps: {
         type: OptionType.BOOLEAN,
-        description: "Hide timestamps on reviews",
+        description: "Nascondi i timestamp nelle recensioni",
         default: false,
     },
     hideBlockedUsers: {
         type: OptionType.BOOLEAN,
-        description: "Hide reviews from blocked users",
+        description: "Nascondi le recensioni degli utenti bloccati",
         default: true,
     },
     buttons: {
         type: OptionType.COMPONENT,
         component: () => (
             <div className={cl("button-grid")} >
-                <Button onClick={openBlockModal}>Manage Blocked Users</Button>
+                <Button onClick={openBlockModal}>Gestisci utenti bloccati</Button>
 
                 <Button
                     variant="positive"
@@ -66,7 +66,7 @@ export const settings = definePluginSettings({
                         VencordNative.native.openExternal("https://github.com/sponsors/mantikafasi");
                     }}
                 >
-                    Support ReviewDB development
+                    Sostieni lo sviluppo di ReviewDB
                 </Button>
 
                 <Button variant="link" onClick={async () => {
@@ -77,12 +77,12 @@ export const settings = definePluginSettings({
 
                     VencordNative.native.openExternal(url);
                 }}>
-                    ReviewDB website
+                    Sito ReviewDB
                 </Button>
 
 
                 <Button variant="link" onClick={() => openInviteModal("eWPBSbvznt")}>
-                    ReviewDB Support Server
+                    Server di supporto ReviewDB
                 </Button>
             </div >
         )

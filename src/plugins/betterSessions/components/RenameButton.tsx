@@ -27,7 +27,7 @@ export function RenameButton({ session, state }: { session: SessionInfo["session
                 ))
             }
         >
-            Rename
+            Rinomina
         </Button>
     );
 }
@@ -39,7 +39,7 @@ export function NewButton() {
             size="min"
             className={cl("new-btn")}
         >
-            NEW
+            NUOVO
         </Button>
     );
 }

@@ -53,13 +53,13 @@ function ThemesTab() {
                     className="vc-settings-tab-bar-item"
                     id={ThemeTab.LOCAL}
                 >
-                    Local Themes
+                    Temi locali
                 </TabBar.Item>
                 <TabBar.Item
                     className="vc-settings-tab-bar-item"
                     id={ThemeTab.ONLINE}
                 >
-                    Online Themes
+                    Temi online
                 </TabBar.Item>
             </TabBar>
 
@@ -67,10 +67,9 @@ function ThemesTab() {
                 <CspErrorCard />
 
                 <Card variant="warning">
-                    <BaseText tag="h3" size="md" weight="medium" className={Margins.bottom8}>Theme Performance</BaseText>
+                    <BaseText tag="h3" size="md" weight="medium" className={Margins.bottom8}>Prestazioni dei temi</BaseText>
                     <Paragraph>
-                        Themes and custom CSS have the potential to cause major lag! If you experience performance issues, try
-                        disabling your themes and CSS to see if they're the cause. The most common cause of lag is the <code>:has()</code> operator.
+                        I temi e il CSS personalizzato possono causare rallentamenti importanti! Se riscontri problemi di prestazioni, prova a disabilitare temi e CSS per verificare se sono la causa. La causa più comune di rallentamenti è l’operatore <code>:has()</code>.
                     </Paragraph>
                 </Card>
 
@@ -85,10 +84,10 @@ function UserscriptThemesTab() {
     return (
         <SettingsTab>
             <Card variant="danger">
-                <Forms.FormTitle tag="h5">Themes are not supported on the Userscript!</Forms.FormTitle>
+                <Forms.FormTitle tag="h5">I temi non sono supportati nello Userscript!</Forms.FormTitle>
 
                 <Forms.FormText>
-                    You can instead install themes with the <Link href={getStylusWebStoreUrl()}>Stylus extension</Link>!
+                    Puoi installare i temi usando invece l’<Link href={getStylusWebStoreUrl()}>estensione Stylus</Link>!
                 </Forms.FormText>
             </Card>
         </SettingsTab>
@@ -96,5 +95,5 @@ function UserscriptThemesTab() {
 }
 
 export default IS_USERSCRIPT
-    ? wrapTab(UserscriptThemesTab, "Themes")
-    : wrapTab(ThemesTab, "Themes");
+    ? wrapTab(UserscriptThemesTab, "Temi")
+    : wrapTab(ThemesTab, "Temi");

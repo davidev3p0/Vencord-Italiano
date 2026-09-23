@@ -44,7 +44,7 @@ function buildMenuItem(sticker: PartialSticker, addBottomSeparator: boolean) {
                 <Menu.MenuItem
                     id="vc-copy-sticker-link"
                     key="vc-copy-sticker-link"
-                    label="Copy Sticker Link"
+                    label="Copia link sticker"
                     leadingAccessory={{ type: "icon", icon: LinkIcon }}
                     action={() => copyWithToast(getUrl(sticker), "Link copied!")}
                 />
@@ -52,7 +52,7 @@ function buildMenuItem(sticker: PartialSticker, addBottomSeparator: boolean) {
                 <Menu.MenuItem
                     id="vc-open-sticker-link"
                     key="vc-open-sticker-link"
-                    label="Open Sticker Link"
+                    label="Apri link sticker"
                     leadingAccessory={{ type: "icon", icon: LinkIcon }}
                     trailingIndicator={{ type: "icon", icon: TopRightArrow }}
                     action={() => VencordNative.native.openExternal(getUrl(sticker))}
@@ -88,7 +88,7 @@ const expressionPickerPatch: NavContextMenuPatchCallback = (children, props: { t
 
 export default definePlugin({
     name: "CopyStickerLinks",
-    description: "Adds the ability to copy & open Sticker links",
+    description: "Aggiunge la possibilità di copiare e aprire i link degli adesivi",
     tags: ["Emotes", "Utility"],
     authors: [Devs.Ven, Devs.Byeoon],
     contextMenus: {

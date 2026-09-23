@@ -19,7 +19,7 @@ const makePatch: (showIcon: boolean) => NavContextMenuPatchCallback = showIcon =
     group?.push(
         <Menu.MenuItem
             id="vc-server-info"
-            label="Server Info"
+            label="Informazioni server"
             leadingAccessory={showIcon ? { type: "icon", icon: InfoIcon } : undefined}
             action={() => openGuildInfoModal(guild)}
         />
@@ -28,7 +28,7 @@ const makePatch: (showIcon: boolean) => NavContextMenuPatchCallback = showIcon =
 
 export default definePlugin({
     name: "ServerInfo",
-    description: "Allows you to view info about a server",
+    description: "Consente di visualizzare informazioni su un server",
     tags: ["Servers", "Utility"],
     authors: [Devs.Ven, Devs.Nuckyz],
     dependencies: ["DynamicImageModalAPI"],

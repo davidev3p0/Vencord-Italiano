@@ -100,7 +100,7 @@ const ErrorBoundary = LazyComponent(() => {
 
             return (
                 <ErrorCard style={{ overflow: "hidden" }}>
-                    <h1>Oh no!</h1>
+                    <h1>Ops!</h1>
                     <p>{msg}</p>
                     <code>
                         {this.state.message}

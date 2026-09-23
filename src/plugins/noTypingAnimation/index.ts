@@ -10,7 +10,7 @@ import definePlugin from "@utils/types";
 export default definePlugin({
     name: "NoTypingAnimation",
     authors: [Devs.AutumnVN],
-    description: "Disables the CPU-intensive typing dots animation",
+    description: "Disabilita l'animazione dei puntini di digitazione ad alto uso CPU",
     tags: ["Appearance"],
     patches: [
         {

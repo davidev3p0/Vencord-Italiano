@@ -16,8 +16,8 @@ function GuidelinesModal(props: RenderModalProps) {
     return (
         <ConfirmModal
             {...props}
-            title="Hold on"
-            confirmText="Continue"
+            title="Attenzione"
+            confirmText="Continua"
             variant="primary"
             onConfirm={() => {
                 settings.store.agreedToGuidelines = true;
@@ -27,11 +27,11 @@ function GuidelinesModal(props: RenderModalProps) {
         >
             <div className={DecorationModalClasses.modal}>
                 <Forms.FormText>
-                    By submitting a decoration, you agree to <Link
+                    Inviando una decorazione accetti <Link
                         href="https://github.com/decor-discord/.github/blob/main/GUIDELINES.md"
                     >
-                        the guidelines
-                    </Link>. Not reading these guidelines may get your account suspended from creating more decorations in the future.
+                        le linee guida
+                    </Link> . Il mancato rispetto delle linee guida può comportare la sospensione della possibilità di creare altre decorazioni in futuro.
                 </Forms.FormText>
             </div>
         </ConfirmModal>

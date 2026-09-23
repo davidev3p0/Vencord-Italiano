@@ -10,7 +10,7 @@ import definePlugin from "@utils/types";
 export default definePlugin({
     name: "WebScreenShareFixes",
     authors: [Devs.Kaitlyn],
-    description: "Removes 2500kbps bitrate cap on chromium and vesktop clients and fixes CPU usage growing endlessly while screensharing.",
+    description: "Rimuove il limite di bitrate a 2500 kbps sui client Chromium e Vesktop e corregge l'aumento continuo dell'uso CPU durante la condivisione schermo.",
     tags: ["Voice"],
     enabledByDefault: true,
 

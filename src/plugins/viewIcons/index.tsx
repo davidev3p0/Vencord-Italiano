@@ -44,7 +44,7 @@ interface GroupDMContextProps {
 const settings = definePluginSettings({
     format: {
         type: OptionType.SELECT,
-        description: "Choose the image format to use for non-animated images. Animated images will always use .webp",
+        description: "Scegli il formato immagine da usare per le immagini non animate. Le immagini animate useranno sempre .webp",
         options: [
             {
                 label: "webp",
@@ -63,8 +63,8 @@ const settings = definePluginSettings({
     },
     imgSize: {
         type: OptionType.SELECT,
-        displayName: "Image Size",
-        description: "The image size to use",
+        displayName: "Dimensione immagine",
+        description: "Dimensione immagine da usare",
         options: ["128", "256", "512", "1024", "2048", "4096"].map(n => ({ label: n, value: n, default: n === "1024" }))
     }
 });
@@ -114,7 +114,7 @@ const UserContext: NavContextMenuPatchCallback = (children, { user, guildId }: U
         <Menu.MenuGroup>
             <Menu.MenuItem
                 id="view-avatar"
-                label="View Avatar"
+                label="Visualizza avatar"
                 action={() => openAvatar(IconUtils.getUserAvatarURL(user, true))}
                 icon={ImageIcon}
                 leadingAccessory={{ type: "icon", icon: ImageIcon }}
@@ -122,7 +122,7 @@ const UserContext: NavContextMenuPatchCallback = (children, { user, guildId }: U
             {memberAvatar && (
                 <Menu.MenuItem
                     id="view-server-avatar"
-                    label="View Server Avatar"
+                    label="Visualizza avatar server"
                     action={() => openAvatar(IconUtils.getGuildMemberAvatarURLSimple({
                         userId: user.id,
                         avatar: memberAvatar,
@@ -136,7 +136,7 @@ const UserContext: NavContextMenuPatchCallback = (children, { user, guildId }: U
             {avatarDecoration && (
                 <Menu.MenuItem
                     id="view-avatar-decoration"
-                    label="View Avatar Decoration"
+                    label="Visualizza decorazione avatar"
                     action={() => openAvatar(IconUtils.getAvatarDecorationURL({
                         avatarDecoration,
                         size: 1024,
@@ -161,7 +161,7 @@ const GuildContext: NavContextMenuPatchCallback = (children, { guild }: GuildCon
             {icon ? (
                 <Menu.MenuItem
                     id="view-icon"
-                    label="View Icon"
+                    label="Visualizza icona"
                     action={() =>
                         openAvatar(IconUtils.getGuildIconURL({
                             id,
@@ -176,7 +176,7 @@ const GuildContext: NavContextMenuPatchCallback = (children, { guild }: GuildCon
             {banner ? (
                 <Menu.MenuItem
                     id="view-banner"
-                    label="View Banner"
+                    label="Visualizza banner"
                     action={() =>
                         openBanner(IconUtils.getGuildBannerURL(guild, true)!)
                     }
@@ -195,7 +195,7 @@ const GroupDMContext: NavContextMenuPatchCallback = (children, { channel }: Grou
         <Menu.MenuGroup>
             <Menu.MenuItem
                 id="view-group-channel-icon"
-                label="View Icon"
+                label="Visualizza icona"
                 action={() =>
                     openAvatar(IconUtils.getChannelIconURL(channel)!)
                 }
@@ -209,7 +209,7 @@ const GroupDMContext: NavContextMenuPatchCallback = (children, { channel }: Grou
 export default definePlugin({
     name: "ViewIcons",
     authors: [Devs.Ven, Devs.TheKodeToad, Devs.Nuckyz, Devs.nyx],
-    description: "Makes avatars and banners in user profiles clickable, adds View Icon/Banner/Avatar Decoration entries in the user, server and group channel context menu.",
+    description: "Rende cliccabili avatar e banner nei profili utente e aggiunge le voci Visualizza icona/banner/decorazione avatar nei menu contestuali di utenti, server e canali di gruppo.",
     tags: ["Media", "Servers", "Appearance"],
     searchTerms: ["ImageUtilities"],
     dependencies: ["DynamicImageModalAPI"],

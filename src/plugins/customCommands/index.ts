@@ -62,7 +62,7 @@ export function registerTagCommand(tag: Tag) {
             })),
             {
                 name: "ephemeral",
-                description: "Whether the response should only be visible to you",
+                description: "Rendi la risposta visibile solo a te",
                 type: ApplicationCommandOptionType.BOOLEAN,
                 required: false
             }
@@ -90,7 +90,7 @@ export function registerTagCommand(tag: Tag) {
 migratePluginSettings("CustomCommands", "MessageTags");
 export default definePlugin({
     name: "CustomCommands",
-    description: "Allows you to create custom slash commands / tags",
+    description: "Consente di creare comandi slash/tag personalizzati",
     searchTerms: ["MessageTags"],
     authors: [Devs.Ven, Devs.Luna,],
     tags: ["Commands", "Customisation", "Utility"],
@@ -107,28 +107,28 @@ export default definePlugin({
     commands: [
         {
             name: "tags",
-            description: "Manage all custom commands",
+            description: "Gestisci tutti i comandi personalizzati",
             inputType: ApplicationCommandInputType.BUILT_IN,
             options: [
                 {
                     name: "create",
-                    description: "Create a new tag",
+                    description: "Crea un nuovo tag",
                     type: ApplicationCommandOptionType.SUB_COMMAND,
                 },
                 {
                     name: "list",
-                    description: "List all your tags",
+                    description: "Elenca tutti i tuoi tag",
                     type: ApplicationCommandOptionType.SUB_COMMAND,
                     options: []
                 },
                 {
                     name: "delete",
-                    description: "Remove a tag by name",
+                    description: "Rimuovi un tag per nome",
                     type: ApplicationCommandOptionType.SUB_COMMAND,
                     options: [
                         {
                             name: "tag-name",
-                            description: "The name of the tag",
+                            description: "Nome del tag",
                             type: ApplicationCommandOptionType.STRING,
                             required: true
                         }

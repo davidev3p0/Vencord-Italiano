@@ -22,7 +22,7 @@ import definePlugin from "@utils/types";
 export default definePlugin({
     name: "BetterGifAltText",
     authors: [Devs.Ven],
-    description: "Change GIF alt text from simply being 'GIF' to containing the gif tags / filename",
+    description: "Modifica il testo alternativo delle GIF da semplice 'GIF' ai tag o al nome del file della GIF",
     tags: ["Media", "Accessibility", "Customisation"],
     patches: [
         {

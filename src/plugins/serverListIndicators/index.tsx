@@ -34,12 +34,12 @@ const UserGuildJoinRequestStore = findStoreLazy("UserGuildJoinRequestStore");
 
 const settings = definePluginSettings({
     mode: {
-        description: "Mode",
+        description: "Modalità",
         type: OptionType.SELECT,
         options: [
-            { label: "Only online friend count", value: IndicatorType.FRIEND, default: true },
-            { label: "Only server count", value: IndicatorType.SERVER },
-            { label: "Both server and online friend counts", value: IndicatorType.BOTH },
+            { label: "Solo numero di amici online", value: IndicatorType.FRIEND, default: true },
+            { label: "Solo numero di server", value: IndicatorType.SERVER },
+            { label: "Numero di server e di amici online", value: IndicatorType.BOTH },
         ]
     }
 });
@@ -95,14 +95,14 @@ function ServersIndicator() {
             textTransform: "uppercase",
             textAlign: "center",
         }}>
-            {guildCount} servers
+            {guildCount} server
         </span>
     );
 }
 
 export default definePlugin({
     name: "ServerListIndicators",
-    description: "Add online friend count or server count in the server list",
+    description: "Aggiunge il numero di amici online o dei server nell'elenco server",
     tags: ["Servers", "Appearance"],
     authors: [Devs.Rini],
     dependencies: ["ServerListAPI"],

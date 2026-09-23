@@ -30,42 +30,42 @@ const settings = definePluginSettings({
     chatMentions: {
         type: OptionType.BOOLEAN,
         default: true,
-        description: "Show role colors in chat mentions (including in the message box)",
+        description: "Mostra i colori dei ruoli nelle menzioni in chat, incluso il campo messaggio",
         restartNeeded: true
     },
     memberList: {
         type: OptionType.BOOLEAN,
         default: true,
-        description: "Show role colors in member list role headers",
+        description: "Mostra i colori dei ruoli nelle intestazioni dei ruoli dell'elenco membri",
         restartNeeded: true
     },
     voiceUsers: {
         type: OptionType.BOOLEAN,
         default: true,
-        description: "Show role colors in the voice chat user list",
+        description: "Mostra i colori dei ruoli nell'elenco utenti della chat vocale",
         restartNeeded: true
     },
     reactorsList: {
         type: OptionType.BOOLEAN,
         default: true,
-        description: "Show role colors in the reactors list",
+        description: "Mostra i colori dei ruoli nell'elenco delle reazioni",
         restartNeeded: true
     },
     pollResults: {
         type: OptionType.BOOLEAN,
         default: true,
-        description: "Show role colors in the poll results",
+        description: "Mostra i colori dei ruoli nei risultati dei sondaggi",
         restartNeeded: true
     },
     colorChatMessages: {
         type: OptionType.BOOLEAN,
         default: false,
-        description: "Color chat messages based on the author's role color",
+        description: "Colora i messaggi della chat in base al colore del ruolo dell'autore",
         restartNeeded: true,
     },
     messageSaturation: {
         type: OptionType.SLIDER,
-        description: "Intensity of message coloring.",
+        description: "Intensità della colorazione dei messaggi.",
         markers: makeRange(0, 100, 10),
         default: 30
     }
@@ -74,7 +74,7 @@ const settings = definePluginSettings({
 export default definePlugin({
     name: "RoleColorEverywhere",
     authors: [Devs.KingFish, Devs.lewisakura, Devs.AutumnVN, Devs.Kyuuhachi, Devs.jamesbt365],
-    description: "Adds the top role color anywhere possible",
+    description: "Aggiunge il colore del ruolo più alto ovunque possibile",
     tags: ["Roles", "Appearance"],
     settings,
 

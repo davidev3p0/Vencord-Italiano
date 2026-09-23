@@ -38,19 +38,19 @@ export const ThreadMemberListStore = findStoreLazy("ThreadMemberListStore") as F
 export const settings = definePluginSettings({
     toolTip: {
         type: OptionType.BOOLEAN,
-        description: "Show member count on the server tooltip",
+        description: "Mostra il numero di membri nel suggerimento del server",
         default: true,
         restartNeeded: true
     },
     memberList: {
         type: OptionType.BOOLEAN,
-        description: "Show member count in the member list",
+        description: "Mostra il numero di membri nell'elenco membri",
         default: true,
         restartNeeded: true
     },
     voiceActivity: {
         type: OptionType.BOOLEAN,
-        description: "Show voice activity with member count in the member list",
+        description: "Mostra l'attività vocale insieme al numero di membri nell'elenco membri",
         default: true
     }
 });
@@ -61,7 +61,7 @@ export const cl = classNameFactory("vc-membercount-");
 
 export default definePlugin({
     name: "MemberCount",
-    description: "Shows the number of online members, total members, and users in voice channels on the server — in the member list and tooltip.",
+    description: "Mostra il numero di membri online, i membri totali e gli utenti nei canali vocali del server, nell'elenco membri e nel suggerimento.",
     tags: ["Servers", "Utility"],
     authors: [Devs.Ven, Devs.Commandtechno, Devs.Apexo],
     settings,

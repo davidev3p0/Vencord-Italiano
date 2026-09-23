@@ -122,25 +122,25 @@ function GuildInfoModal({ guild, modalProps }: GuildProps & { modalProps: Render
                     className={cl("tab", { selected: currentTab === Tabs.ServerInfo })}
                     id={Tabs.ServerInfo}
                 >
-                    Server Info
+                    Informazioni server
                 </TabBar.Item>
                 <TabBar.Item
                     className={cl("tab", { selected: currentTab === Tabs.Friends })}
                     id={Tabs.Friends}
                 >
-                    Friends{friendCount !== undefined ? ` (${friendCount})` : ""}
+                    Amici{friendCount !== undefined ? ` (${friendCount})` : ""}
                 </TabBar.Item>
                 <TabBar.Item
                     className={cl("tab", { selected: currentTab === Tabs.BlockedUsers })}
                     id={Tabs.BlockedUsers}
                 >
-                    Blocked Users{blockedCount !== undefined ? ` (${blockedCount})` : ""}
+                    Utenti bloccati{blockedCount !== undefined ? ` (${blockedCount})` : ""}
                 </TabBar.Item>
                 <TabBar.Item
                     className={cl("tab", { selected: currentTab === Tabs.IgnoredUsers })}
                     id={Tabs.IgnoredUsers}
                 >
-                    Ignored Users{ignoredCount !== undefined ? ` (${ignoredCount})` : ""}
+                    Utenti ignorati{ignoredCount !== undefined ? ` (${ignoredCount})` : ""}
                 </TabBar.Item>
             </TabBar>
 

@@ -32,25 +32,25 @@ function calculateNameColorForUser(id?: string) {
 
 const settings = definePluginSettings({
     lightness: {
-        description: "Lightness, in %. Change if the colors are too light or too dark",
+        description: "Luminosità, in %. Modificala se i colori sono troppo chiari o troppo scuri",
         type: OptionType.NUMBER,
         default: 70,
     },
     memberListColors: {
-        description: "Replace role colors in the member list",
+        description: "Sostituisci i colori dei ruoli nell'elenco membri",
         restartNeeded: true,
         type: OptionType.BOOLEAN,
         default: true
     },
     applyColorOnlyToUsersWithoutColor: {
-        description: "Apply colors only to users who don't have a predefined color",
+        description: "Applica i colori solo agli utenti che non hanno un colore predefinito",
         restartNeeded: false,
         type: OptionType.BOOLEAN,
         default: false
     },
     applyColorOnlyInDms: {
-        displayName: "Apply Color Only In DMs",
-        description: "Apply colors only in direct messages; do not apply colors in servers.",
+        displayName: "Applica colore solo nei messaggi diretti",
+        description: "Applica i colori solo nei messaggi diretti; non applicarli nei server.",
         restartNeeded: false,
         type: OptionType.BOOLEAN,
         default: false
@@ -59,7 +59,7 @@ const settings = definePluginSettings({
 
 export default definePlugin({
     name: "IrcColors",
-    description: "Makes username colors in chat unique, like in IRC clients",
+    description: "Rende unici i colori dei nomi utente in chat, come nei client IRC",
     tags: ["Appearance", "Customisation"],
     authors: [Devs.Grzesiek11, Devs.jamesbt365],
     settings,

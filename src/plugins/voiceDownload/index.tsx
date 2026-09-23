@@ -11,7 +11,7 @@ import definePlugin from "@utils/types";
 
 export default definePlugin({
     name: "VoiceDownload",
-    description: "Adds a download to voice messages. (Opens a new browser tab)",
+    description: "Aggiunge il download ai messaggi vocali. (Apre una nuova scheda del browser)",
     tags: ["Voice", "Media"],
     authors: [Devs.puv],
     patches: [
@@ -30,7 +30,7 @@ export default definePlugin({
                 className="vc-voice-download"
                 href={src}
                 onClick={e => e.stopPropagation()}
-                aria-label="Download voice message"
+                aria-label="Scarica messaggio vocale"
                 {...IS_DISCORD_DESKTOP
                     ? { target: "_blank" } // open externally
                     : { download: "voice-message.ogg" } // download directly (not supported on discord desktop)

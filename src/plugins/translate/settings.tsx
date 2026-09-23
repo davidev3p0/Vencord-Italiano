@@ -25,25 +25,25 @@ import { openTranslateModal } from "./TranslateModal";
 export const settings = definePluginSettings({
     receivedInput: {
         type: OptionType.STRING,
-        description: "Language incoming messages are translated from",
+        description: "Lingua da cui tradurre i messaggi ricevuti",
         default: "auto",
         hidden: true
     },
     receivedOutput: {
         type: OptionType.STRING,
-        description: "Language incoming messages are translated to",
+        description: "Lingua in cui tradurre i messaggi ricevuti",
         default: "en",
         hidden: true
     },
     sentInput: {
         type: OptionType.STRING,
-        description: "Language your messages are translated from",
+        description: "Lingua da cui tradurre i tuoi messaggi",
         default: "auto",
         hidden: true
     },
     sentOutput: {
         type: OptionType.STRING,
-        description: "Language your messages are translated to",
+        description: "Lingua in cui tradurre i tuoi messaggi",
         default: "en",
         hidden: true
     },
@@ -53,38 +53,38 @@ export const settings = definePluginSettings({
         hidden: IS_WEB,
         options: [
             { label: "Google Translate", value: "google", default: true },
-            { label: "DeepL Free — API key required", value: "deepl" },
-            { label: "DeepL Pro — API key required", value: "deepl-pro" },
-            { label: "Kagi Translate — API key required", value: "kagi" }
+            { label: "DeepL Free — chiave API richiesta", value: "deepl" },
+            { label: "DeepL Pro — chiave API richiesta", value: "deepl-pro" },
+            { label: "Kagi Translate — chiave API richiesta", value: "kagi" }
         ] as const,
         onChange: resetLanguageDefaults
     },
     deeplApiKey: {
         type: OptionType.STRING,
-        displayName: "DeepL API Key",
-        description: "Your DeepL API key (from deepl.com/your-account)",
+        displayName: "Chiave API DeepL",
+        description: "La tua chiave API DeepL (da deepl.com/your-account)",
         default: ""
     },
     kagiSession: {
         type: OptionType.STRING,
-        description: "Your Kagi session token (from kagi.com/settings?p=user_details)",
+        description: "Il tuo token di sessione Kagi (da kagi.com/settings?p=user_details)",
         default: ""
     },
     autoTranslate: {
         type: OptionType.BOOLEAN,
-        description: "Automatically translate your messages before sending. You can also Shift+click or right-click the translate button to toggle this",
+        description: "Traduci automaticamente i tuoi messaggi prima dell'invio. Puoi anche usare Maiusc+clic o il clic destro sul pulsante Traduci per attivare/disattivare questa funzione",
         default: false
     },
     showAutoTranslateTooltip: {
         type: OptionType.BOOLEAN,
-        description: "Show a tooltip on the chat bar button when a message is auto-translated",
+        description: "Mostra un suggerimento sul pulsante della barra chat quando un messaggio viene tradotto automaticamente",
         default: true
     },
     manageTranslateSettings: {
         type: OptionType.COMPONENT,
         component: () => (
             <Button onClick={openTranslateModal}>
-                Customize translation languages & Auto-Translate
+                Personalizza le lingue di traduzione e la traduzione automatica
             </Button>
         )
     }

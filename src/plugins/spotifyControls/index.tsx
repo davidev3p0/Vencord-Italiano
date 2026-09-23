@@ -27,19 +27,19 @@ import { Player } from "./PlayerComponent";
 
 export const settings = definePluginSettings({
     hoverControls: {
-        description: "Show controls on hover",
+        description: "Mostra i controlli al passaggio del mouse",
         type: OptionType.BOOLEAN,
         default: false,
         onChange: v => toggleHoverControls(v)
     },
     useSpotifyUris: {
         type: OptionType.BOOLEAN,
-        description: "Open Spotify URIs instead of Spotify URLs. Will only work if you have Spotify installed and might not work on all platforms",
+        description: "Apri gli URI di Spotify invece degli URL. Funziona solo se Spotify è installato e potrebbe non funzionare su tutte le piattaforme",
         default: false
     },
     previousButtonRestartsTrack: {
         type: OptionType.BOOLEAN,
-        description: "Restart currently playing track when pressing the previous button if playtime is >3s",
+        description: "Riavvia il brano corrente premendo il pulsante precedente se la riproduzione è iniziata da più di 3 secondi",
         default: true
     }
 });
@@ -50,7 +50,7 @@ function toggleHoverControls(value: boolean) {
 
 export default definePlugin({
     name: "SpotifyControls",
-    description: "Adds a Spotify player above the account panel",
+    description: "Aggiunge un lettore Spotify sopra il pannello account",
     tags: ["Media", "Activity"],
     authors: [Devs.Ven, Devs.afn, Devs.KraXen72, Devs.Av32000, Devs.nin0dev],
     settings,
@@ -102,8 +102,8 @@ export default definePlugin({
                 <ErrorBoundary
                     fallback={() => (
                         <div className="vc-spotify-fallback">
-                            <p>Failed to render Spotify Modal :(</p>
-                            <p >Check the console for errors</p>
+                            <p>Impossibile visualizzare la finestra Spotify :(</p>
+                            <p >Controlla la console per gli errori</p>
                         </div>
                     )}
                 >

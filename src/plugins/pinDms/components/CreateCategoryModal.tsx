@@ -89,14 +89,14 @@ export function NewCategoryModal({ categoryId, modalProps, initialChannelId }: P
                 }}
             >
                 <section>
-                    <Forms.FormTitle>Name</Forms.FormTitle>
+                    <Forms.FormTitle>Nome</Forms.FormTitle>
                     <TextInput
                         value={name}
                         onChange={e => setName(e)}
                     />
                 </section>
                 <section>
-                    <Forms.FormTitle>Color</Forms.FormTitle>
+                    <Forms.FormTitle>Colore</Forms.FormTitle>
                     <ColorPickerWithSwatches
                         className={cl("color-picker")}
                         key={category.id}

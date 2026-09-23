@@ -39,9 +39,9 @@ const findCandidates = debounce(function ({ find, setModule, setError }) {
     const len = keys.length;
 
     if (len === 0)
-        setError("No match. Perhaps that module is lazy loaded?");
+        setError("Nessuna corrispondenza. Forse il modulo viene caricato in modo differito?");
     else if (len !== 1)
-        setError("Multiple matches. Please refine your filter");
+        setError("Più corrispondenze. Restringi il filtro");
     else
         setModule([keys[0], candidates[keys[0]]]);
 });
@@ -105,7 +105,7 @@ function PatchHelper() {
 
     return (
         <SettingsTab>
-            <HeadingTertiary>Full patch</HeadingTertiary>
+            <HeadingTertiary>Patch completa</HeadingTertiary>
             <FullPatchInput
                 setFind={onFindChange}
                 setParsedFind={setParsedFind}
@@ -113,7 +113,7 @@ function PatchHelper() {
                 setReplacement={setReplacement}
             />
 
-            <HeadingTertiary className={Margins.top8}>Find</HeadingTertiary>
+            <HeadingTertiary className={Margins.top8}>Trova</HeadingTertiary>
             <TextInput
                 type="text"
                 value={find}
@@ -121,7 +121,7 @@ function PatchHelper() {
                 error={findError}
             />
 
-            <HeadingTertiary className={Margins.top8}>Match</HeadingTertiary>
+            <HeadingTertiary className={Margins.top8}>Corrispondenza</HeadingTertiary>
             <TextInput
                 type="text"
                 value={match}
@@ -148,14 +148,14 @@ function PatchHelper() {
 
             {!!(find && match && replacement) && (
                 <>
-                    <HeadingTertiary className={Margins.top20}>Code</HeadingTertiary>
+                    <HeadingTertiary className={Margins.top20}>Codice</HeadingTertiary>
                     <CodeBlock lang="js" content={code} />
                     <Flex className={Margins.top16}>
                         <Button onClick={() => copyWithToast(code)}>
-                            Copy to Clipboard
+                            Copia negli appunti
                         </Button>
                         <Button onClick={() => copyWithToast("```ts\n" + code + "\n```")}>
-                            Copy as Codeblock
+                            Copia come blocco di codice
                         </Button>
                     </Flex>
                 </>
@@ -164,4 +164,4 @@ function PatchHelper() {
     );
 }
 
-export default !IS_STANDALONE ? wrapTab(PatchHelper, "PatchHelper") : null;
+export default !IS_STANDALONE ? wrapTab(PatchHelper, "Assistente patch") : null;

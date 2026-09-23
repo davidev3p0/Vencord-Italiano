@@ -18,45 +18,45 @@ export function MacOSVibrancySettings() {
 
     return (
         <ErrorBoundary noop>
-            <Forms.FormTitle tag="h5">MacOS Window vibrancy style (requires restart)</Forms.FormTitle>
+            <Forms.FormTitle tag="h5">Stile vibrancy finestra macOS (richiede riavvio)</Forms.FormTitle>
             <Select
                 className={Margins.bottom20}
-                placeholder="Window vibrancy style"
+                placeholder="Stile vibrancy finestra"
                 options={[
                     // Sorted from most opaque to most transparent
                     {
-                        label: "No vibrancy", value: undefined
+                        label: "Nessuna vibrancy", value: undefined
                     },
                     {
-                        label: "Under Page (window tinting)",
+                        label: "Sotto la pagina (colorazione finestra)",
                         value: "under-page"
                     },
                     {
-                        label: "Content",
+                        label: "Contenuto",
                         value: "content"
                     },
                     {
-                        label: "Window",
+                        label: "Finestra",
                         value: "window"
                     },
                     {
-                        label: "Selection",
+                        label: "Selezione",
                         value: "selection"
                     },
                     {
-                        label: "Titlebar",
+                        label: "Barra del titolo",
                         value: "titlebar"
                     },
                     {
-                        label: "Header",
+                        label: "Intestazione",
                         value: "header"
                     },
                     {
-                        label: "Sidebar",
+                        label: "Barra laterale",
                         value: "sidebar"
                     },
                     {
-                        label: "Tooltip",
+                        label: "Suggerimento",
                         value: "tooltip"
                     },
                     {
@@ -64,15 +64,15 @@ export function MacOSVibrancySettings() {
                         value: "menu"
                     },
                     {
-                        label: "Popover",
+                        label: "Popup",
                         value: "popover"
                     },
                     {
-                        label: "Fullscreen UI (transparent but slightly muted)",
+                        label: "Interfaccia a schermo intero (trasparente ma leggermente attenuata)",
                         value: "fullscreen-ui"
                     },
                     {
-                        label: "HUD (Most transparent)",
+                        label: "HUD (massima trasparenza)",
                         value: "hud"
                     },
                 ]}

@@ -25,37 +25,37 @@ interface UsernameProps {
 const settings = definePluginSettings({
     mode: {
         type: OptionType.SELECT,
-        description: "How to display usernames and nicks",
+        description: "Modalità di visualizzazione di nomi utente e soprannomi",
         options: [
-            { label: "Username then nickname", value: "user-nick", default: true },
-            { label: "Nickname then username", value: "nick-user" },
-            { label: "Username only", value: "user" },
+            { label: "Prima nome utente, poi soprannome", value: "user-nick", default: true },
+            { label: "Prima soprannome, poi nome utente", value: "nick-user" },
+            { label: "Solo nome utente", value: "user" },
         ],
     },
     friendNicknames: {
         type: OptionType.SELECT,
-        description: "How to prioritise friend nicknames over server nicknames",
+        description: "Come dare priorità ai soprannomi degli amici rispetto a quelli del server",
         options: [
-            { label: "Show friend nicknames only in direct messages", value: "dms", default: true },
-            { label: "Prefer friend nicknames over server nicknames", value: "always" },
-            { label: "Prefer server nicknames over friend nicknames", value: "fallback" }
+            { label: "Mostra i soprannomi degli amici solo nei messaggi diretti", value: "dms", default: true },
+            { label: "Preferisci i soprannomi degli amici a quelli del server", value: "always" },
+            { label: "Preferisci i soprannomi del server a quelli degli amici", value: "fallback" }
         ]
     },
     displayNames: {
         type: OptionType.BOOLEAN,
-        description: "Use display names in place of usernames",
+        description: "Usa i nomi visualizzati al posto dei nomi utente",
         default: false
     },
     inReplies: {
         type: OptionType.BOOLEAN,
         default: false,
-        description: "Also apply functionality to reply previews",
+        description: "Applica la funzione anche alle anteprime delle risposte",
     },
 });
 
 export default definePlugin({
     name: "ShowMeYourName",
-    description: "Display usernames next to nicks, or no nicks at all",
+    description: "Mostra i nomi utente accanto ai soprannomi oppure non mostrare affatto i soprannomi",
     tags: ["Appearance", "Customisation"],
     authors: [Devs.Rini, Devs.TheKodeToad, Devs.rae],
     patches: [

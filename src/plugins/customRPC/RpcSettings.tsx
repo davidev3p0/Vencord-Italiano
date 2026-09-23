@@ -158,50 +158,50 @@ export function RPCSettings() {
         <div className={cl("root")}>
             <SelectSetting
                 settingsKey="type"
-                label="Activity Type"
+                label="Tipo attività"
                 options={[
                     {
-                        label: "Playing",
+                        label: "In gioco",
                         value: ActivityType.PLAYING,
                         default: true
                     },
                     {
-                        label: "Streaming",
+                        label: "In streaming",
                         value: ActivityType.STREAMING
                     },
                     {
-                        label: "Listening",
+                        label: "In ascolto",
                         value: ActivityType.LISTENING
                     },
                     {
-                        label: "Watching",
+                        label: "Guardando",
                         value: ActivityType.WATCHING
                     },
                     {
-                        label: "Competing",
+                        label: "In competizione",
                         value: ActivityType.COMPETING
                     }
                 ]}
             />
 
             <PairSetting data={[
-                { settingsKey: "appID", label: "Application ID", isValid: isAppIdValid },
-                { settingsKey: "appName", label: "Application Name", isValid: makeValidator(128, true) },
+                { settingsKey: "appID", label: "ID applicazione", isValid: isAppIdValid },
+                { settingsKey: "appName", label: "Nome applicazione", isValid: makeValidator(128, true) },
             ]} />
 
             <PairSetting data={[
-                { settingsKey: "details", label: "Detail (line 1)", isValid: maxLength128 },
-                { settingsKey: "detailsURL", label: "Detail URL", isValid: isUrlValid },
+                { settingsKey: "details", label: "Dettaglio (riga 1)", isValid: maxLength128 },
+                { settingsKey: "detailsURL", label: "URL dettaglio", isValid: isUrlValid },
             ]} />
 
             <PairSetting data={[
-                { settingsKey: "state", label: "State (line 2)", isValid: maxLength128 },
-                { settingsKey: "stateURL", label: "State URL", isValid: isUrlValid },
+                { settingsKey: "state", label: "Stato (riga 2)", isValid: maxLength128 },
+                { settingsKey: "stateURL", label: "URL stato", isValid: isUrlValid },
             ]} />
 
             <SingleSetting
                 settingsKey="streamLink"
-                label="Stream Link (Twitch or YouTube, only if activity type is Streaming)"
+                label="Link streaming (Twitch o YouTube, solo se il tipo di attività è Streaming)"
                 disabled={s.type !== ActivityType.STREAMING}
                 isValid={isStreamLinkValid}
             />
@@ -209,14 +209,14 @@ export function RPCSettings() {
             <PairSetting data={[
                 {
                     settingsKey: "partySize",
-                    label: "Party Size",
+                    label: "Dimensione gruppo",
                     transform: parseNumber,
                     isValid: isNumberValid,
                     disabled: s.type !== ActivityType.PLAYING,
                 },
                 {
                     settingsKey: "partyMaxSize",
-                    label: "Maximum Party Size",
+                    label: "Dimensione massima gruppo",
                     transform: parseNumber,
                     isValid: isNumberValid,
                     disabled: s.type !== ActivityType.PLAYING,
@@ -226,49 +226,49 @@ export function RPCSettings() {
             <Divider />
 
             <PairSetting data={[
-                { settingsKey: "imageBig", label: "Large Image URL/Key", isValid: isImageKeyValid },
-                { settingsKey: "imageBigTooltip", label: "Large Image Text", isValid: maxLength128 },
+                { settingsKey: "imageBig", label: "URL/chiave immagine grande", isValid: isImageKeyValid },
+                { settingsKey: "imageBigTooltip", label: "Testo immagine grande", isValid: maxLength128 },
             ]} />
-            <SingleSetting settingsKey="imageBigURL" label="Large Image clickable URL" isValid={isUrlValid} />
+            <SingleSetting settingsKey="imageBigURL" label="URL cliccabile immagine grande" isValid={isUrlValid} />
 
             <PairSetting data={[
-                { settingsKey: "imageSmall", label: "Small Image URL/Key", isValid: isImageKeyValid },
-                { settingsKey: "imageSmallTooltip", label: "Small Image Text", isValid: maxLength128 },
+                { settingsKey: "imageSmall", label: "URL/chiave immagine piccola", isValid: isImageKeyValid },
+                { settingsKey: "imageSmallTooltip", label: "Testo immagine piccola", isValid: maxLength128 },
             ]} />
-            <SingleSetting settingsKey="imageSmallURL" label="Small Image clickable URL" isValid={isUrlValid} />
+            <SingleSetting settingsKey="imageSmallURL" label="URL cliccabile immagine piccola" isValid={isUrlValid} />
 
             <Divider />
 
             <PairSetting data={[
-                { settingsKey: "buttonOneText", label: "Button1 Text", isValid: makeValidator(31) },
-                { settingsKey: "buttonOneURL", label: "Button1 URL", isValid: isUrlValid },
+                { settingsKey: "buttonOneText", label: "Testo pulsante 1", isValid: makeValidator(31) },
+                { settingsKey: "buttonOneURL", label: "URL pulsante 1", isValid: isUrlValid },
             ]} />
             <PairSetting data={[
-                { settingsKey: "buttonTwoText", label: "Button2 Text", isValid: makeValidator(31) },
-                { settingsKey: "buttonTwoURL", label: "Button2 URL", isValid: isUrlValid },
+                { settingsKey: "buttonTwoText", label: "Testo pulsante 2", isValid: makeValidator(31) },
+                { settingsKey: "buttonTwoURL", label: "URL pulsante 2", isValid: isUrlValid },
             ]} />
 
             <Divider />
 
             <SelectSetting
                 settingsKey="timestampMode"
-                label="Timestamp Mode"
+                label="Modalità timestamp"
                 options={[
                     {
-                        label: "None",
+                        label: "Nessuno",
                         value: TimestampMode.NONE,
                         default: true
                     },
                     {
-                        label: "Since discord open",
+                        label: "Dall'apertura di Discord",
                         value: TimestampMode.NOW
                     },
                     {
-                        label: "Same as your current time (not reset after 24h)",
+                        label: "Uguale all'ora corrente (non si reimposta dopo 24 ore)",
                         value: TimestampMode.TIME
                     },
                     {
-                        label: "Custom",
+                        label: "Personalizzato",
                         value: TimestampMode.CUSTOM
                     }
                 ]}
@@ -277,14 +277,14 @@ export function RPCSettings() {
             <PairSetting data={[
                 {
                     settingsKey: "startTime",
-                    label: "Start Timestamp (in milliseconds)",
+                    label: "Timestamp iniziale (in millisecondi)",
                     transform: parseNumber,
                     isValid: isNumberValid,
                     disabled: s.timestampMode !== TimestampMode.CUSTOM,
                 },
                 {
                     settingsKey: "endTime",
-                    label: "End Timestamp (in milliseconds)",
+                    label: "Timestamp finale (in millisecondi)",
                     transform: parseNumber,
                     isValid: isNumberValid,
                     disabled: s.timestampMode !== TimestampMode.CUSTOM,

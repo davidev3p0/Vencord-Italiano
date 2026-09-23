@@ -14,28 +14,28 @@ import { ChannelStore, ReadStateStore, UserStore } from "@webpack/common";
 const settings = definePluginSettings({
     channelToAffect: {
         type: OptionType.SELECT,
-        description: "Select the type of DM for the plugin to affect",
+        description: "Seleziona il tipo di messaggi diretti su cui deve agire il plugin",
         options: [
-            { label: "Both", value: "both_dms", default: true },
-            { label: "User DMs", value: "user_dm" },
-            { label: "Group DMs", value: "group_dm" },
+            { label: "Entrambi", value: "both_dms", default: true },
+            { label: "Messaggi diretti utente", value: "user_dm" },
+            { label: "Messaggi diretti di gruppo", value: "group_dm" },
         ]
     },
     allowMentions: {
         type: OptionType.BOOLEAN,
-        description: "Receive audio pings for @mentions",
+        description: "Riproduci un avviso sonoro per le @menzioni",
         default: false,
     },
     allowEveryone: {
         type: OptionType.BOOLEAN,
-        description: "Receive audio pings for @everyone and @here in group DMs",
+        description: "Riproduci un avviso sonoro per @everyone e @here nei messaggi diretti di gruppo",
         default: false,
     },
 });
 
 export default definePlugin({
     name: "OnePingPerDM",
-    description: "If unread messages are sent by a user in DMs multiple times, you'll only receive one audio ping. Read the messages to reset the limit",
+    description: "Se un utente invia più messaggi diretti non letti, riceverai un solo avviso sonoro. Leggi i messaggi per reimpostare il limite",
     tags: ["Notifications", "Customisation"],
     authors: [Devs.ProffDea],
     settings,

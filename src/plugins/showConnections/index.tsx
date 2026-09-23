@@ -47,17 +47,17 @@ const getSpacingPx = (spacing: Spacing | undefined) => (spacing ?? Spacing.COMPA
 const settings = definePluginSettings({
     iconSize: {
         type: OptionType.NUMBER,
-        description: "Icon size (px)",
+        description: "Dimensione icona (px)",
         default: 32
     },
     iconSpacing: {
         type: OptionType.SELECT,
-        description: "Icon margin",
+        description: "Margine icona",
         default: Spacing.COZY,
         options: [
-            { label: "Compact", value: Spacing.COMPACT },
-            { label: "Cozy", value: Spacing.COZY }, // US Spelling :/
-            { label: "Roomy", value: Spacing.ROOMY }
+            { label: "Compatto", value: Spacing.COMPACT },
+            { label: "Comodo", value: Spacing.COZY }, // US Spelling :/
+            { label: "Spazioso", value: Spacing.ROOMY }
         ]
     }
 });
@@ -154,7 +154,7 @@ function CompactConnectionComponent({ connection, theme }: { connection: Connect
 
 export default definePlugin({
     name: "ShowConnections",
-    description: "Show connected accounts in user popouts",
+    description: "Mostra gli account collegati nei popup utente",
     tags: ["Friends", "Appearance"],
     authors: [Devs.TheKodeToad],
     settings,

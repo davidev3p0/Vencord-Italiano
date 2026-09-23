@@ -34,7 +34,7 @@ export const settings = definePluginSettings({
     showPluginMenu: {
         type: OptionType.BOOLEAN,
         default: true,
-        description: "Show the plugins menu in the toolbox",
+        description: "Mostra il menu dei plugin nella cassetta degli strumenti",
     }
 });
 
@@ -79,7 +79,7 @@ function VencordPopoutButton() {
 
 export default definePlugin({
     name: "VencordToolbox",
-    description: "Adds a button to the titlebar that houses Vencord quick actions",
+    description: "Aggiunge alla barra del titolo un pulsante con le azioni rapide di Vencord",
     tags: ["Utility", "Developers"],
     authors: [Devs.Ven, Devs.AutumnVN],
 

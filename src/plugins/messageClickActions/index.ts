@@ -36,29 +36,29 @@ const focusChanged = () => !WindowStore.isFocused() && (isDeletePressed = false)
 const settings = definePluginSettings({
     enableDeleteOnClick: {
         type: OptionType.BOOLEAN,
-        description: "Enable delete on click while holding backspace",
+        description: "Abilita l'eliminazione con clic tenendo premuto Backspace",
         default: true
     },
     enableDoubleClickToEdit: {
         type: OptionType.BOOLEAN,
-        description: "Enable double click to edit",
+        description: "Abilita doppio clic per modificare",
         default: true
     },
     enableDoubleClickToReply: {
         type: OptionType.BOOLEAN,
-        description: "Enable double click to reply",
+        description: "Abilita doppio clic per rispondere",
         default: true
     },
     requireModifier: {
         type: OptionType.BOOLEAN,
-        description: "Only do double click actions when shift/ctrl is held",
+        description: "Esegui le azioni con doppio clic solo tenendo premuto Maiusc/Ctrl",
         default: false
     }
 });
 
 export default definePlugin({
     name: "MessageClickActions",
-    description: "Hold Backspace and click to delete, double click to edit/reply",
+    description: "Tieni premuto Backspace e fai clic per eliminare; doppio clic per modificare/rispondere",
     tags: ["Chat", "Shortcuts"],
     authors: [Devs.Ven],
 

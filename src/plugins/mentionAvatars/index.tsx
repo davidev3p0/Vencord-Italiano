@@ -16,8 +16,8 @@ import { GuildRoleStore, SelectedGuildStore, useState } from "@webpack/common";
 const settings = definePluginSettings({
     showAtSymbol: {
         type: OptionType.BOOLEAN,
-        displayName: "Show @ Symbol",
-        description: "Whether the the @ symbol should be displayed on user mentions",
+        displayName: "Mostra simbolo @",
+        description: "Mostra il simbolo @ nelle menzioni utente",
         default: true
     }
 });
@@ -45,7 +45,7 @@ function DefaultRoleIcon() {
 
 export default definePlugin({
     name: "MentionAvatars",
-    description: "Shows user avatars and role icons inside mentions",
+    description: "Mostra avatar utente e icone ruolo all'interno delle menzioni",
     tags: ["Appearance", "Customisation"],
     authors: [Devs.Ven, Devs.SerStars],
 

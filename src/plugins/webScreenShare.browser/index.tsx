@@ -152,7 +152,7 @@ function ModalComponent({ modalProps, submit, close, options }: {
                             <span className={cl("ellipsis")}>•</span>
                             <span>{liveSettings.frameRate}fps</span>
                             {liveSettings.systemAudio ? <span className={cl("ellipsis")}>•</span> : ""}
-                            {liveSettings.systemAudio ? <span>Stream Muted</span> : ""}
+                            {liveSettings.systemAudio ? <span>Audio stream disattivato</span> : ""}
                         </Text>
                     </div>
                 }
@@ -168,7 +168,7 @@ function ModalComponent({ modalProps, submit, close, options }: {
                 <div>
                     <div className={cl("flex", "padding")}>
                         <section className={cl("quality-section")}>
-                            <Text tag="h2" variant="heading-md/semibold" color="text-strong">Resolution</Text>
+                            <Text tag="h2" variant="heading-md/semibold" color="text-strong">Risoluzione</Text>
                             <OptionRadio
                                 options={StreamResolution}
                                 settings={liveSettings}
@@ -178,7 +178,7 @@ function ModalComponent({ modalProps, submit, close, options }: {
                         </section>
 
                         <section className={cl("quality-section")}>
-                            <Text tag="h2" variant="heading-md/semibold" color="text-strong">Frame Rate</Text>
+                            <Text tag="h2" variant="heading-md/semibold" color="text-strong">Frequenza fotogrammi</Text>
                             <OptionRadio
                                 options={StreamFps}
                                 settings={liveSettings}
@@ -188,7 +188,7 @@ function ModalComponent({ modalProps, submit, close, options }: {
                         </section>
                     </div>
                     <div>
-                        <Text tag="h2" variant="heading-md/semibold" color="text-strong">Stream Mode</Text>
+                        <Text tag="h2" variant="heading-md/semibold" color="text-strong">Modalità streaming</Text>
                         <div>
                             <OptionRadio
                                 options={StreamContentHint}
@@ -207,8 +207,8 @@ function ModalComponent({ modalProps, submit, close, options }: {
                             shape="box"
                             reverse={true}>
                             <div className={cl("control-content")}>
-                                <Text tag="h2" variant="heading-md/semibold" color="text-strong">Mute Stream Audio</Text>
-                                <Text variant="text-sm/normal" color="text-subtle">Prevents system audio from being included in your stream.</Text>
+                                <Text tag="h2" variant="heading-md/semibold" color="text-strong">Disattiva audio streaming</Text>
+                                <Text variant="text-sm/normal" color="text-subtle">Impedisce che l’audio di sistema venga incluso nello streaming.</Text>
                             </div>
                         </Checkbox>
                     </div>
@@ -219,8 +219,8 @@ function ModalComponent({ modalProps, submit, close, options }: {
                             shape="box"
                             reverse={true}>
                             <div className={cl("control-content")}>
-                                <Text tag="h2" variant="heading-md/semibold" color="text-strong">Show Stream Previews</Text>
-                                <Text variant="text-sm/normal" color="text-subtle">Allows others to see a preview of your stream before they join.</Text>
+                                <Text tag="h2" variant="heading-md/semibold" color="text-strong">Mostra anteprime streaming</Text>
+                                <Text variant="text-sm/normal" color="text-subtle">Consente agli altri di vedere un’anteprima dello streaming prima di accedervi.</Text>
                             </div>
                         </Checkbox>
                     </div>
@@ -239,25 +239,25 @@ const StreamContentHint = ["motion", "detail", ""] as const;
 const settings = definePluginSettings({
     resolution: {
         type: OptionType.SELECT,
-        description: "Resolution",
+        description: "Risoluzione",
         hidden: true,
         options: StreamResolution.map(res => ({ label: res, value: res, default: res === "1080" }))
     },
     frameRate: {
         type: OptionType.SELECT,
-        description: "Frame Rate",
+        description: "Frequenza fotogrammi",
         hidden: true,
         options: StreamFps.map(fps => ({ label: fps, value: fps, default: fps === "60" }))
     },
     contentHint: {
         type: OptionType.SELECT,
-        description: "Content Hint",
+        description: "Indicazione contenuto",
         hidden: true,
         options: StreamContentHint.map(hint => ({ label: hint, value: hint, default: hint === "motion" }))
     },
     systemAudio: {
         type: OptionType.BOOLEAN,
-        description: "Mute system audio",
+        description: "Disattiva l'audio di sistema",
         hidden: true
     }
 });
@@ -267,7 +267,7 @@ const disableStreamPreviews = getUserSettingLazy<boolean>("voiceAndVideo", "disa
 export default definePlugin({
     name: "WebScreenShare",
     authors: [Devs.ThaUnknown],
-    description: "Adds a screenshare options menu. Allows for changing resolution, framerate, encoding hints, and system audio settings.",
+    description: "Aggiunge un menu di opzioni per la condivisione schermo. Permette di modificare risoluzione, frequenza fotogrammi, indicazioni di codifica e impostazioni dell'audio di sistema.",
     tags: ["Voice", "Utility"],
     enabledByDefault: true,
     settings,

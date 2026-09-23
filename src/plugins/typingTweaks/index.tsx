@@ -35,17 +35,17 @@ const settings = definePluginSettings({
     showAvatars: {
         type: OptionType.BOOLEAN,
         default: true,
-        description: "Show avatars in the typing indicator"
+        description: "Mostra gli avatar nell'indicatore di digitazione"
     },
     showRoleColors: {
         type: OptionType.BOOLEAN,
         default: true,
-        description: "Show role colors in the typing indicator"
+        description: "Mostra i colori dei ruoli nell'indicatore di digitazione"
     },
     alternativeFormatting: {
         type: OptionType.BOOLEAN,
         default: true,
-        description: "Show a more useful message when several users are typing"
+        description: "Mostra un messaggio più utile quando più utenti stanno scrivendo"
     }
 });
 
@@ -58,7 +58,7 @@ export const buildSeveralUsers = ErrorBoundary.wrap(function buildSeveralUsers({
                     {", "}
                 </React.Fragment>
             ))}
-            and {count} others are typing...
+            e {count} altri stanno scrivendo...
         </>
     );
 }, { noop: true });
@@ -97,7 +97,7 @@ const TypingUser = ErrorBoundary.wrap(function TypingUser({ user, guildId }: Typ
 
 export default definePlugin({
     name: "TypingTweaks",
-    description: "Show avatars and role colours in the typing indicator",
+    description: "Mostra avatar e colori dei ruoli nell'indicatore di digitazione",
     tags: ["Appearance", "Customisation"],
     authors: [Devs.zt, Devs.sadan],
     settings,

@@ -107,43 +107,43 @@ function applyPaletteTransparent(data: Uint8Array | Uint8ClampedArray, palette: 
 
 export default definePlugin({
     name: "petpet",
-    description: "Adds a /petpet slash command to create headpet gifs from any image",
+    description: "Aggiunge il comando slash /petpet per creare GIF petpet da qualsiasi immagine",
     tags: ["Fun", "Commands"],
     authors: [Devs.Ven, Devs.u32],
     commands: [
         {
             inputType: ApplicationCommandInputType.BUILT_IN,
             name: "petpet",
-            description: "Create a petpet gif. You can only specify one of the image options",
+            description: "Crea una GIF petpet. Puoi specificare una sola delle opzioni immagine",
             options: [
                 {
                     name: "delay",
-                    description: "The delay between each frame in ms. Rounded to nearest 10ms. Defaults to the minimum value of 20.",
+                    description: "Ritardo tra i fotogrammi in ms. Arrotondato ai 10 ms più vicini. Il valore predefinito è il minimo di 20.",
                     type: ApplicationCommandOptionType.INTEGER
                 },
                 {
                     name: "resolution",
-                    description: "Resolution for the gif. Defaults to 120. If you enter an insane number and it freezes Discord that's your fault.",
+                    description: "Risoluzione della GIF. Il valore predefinito è 120. Se inserisci un numero esagerato e Discord si blocca, è a tuo rischio.",
                     type: ApplicationCommandOptionType.INTEGER
                 },
                 {
                     name: "image",
-                    description: "Image attachment to use",
+                    description: "Allegato immagine da utilizzare",
                     type: ApplicationCommandOptionType.ATTACHMENT
                 },
                 {
                     name: "url",
-                    description: "URL to fetch image from",
+                    description: "URL da cui recuperare l'immagine",
                     type: ApplicationCommandOptionType.STRING
                 },
                 {
                     name: "user",
-                    description: "User whose avatar to use as image",
+                    description: "Utente il cui avatar verrà usato come immagine",
                     type: ApplicationCommandOptionType.USER
                 },
                 {
                     name: "no-server-pfp",
-                    description: "Use the normal avatar instead of the server specific one when using the 'user' option",
+                    description: "Usa l'avatar normale invece di quello specifico del server quando utilizzi l'opzione 'utente'",
                     type: ApplicationCommandOptionType.BOOLEAN
                 }
             ],

@@ -98,7 +98,7 @@ function VoiceChannelTooltip({ channel, isLocked }: VoiceChannelTooltipProps) {
     const Icon = isLocked ? LockedSpeakerIcon : SpeakerIcon;
     return (
         <>
-            <Text variant="text-sm/bold">In Voice Chat</Text>
+            <Text variant="text-sm/bold">In chat vocale</Text>
             <Text variant="text-sm/bold">{Parser.parse(`<#${channel.id}>`)}</Text>
             <div className={cl("vc-members")}>
                 <Icon size={18} />
@@ -153,7 +153,7 @@ export const VoiceChannelIndicator = ErrorBoundary.wrap(({ userId, isProfile, is
 
         if (e.detail > 1) {
             if (!isDM && !PermissionStore.can(PermissionsBits.CONNECT, channel)) {
-                showToast("You cannot join the user's Voice Channel", Toasts.Type.FAILURE);
+                showToast("Non puoi entrare nel canale vocale dell’utente", Toasts.Type.FAILURE);
                 return;
             }
 

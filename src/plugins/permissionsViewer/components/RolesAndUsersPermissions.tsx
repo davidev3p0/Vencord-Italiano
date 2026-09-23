@@ -81,7 +81,7 @@ function RolesAndUsersPermissionsComponent({ permissions, guild, modalProps, hea
         >
             {!selectedItem && (
                 <div className={cl("modal-no-perms")}>
-                    <Text variant="heading-lg/normal">No permissions to display!</Text>
+                    <Text variant="heading-lg/normal">Nessuna autorizzazione da visualizzare!</Text>
                 </div>
             )}
 
@@ -222,7 +222,7 @@ function RoleContextMenu({ guild, roleId, onClose }: { guild: Guild; roleId: str
         <Menu.Menu
             navId={cl("role-context-menu")}
             onClose={ContextMenuApi.closeContextMenu}
-            aria-label="Role Options"
+            aria-label="Opzioni ruolo"
         >
             {before}
 
@@ -266,7 +266,7 @@ function UserContextMenu({ userId }: { userId: string; }) {
         <Menu.Menu
             navId={cl("user-context-menu")}
             onClose={ContextMenuApi.closeContextMenu}
-            aria-label="User Options"
+            aria-label="Opzioni utente"
         >
             <Menu.MenuItem
                 id={cl("copy-user-id")}

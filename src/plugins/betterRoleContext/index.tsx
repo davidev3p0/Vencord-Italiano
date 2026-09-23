@@ -56,7 +56,7 @@ function RoleMembersIcon() {
 const settings = definePluginSettings({
     roleIconFileFormat: {
         type: OptionType.SELECT,
-        description: "File format to use when viewing role icons",
+        description: "Formato file da usare per visualizzare le icone dei ruoli",
         options: [
             {
                 label: "png",
@@ -84,7 +84,7 @@ export function buildExtraRoleContextMenuItems(role: Role, guild: Guild, popoutR
             <Menu.MenuItem
                 key="vc-edit-role"
                 id="vc-edit-role"
-                label="Edit Role"
+                label="Modifica ruolo"
                 action={async () => {
                     await GuildSettingsActions.open(guild.id, "ROLES");
                     GuildSettingsActions.selectRole(role.id);
@@ -97,7 +97,7 @@ export function buildExtraRoleContextMenuItems(role: Role, guild: Guild, popoutR
             <Menu.MenuItem
                 key="vc-copy-role-color"
                 id="vc-copy-role-color"
-                label="Copy Role Color"
+                label="Copia colore ruolo"
                 action={() => copyToClipboard(role.colorString!)}
                 icon={AppearanceIcon}
                 leadingAccessory={{ type: "icon", icon: AppearanceIcon }}
@@ -110,7 +110,7 @@ export function buildExtraRoleContextMenuItems(role: Role, guild: Guild, popoutR
             <Menu.MenuItem
                 key="vc-view-role-icon"
                 id="vc-view-role-icon"
-                label="View Role Icon"
+                label="Visualizza icona ruolo"
                 action={() => {
                     openImageModal({
                         url: `${location.protocol}//${window.GLOBAL_ENV.CDN_HOST}/role-icons/${role.id}/${role.icon}.${settings.store.roleIconFileFormat}`,
@@ -126,7 +126,7 @@ export function buildExtraRoleContextMenuItems(role: Role, guild: Guild, popoutR
             <Menu.MenuItem
                 key="vc-view-role-members"
                 id="vc-view-role-members"
-                label="View Role Members"
+                label="Visualizza membri del ruolo"
                 render={() => (
                     <Popout
                         position="right"
@@ -149,7 +149,7 @@ export function buildExtraRoleContextMenuItems(role: Role, guild: Guild, popoutR
                                 role="menuitem"
                                 {...popoutProps}
                             >
-                                <div className={MenuItemClasses.label}>View Role Members</div>
+                                <div className={MenuItemClasses.label}>Visualizza membri del ruolo</div>
                                 {/* FIXME: update to new icon style */}
                                 <div className={MenuItemClasses.iconContainer}>
                                     <RoleMembersIcon />
@@ -180,7 +180,7 @@ export function openRoleContextMenu(event: React.MouseEvent<HTMLElement>, { guil
             <Menu.Menu
                 navId="vc-better-role-context-member-list"
                 onClose={ContextMenuApi.closeContextMenu}
-                aria-label="Role Actions"
+                aria-label="Azioni ruolo"
             >
                 {before}
                 {after}
@@ -199,7 +199,7 @@ export function openRoleContextMenu(event: React.MouseEvent<HTMLElement>, { guil
 
 export default definePlugin({
     name: "BetterRoleContext",
-    description: "Adds options to copy role color / edit role / view role icon when right clicking roles in the user profile or in the member list",
+    description: "Aggiunge opzioni per copiare il colore del ruolo, modificare il ruolo o visualizzarne l'icona facendo clic destro sui ruoli nel profilo utente o nell'elenco membri",
     tags: ["Roles", "Appearance"],
     authors: [Devs.Ven, Devs.goodbee, Devs.nightmaresan],
     dependencies: ["UserSettingsAPI"],

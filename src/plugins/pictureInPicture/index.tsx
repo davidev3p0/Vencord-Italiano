@@ -14,7 +14,7 @@ import { Tooltip } from "@webpack/common";
 
 const settings = definePluginSettings({
     loop: {
-        description: "Whether to make the PiP video loop or not",
+        description: "Ripeti in loop il video Picture-in-Picture",
         type: OptionType.BOOLEAN,
         default: true,
         restartNeeded: false
@@ -23,7 +23,7 @@ const settings = definePluginSettings({
 
 export default definePlugin({
     name: "PictureInPicture",
-    description: "Adds picture in picture to videos (next to the Download button)",
+    description: "Aggiunge il Picture-in-Picture ai video (accanto al pulsante Download)",
     tags: ["Media", "Utility"],
     authors: [Devs.Lumap],
     settings,
@@ -39,7 +39,7 @@ export default definePlugin({
 
     PictureInPictureButton: ErrorBoundary.wrap(() => {
         return (
-            <Tooltip text="Toggle Picture in Picture">
+            <Tooltip text="Attiva/disattiva Picture in Picture">
                 {tooltipProps => (
                     <div
                         {...tooltipProps}

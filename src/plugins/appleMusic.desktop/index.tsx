@@ -55,125 +55,125 @@ function setActivity(activity: Activity | null) {
 const settings = definePluginSettings({
     activityType: {
         type: OptionType.SELECT,
-        description: "Which type of activity",
+        description: "Tipo di attività",
         options: [
-            { label: "Playing", value: ActivityType.PLAYING, default: true },
-            { label: "Listening", value: ActivityType.LISTENING }
+            { label: "In gioco", value: ActivityType.PLAYING, default: true },
+            { label: "In ascolto", value: ActivityType.LISTENING }
         ],
     },
     statusDisplayType: {
-        description: "Show the track / artist name in the member list",
+        description: "Mostra il nome del brano/artista nell'elenco membri",
         type: OptionType.SELECT,
         options: [
             {
-                label: "Don't show (shows generic listening message)",
+                label: "Non mostrare (mostra un messaggio di ascolto generico)",
                 value: "off",
                 default: true
             },
             {
-                label: "Show artist name",
+                label: "Mostra il nome dell'artista",
                 value: "artist"
             },
             {
-                label: "Show track name",
+                label: "Mostra il nome del brano",
                 value: "track"
             }
         ]
     },
     refreshInterval: {
         type: OptionType.SLIDER,
-        description: "The interval between activity refreshes (seconds)",
+        description: "Intervallo tra gli aggiornamenti dell'attività (secondi)",
         markers: [1, 2, 2.5, 3, 5, 10, 15],
         default: 5,
         restartNeeded: true,
     },
     enableTimestamps: {
         type: OptionType.BOOLEAN,
-        description: "Whether or not to enable timestamps",
+        description: "Abilita i timestamp",
         default: true,
     },
     enableButtons: {
         type: OptionType.BOOLEAN,
-        description: "Whether or not to enable buttons",
+        description: "Abilita i pulsanti",
         default: true,
     },
     nameString: {
         type: OptionType.STRING,
-        description: "Activity name format string",
+        description: "Formato del nome attività",
         default: "Apple Music"
     },
     detailsString: {
         type: OptionType.STRING,
-        description: "Activity details format string",
+        description: "Formato dei dettagli attività",
         default: "{name}"
     },
     stateString: {
         type: OptionType.STRING,
-        description: "Activity state format string",
+        description: "Formato dello stato attività",
         default: "{artist} · {album}"
     },
     detailsLink: {
         type: OptionType.SELECT,
-        description: "Activity details link",
+        description: "Link dettagli attività",
         options: [
             { label: "Album", value: LinkType.Album, default: true },
-            { label: "Artist", value: LinkType.Artist },
-            { label: "Disabled", value: LinkType.Disabled }
+            { label: "Artista", value: LinkType.Artist },
+            { label: "Disabilitato", value: LinkType.Disabled }
         ],
     },
     stateLink: {
         type: OptionType.SELECT,
-        description: "Activity state link",
+        description: "Link stato attività",
         options: [
             { label: "Album", value: LinkType.Album },
-            { label: "Artist", value: LinkType.Artist, default: true },
-            { label: "Disabled", value: LinkType.Disabled }
+            { label: "Artista", value: LinkType.Artist, default: true },
+            { label: "Disabilitato", value: LinkType.Disabled }
         ],
     },
     largeImageType: {
         type: OptionType.SELECT,
-        description: "Activity assets large image type",
+        description: "Tipo immagine grande dell'attività",
         options: [
-            { label: "Album artwork", value: AssetImageType.Album, default: true },
-            { label: "Artist artwork", value: AssetImageType.Artist },
-            { label: "Disabled", value: AssetImageType.Disabled }
+            { label: "Copertina album", value: AssetImageType.Album, default: true },
+            { label: "Immagine artista", value: AssetImageType.Artist },
+            { label: "Disabilitato", value: AssetImageType.Disabled }
         ],
     },
     largeTextString: {
         type: OptionType.STRING,
-        description: "Activity assets large text format string",
+        description: "Formato testo grande dell'attività",
         default: "{album}"
     },
     largeImageLink: {
         type: OptionType.SELECT,
-        description: "Activity assets large image link",
+        description: "Link immagine grande dell'attività",
         options: [
             { label: "Album", value: LinkType.Album, default: true },
-            { label: "Artist", value: LinkType.Artist },
-            { label: "Disabled", value: LinkType.Disabled }
+            { label: "Artista", value: LinkType.Artist },
+            { label: "Disabilitato", value: LinkType.Disabled }
         ],
     },
     smallImageType: {
         type: OptionType.SELECT,
-        description: "Activity assets small image type",
+        description: "Tipo immagine piccola dell'attività",
         options: [
-            { label: "Album artwork", value: AssetImageType.Album },
-            { label: "Artist artwork", value: AssetImageType.Artist, default: true },
-            { label: "Disabled", value: AssetImageType.Disabled }
+            { label: "Copertina album", value: AssetImageType.Album },
+            { label: "Immagine artista", value: AssetImageType.Artist, default: true },
+            { label: "Disabilitato", value: AssetImageType.Disabled }
         ],
     },
     smallTextString: {
         type: OptionType.STRING,
-        description: "Activity assets small text format string",
+        description: "Formato testo piccolo dell'attività",
         default: "{artist}"
     },
     smallImageLink: {
         type: OptionType.SELECT,
-        description: "Activity assets small image link",
+        description: "Link immagine piccola dell'attività",
         options: [
             { label: "Album", value: LinkType.Album },
-            { label: "Artist", value: LinkType.Artist, default: true },
-            { label: "Disabled", value: LinkType.Disabled }
+            { label: "Artista", value: LinkType.Artist, default: true },
+            { label: "Disabilitato", value: LinkType.Disabled }
         ],
     },
 });
@@ -205,7 +205,7 @@ function getImageAsset(type: AssetImageType, data: TrackData) {
 
 export default definePlugin({
     name: "AppleMusicRichPresence",
-    description: "Discord rich presence for your Apple Music!",
+    description: "Rich Presence Discord per Apple Music!",
     tags: ["Activity", "Media"],
     authors: [Devs.RyanCaoDev],
     hidden: !IS_MAC,
@@ -214,8 +214,8 @@ export default definePlugin({
     settingsAboutComponent() {
         return <>
             <Paragraph>
-                For the customizable activity format strings, you can use several special strings to include track data in activities!{" "}
-                <code>{"{name}"}</code> is replaced with the track name; <code>{"{artist}"}</code> is replaced with the artist(s)' name(s); and <code>{"{album}"}</code> is replaced with the album name.
+                Nelle stringhe personalizzabili del formato attività puoi usare diversi segnaposto speciali per includere i dati del brano!{" "}
+                <code>{"{name}"}</code> viene sostituito con il nome del brano; <code>{"{artist}"}</code> viene sostituito con il nome dell’artista o degli artisti; e <code>{"{album}"}</code> viene sostituito con il nome dell’album.
             </Paragraph>
         </>;
     },
@@ -266,13 +266,13 @@ export default definePlugin({
         if (settings.store.enableButtons) {
             if (trackData.appleMusicLink)
                 buttons.push({
-                    label: "Listen on Apple Music",
+                    label: "Ascolta su Apple Music",
                     url: trackData.appleMusicLink,
                 });
 
             if (trackData.songLink)
                 buttons.push({
-                    label: "View on SongLink",
+                    label: "Visualizza su SongLink",
                     url: trackData.songLink,
                 });
         }

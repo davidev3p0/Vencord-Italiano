@@ -22,7 +22,7 @@ import definePlugin from "@utils/types";
 
 export default definePlugin({
     name: "Unindent",
-    description: "Trims leading indentation from codeblocks",
+    description: "Rimuove l'indentazione iniziale dai blocchi di codice",
     tags: ["Chat", "Utility"],
     authors: [Devs.Ven],
 

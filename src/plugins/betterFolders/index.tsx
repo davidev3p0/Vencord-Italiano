@@ -82,54 +82,54 @@ function filterTreeWithTargetNode(children: any, predicate: (node: any) => boole
 export const settings = definePluginSettings({
     sidebar: {
         type: OptionType.BOOLEAN,
-        description: "Display servers from folder on dedicated sidebar",
+        description: "Mostra i server delle cartelle in una barra laterale dedicata",
         restartNeeded: true,
         default: true
     },
     sidebarAnim: {
         type: OptionType.BOOLEAN,
-        description: "Animate opening the folder sidebar",
+        description: "Anima l'apertura della barra laterale delle cartelle",
         default: true
     },
     closeAllFolders: {
         type: OptionType.BOOLEAN,
-        description: "Close all folders when selecting a server not in a folder",
+        description: "Chiudi tutte le cartelle quando selezioni un server non contenuto in una cartella",
         default: false
     },
     closeAllHomeButton: {
         type: OptionType.BOOLEAN,
-        description: "Close all folders when clicking on the home button",
+        description: "Chiudi tutte le cartelle facendo clic sul pulsante Home",
         restartNeeded: true,
         default: false
     },
     closeOthers: {
         type: OptionType.BOOLEAN,
-        description: "Close other folders when opening a folder",
+        description: "Chiudi le altre cartelle quando ne apri una",
         default: false
     },
     closeServerFolder: {
         type: OptionType.BOOLEAN,
-        description: "Close folder when selecting a server in that folder",
+        description: "Chiudi la cartella quando selezioni un server al suo interno",
         default: false,
     },
     forceOpen: {
         type: OptionType.BOOLEAN,
-        description: "Force a folder to open when switching to a server of that folder",
+        description: "Forza l'apertura della cartella quando passi a un server contenuto al suo interno",
         default: false
     },
     keepIcons: {
         type: OptionType.BOOLEAN,
-        description: "Keep showing guild icons in the primary guild bar folder when it's open in the BetterFolders sidebar",
+        description: "Continua a mostrare le icone dei server nella cartella della barra principale quando è aperta nella barra laterale BetterFolders",
         restartNeeded: true,
         default: false
     },
     showFolderIcon: {
         type: OptionType.SELECT,
-        description: "Show the folder icon above the folder guilds in the BetterFolders sidebar",
+        description: "Mostra l'icona della cartella sopra i server della cartella nella barra laterale BetterFolders",
         options: [
-            { label: "Never", value: FolderIconDisplay.Never },
-            { label: "Always", value: FolderIconDisplay.Always, default: true },
-            { label: "When more than one folder is expanded", value: FolderIconDisplay.MoreThanOneFolderExpanded }
+            { label: "Mai", value: FolderIconDisplay.Never },
+            { label: "Sempre", value: FolderIconDisplay.Always, default: true },
+            { label: "Quando è espansa più di una cartella", value: FolderIconDisplay.MoreThanOneFolderExpanded }
         ],
         restartNeeded: true
     }
@@ -141,7 +141,7 @@ const GRID_STYLE_NAME = "vc-betterFolders-sidebar-grid";
 
 export default definePlugin({
     name: "BetterFolders",
-    description: "Shows server folders on dedicated sidebar and adds folder related improvements",
+    description: "Mostra le cartelle dei server in una barra laterale dedicata e aggiunge miglioramenti relativi alle cartelle",
     authors: [Devs.juby, Devs.AutumnVN, Devs.Nuckyz],
     tags: ["Organisation", "Servers", "Appearance"],
     settings,

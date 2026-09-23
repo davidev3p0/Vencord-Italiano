@@ -54,7 +54,7 @@ async function toggleHide(channelId: string, messageId: string) {
 
 export default definePlugin({
     name: "HideMedia",
-    description: "Hide attachments and embeds for individual messages via hover button",
+    description: "Nascondi allegati e incorporamenti dei singoli messaggi tramite il pulsante al passaggio del mouse",
     tags: ["Chat", "Appearance"],
     authors: [Devs.Ven],
     dependencies: ["MessageUpdaterAPI"],
@@ -89,7 +89,7 @@ export default definePlugin({
 
         return (
             <span className={classes("vc-hideAttachments-accessory", !message.content && "vc-hideAttachments-no-content")}>
-                Media Hidden
+                Contenuti multimediali nascosti
             </span>
         );
     },

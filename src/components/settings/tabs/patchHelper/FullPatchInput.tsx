@@ -69,7 +69,7 @@ export function FullPatchInput({ setFind, setParsedFind, setMatch, setReplacemen
     return (
         <>
             <Forms.FormText className={Margins.bottom8}>
-                Paste your full JSON patch here to fill out the fields
+                Incolla qui la patch JSON completa per compilare i campi
             </Forms.FormText>
             <TextArea
                 inputRef={textAreaRef}

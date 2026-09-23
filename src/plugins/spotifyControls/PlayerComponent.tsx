@@ -188,7 +188,7 @@ function SpotifySeekBar() {
                 size="xs"
                 weight="medium"
                 className={cl("progress-time") + " " + cl("time-left")}
-                aria-label="Progress"
+                aria-label="Avanzamento"
             >
                 {formatDuration(position)}
             </Span>
@@ -204,7 +204,7 @@ function SpotifySeekBar() {
                 size="xs"
                 weight="medium"
                 className={cl("progress-time") + " " + cl("time-right")}
-                aria-label="Total Duration"
+                aria-label="Durata totale"
             >
                 {formatDuration(duration)}
             </Span>
@@ -220,12 +220,12 @@ function AlbumContextMenu({ track }: { track: Track; }) {
         <Menu.Menu
             navId="spotify-album-menu"
             onClose={() => FluxDispatcher.dispatch({ type: "CONTEXT_MENU_CLOSE" })}
-            aria-label="Spotify Album Menu"
+            aria-label="Menu album Spotify"
         >
             <Menu.MenuItem
                 key="open-album"
                 id="open-album"
-                label="Open Album"
+                label="Apri album"
                 action={() => SpotifyStore.openExternal(`/album/${track.album.id}`)}
                 icon={OpenExternalIcon}
                 leadingAccessory={{ type: "icon", icon: OpenExternalIcon }}
@@ -233,7 +233,7 @@ function AlbumContextMenu({ track }: { track: Track; }) {
             <Menu.MenuItem
                 key="view-cover"
                 id="view-cover"
-                label="View Album Cover"
+                label="Visualizza copertina album"
                 // trolley
                 action={() => openImageModal(track.album.image)}
                 icon={ImageIcon}
@@ -312,7 +312,7 @@ function Info({ track }: { track: Track; }) {
                 </Paragraph>
                 {track.artists.some(a => a.name) && (
                     <Paragraph className={cl(["ellipoverflow", "secondary-song-info"])}>
-                        <span className={cl("song-info-prefix")}>by&nbsp;</span>
+                        <span className={cl("song-info-prefix")}>di&nbsp;</span>
                         {track.artists.map((a, i) => (
                             <React.Fragment key={a.name}>
                                 <span
@@ -330,7 +330,7 @@ function Info({ track }: { track: Track; }) {
                 )}
                 {track.album.name && (
                     <Paragraph className={cl(["ellipoverflow", "secondary-song-info"])}>
-                        <span className={cl("song-info-prefix")}>on&nbsp;</span>
+                        <span className={cl("song-info-prefix")}>in&nbsp;</span>
                         <span
                             id={cl("album-title")}
                             className={cl("album")}

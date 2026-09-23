@@ -75,11 +75,11 @@ function decode(bio: string): Array<number> | null {
 
 const settings = definePluginSettings({
     nitroFirst: {
-        description: "Default color source if both are present",
+        description: "Sorgente colore predefinita se sono presenti entrambe",
         type: OptionType.SELECT,
         options: [
-            { label: "Nitro colors", value: true, default: true },
-            { label: "Fake colors", value: false },
+            { label: "Colori Nitro", value: true, default: true },
+            { label: "Colori personalizzati", value: false },
         ]
     }
 });
@@ -116,22 +116,21 @@ function SettingsAboutComponent() {
 
     return (
         <section>
-            <Forms.FormTitle tag="h3">Usage</Forms.FormTitle>
+            <Forms.FormTitle tag="h3">Utilizzo</Forms.FormTitle>
             <Forms.FormText>
-                After enabling this plugin, you will see custom colors in
-                the profiles of other people using compatible plugins.{" "}
+                Dopo aver abilitato questo plugin vedrai colori personalizzati nei profili degli utenti che usano plugin compatibili.{" "}
             </Forms.FormText>
             <Forms.FormText className={Margins.top8}>
-                <strong>To set your own profile theme colors:</strong>
+                <strong>Per impostare i colori del tema del tuo profilo:</strong>
                 <ul>
-                    <li>&mdash; use the color pickers below to choose your colors</li>
-                    <li>&mdash; click the "Copy 3y3" button</li>
-                    <li>&mdash; paste the invisible text anywhere in your bio</li>
+                    <li>&mdash; usa i selettori qui sotto per scegliere i colori</li>
+                    <li>&mdash; fai clic sul pulsante "Copia 3y3"</li>
+                    <li>&mdash; incolla il testo invisibile in un punto qualsiasi della bio</li>
                 </ul>
                 <Divider
                     className={classes(Margins.top8, Margins.bottom8)}
                 />
-                <Forms.FormTitle tag="h3">Color pickers</Forms.FormTitle>
+                <Forms.FormTitle tag="h3">Selettori colore</Forms.FormTitle>
                 <Flex gap="1em">
                     <ColorPicker
                         color={color1}
@@ -140,7 +139,7 @@ function SettingsAboutComponent() {
                                 variant={"text-xs/normal"}
                                 style={{ marginTop: "4px" }}
                             >
-                                Primary
+                                Primario
                             </Text>
                         }
                         onChange={(color: number) => {
@@ -154,7 +153,7 @@ function SettingsAboutComponent() {
                                 variant={"text-xs/normal"}
                                 style={{ marginTop: "4px" }}
                             >
-                                Accent
+                                Accento
                             </Text>
                         }
                         onChange={(color: number) => {
@@ -170,13 +169,13 @@ function SettingsAboutComponent() {
                         size={Button.Sizes.XLARGE}
                         style={{ marginBottom: "auto" }}
                     >
-                        Copy 3y3
+                        Copia 3y3
                     </Button>
                 </Flex>
                 <Divider
                     className={classes(Margins.top8, Margins.bottom8)}
                 />
-                <Forms.FormTitle tag="h3">Preview</Forms.FormTitle>
+                <Forms.FormTitle tag="h3">Anteprima</Forms.FormTitle>
                 <div className="vc-fpt-preview">
                     <ProfileModal
                         user={UserStore.getCurrentUser()}
@@ -195,7 +194,7 @@ function SettingsAboutComponent() {
 
 export default definePlugin({
     name: "FakeProfileThemes",
-    description: "Allows profile theming by hiding the colors in your bio thanks to invisible 3y3 encoding",
+    description: "Consente di personalizzare i colori del profilo nascondendoli nella biografia tramite codifica 3y3 invisibile",
     tags: ["Appearance", "Customisation"],
     authors: [Devs.Alyxia, Devs.Remty],
     patches: [
@@ -241,7 +240,7 @@ export default definePlugin({
             color={Button.Colors.PRIMARY}
             size={Button.Sizes.XLARGE}
             className={Margins.left16}
-        >Copy 3y3
+        >Copia 3y3
         </Button >;
     }, { noop: true }),
 });

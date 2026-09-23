@@ -39,7 +39,7 @@ async function addAttachments(channelId: string, messageId: string, existingAtta
     if (files.length + existingAttachmentCount > 10) {
         const remaining = 10 - existingAttachmentCount;
         if (remaining <= 0) {
-            showToast("You cannot add more attachments to this message.", Toasts.Type.FAILURE);
+            showToast("Non puoi aggiungere altri allegati a questo messaggio.", Toasts.Type.FAILURE);
             return;
         }
 
@@ -47,7 +47,7 @@ async function addAttachments(channelId: string, messageId: string, existingAtta
         return;
     }
 
-    showToast("Uploading, this can take a while...", Toasts.Type.CLOCK);
+    showToast("Caricamento in corso, potrebbe richiedere un po’ di tempo...", Toasts.Type.CLOCK);
 
     const { body: { attachments } } = await RestAPI.post({
         url: `/channels/${channelId}/attachments`,
@@ -113,7 +113,7 @@ function handlePaste(e: ClipboardEvent) {
 
 export default definePlugin({
     name: "AddAttachments",
-    description: "Allows you to add new attachments while editing messages",
+    description: "Consente di aggiungere nuovi allegati durante la modifica dei messaggi",
     authors: [Devs.Lumap],
 
     start() {
@@ -132,7 +132,7 @@ export default definePlugin({
             if (!channel.isPrivate() && !PermissionStore.can(PermissionsBits.SEND_MESSAGES, channel)) return null;
 
             return {
-                label: "Add Attachments",
+                label: "Aggiungi allegati",
                 icon: UploadIcon,
                 message: msg,
                 channel: ChannelStore.getChannel(msg.channel_id),

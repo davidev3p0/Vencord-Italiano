@@ -39,7 +39,7 @@ async function lookupApp(applicationId: string): Promise<string> {
 let ws: WebSocket;
 export default definePlugin({
     name: "WebRichPresence (arRPC)",
-    description: "Client plugin for arRPC to enable RPC on Discord Web (experimental)",
+    description: "Plugin client per arRPC che abilita RPC su Discord Web (sperimentale)",
     tags: ["Activity", "Utility"],
     authors: [Devs.Ducko],
     reporterTestable: ReporterTestable.None,
@@ -47,9 +47,9 @@ export default definePlugin({
 
     settingsAboutComponent: () => (
         <>
-            <Forms.FormTitle tag="h3">How to use arRPC</Forms.FormTitle>
+            <Forms.FormTitle tag="h3">Come usare arRPC</Forms.FormTitle>
             <Forms.FormText>
-                <Link href="https://github.com/OpenAsar/arrpc/tree/main#server">Follow the instructions in the GitHub repo</Link> to get the server running, and then enable the plugin.
+                <Link href="https://github.com/OpenAsar/arrpc/tree/main#server">Segui le istruzioni nel repository GitHub</Link> per avviare il server, quindi abilita il plugin.
             </Forms.FormText>
         </>
     ),
@@ -82,7 +82,7 @@ export default definePlugin({
 
         const connectionSuccessful = await new Promise(res => setTimeout(() => res(ws.readyState === WebSocket.OPEN), 5000)); // check if open after 5s
         if (!connectionSuccessful) {
-            showNotice("Failed to connect to arRPC, is it running?", "Retry", () => { // show notice about failure to connect, with retry/ignore
+            showNotice("Impossibile connettersi ad arRPC. È in esecuzione?", "Riprova", () => { // show notice about failure to connect, with retry/ignore
                 popNotice();
                 this.start();
             });
@@ -90,7 +90,7 @@ export default definePlugin({
         }
 
         Toasts.show({ // show toast on success
-            message: "Connected to arRPC",
+            message: "Connesso ad arRPC",
             type: Toasts.Type.SUCCESS,
             id: Toasts.genId(),
             options: {

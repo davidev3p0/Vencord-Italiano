@@ -37,26 +37,26 @@ const tarExtMatcher = /\.tar\.\w+$/;
 
 const settings = definePluginSettings({
     anonymiseByDefault: {
-        description: "Whether to anonymise file names by default",
+        description: "Anonimizza i nomi dei file per impostazione predefinita",
         type: OptionType.BOOLEAN,
         default: true,
     },
     method: {
-        description: "Anonymising method",
+        description: "Metodo di anonimizzazione",
         type: OptionType.SELECT,
         options: [
-            { label: "Random Characters", value: Methods.Random, default: true },
-            { label: "Consistent", value: Methods.Consistent },
+            { label: "Caratteri casuali", value: Methods.Random, default: true },
+            { label: "Coerente", value: Methods.Consistent },
             { label: "Timestamp", value: Methods.Timestamp },
         ],
     },
     randomisedLength: {
-        description: "Random characters length",
+        description: "Lunghezza caratteri casuali",
         type: OptionType.NUMBER,
         default: 7
     },
     consistent: {
-        description: "Consistent filename",
+        description: "Nome file coerente",
         type: OptionType.STRING,
         default: "image"
     },
@@ -72,7 +72,7 @@ const settings = definePluginSettings({
 export default definePlugin({
     name: "AnonymiseFileNames",
     authors: [Devs.fawn],
-    description: "Anonymise uploaded file names",
+    description: "Anonimizza i nomi dei file caricati",
     tags: ["Privacy", "Utility"],
     settings,
 

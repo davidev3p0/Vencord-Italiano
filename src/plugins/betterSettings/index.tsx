@@ -23,19 +23,19 @@ const Classes = findCssClassesLazy("animating", "baseLayer", "bg", "layer", "lay
 
 const settings = definePluginSettings({
     disableFade: {
-        description: "Disable the crossfade animation",
+        description: "Disabilita l'animazione di dissolvenza incrociata",
         type: OptionType.BOOLEAN,
         default: true,
         restartNeeded: true
     },
     organizeMenu: {
-        description: "Organizes the settings cog context menu into categories",
+        description: "Organizza in categorie il menu contestuale dell'ingranaggio Impostazioni",
         type: OptionType.BOOLEAN,
         default: true,
         restartNeeded: true
     },
     eagerLoad: {
-        description: "Removes the loading delay when opening the menu for the first time",
+        description: "Rimuove il ritardo di caricamento alla prima apertura del menu",
         type: OptionType.BOOLEAN,
         default: true,
         restartNeeded: true
@@ -77,7 +77,7 @@ function Layer({ mode, baseLayer = false, ...props }: LayerProps) {
 
 export default definePlugin({
     name: "BetterSettings",
-    description: "Enhances your settings-menu-opening experience",
+    description: "Migliora l'esperienza di apertura del menu Impostazioni",
     authors: [Devs.Kyuuhachi],
     tags: ["Appearance", "Customisation", "Organisation"],
     settings,

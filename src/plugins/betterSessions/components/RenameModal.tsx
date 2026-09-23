@@ -42,7 +42,7 @@ export function RenameModal({ props, session, state }: { props: RenderModalProps
     return (
         <Modal
             {...props}
-            title="Rename"
+            title="Rinomina"
             actions={[
                 {
                     text: "Cancel",
@@ -57,7 +57,7 @@ export function RenameModal({ props, session, state }: { props: RenderModalProps
             ]}
         >
             <div>
-                <Forms.FormTitle tag="h5">New device name</Forms.FormTitle>
+                <Forms.FormTitle tag="h5">Nuovo nome dispositivo</Forms.FormTitle>
                 <TextInput
                     style={{ marginBottom: "10px" }}
                     placeholder={getDefaultName(session.client_info)}
@@ -76,7 +76,7 @@ export function RenameModal({ props, session, state }: { props: RenderModalProps
                     }}
                     onClick={() => setValue("")}
                 >
-                    Reset Name
+                    Ripristina nome
                 </TextButton>
             </div>
         </Modal>

@@ -28,11 +28,11 @@ const enum DisplayStyle {
 
 const settings = definePluginSettings({
     displayStyle: {
-        description: "How to display the timeout duration",
+        description: "Come visualizzare la durata del timeout",
         type: OptionType.SELECT,
         options: [
-            { label: "In the Tooltip", value: DisplayStyle.Tooltip },
-            { label: "Next to the timeout icon", value: DisplayStyle.Inline, default: true },
+            { label: "Nel suggerimento", value: DisplayStyle.Tooltip },
+            { label: "Accanto all'icona del timeout", value: DisplayStyle.Inline, default: true },
         ],
     }
 });
@@ -67,7 +67,7 @@ function renderTimeout(message: Message, inline: boolean) {
 
 export default definePlugin({
     name: "ShowTimeoutDuration",
-    description: "Shows how much longer a user's timeout will last, either in the timeout icon tooltip or next to it",
+    description: "Mostra quanto manca alla fine del timeout di un utente, nel suggerimento dell'icona o accanto ad essa",
     tags: ["Servers", "Utility"],
     authors: [Devs.Ven, Devs.Sqaaakoi],
 
@@ -93,7 +93,7 @@ export default definePlugin({
             <div className="vc-std-wrapper">
                 <TooltipContainer text={text}>{children}</TooltipContainer>
                 <Text variant="text-md/normal" color="status-danger">
-                    {renderTimeout(message, true)} timeout remaining
+                    {renderTimeout(message, true)} timeout rimanente
                 </Text>
             </div>
         );

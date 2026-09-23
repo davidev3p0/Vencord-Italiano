@@ -12,17 +12,17 @@ import { UserStore } from "@webpack/common";
 export const settings = definePluginSettings({
     superReactByDefault: {
         type: OptionType.BOOLEAN,
-        description: "Reaction picker will default to Super Reactions",
+        description: "Il selettore reazioni userà le Super Reazioni per impostazione predefinita",
         default: true,
     },
     unlimitedSuperReactionPlaying: {
         type: OptionType.BOOLEAN,
-        description: "Remove the limit on Super Reactions playing at once",
+        description: "Rimuovi il limite di Super Reazioni riprodotte contemporaneamente",
         default: false,
     },
 
     superReactionPlayingLimit: {
-        description: "Max Super Reactions to play at once. 0 to disable playing Super Reactions",
+        description: "Numero massimo di Super Reazioni da riprodurre contemporaneamente. 0 per disabilitarne la riproduzione",
         type: OptionType.SLIDER,
         default: 20,
         markers: [0, 5, 10, 20, 40, 60, 80, 100],
@@ -36,7 +36,7 @@ export const settings = definePluginSettings({
 
 export default definePlugin({
     name: "SuperReactionTweaks",
-    description: "Customize the limit of Super Reactions playing at once, and super react by default",
+    description: "Personalizza il limite di Super Reazioni riprodotte contemporaneamente e usa le Super Reazioni per impostazione predefinita",
     tags: ["Reactions", "Emotes"],
     authors: [Devs.FieryFlames, Devs.ant0n],
     patches: [

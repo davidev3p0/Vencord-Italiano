@@ -74,12 +74,12 @@ const settings = definePluginSettings({
                 <>
                     <TextReplaceTesting />
                     <TextReplace
-                        title="Simple Replacements"
+                        title="Sostituzioni semplici"
                         description="Simple find and replace rules. For example, find 'brb' and replace it with 'be right back'"
                         rulesArray={stringRules}
                     />
                     <TextReplace
-                        title="Regex Replacements"
+                        title="Sostituzioni regex"
                         description="More powerful replacements using Regular Expressions. This section is for advanced users. If you don't understand it, just ignore it"
                         rulesArray={regexRules}
                         isRegex
@@ -91,12 +91,12 @@ const settings = definePluginSettings({
     stringRules: {
         type: OptionType.CUSTOM,
         default: makeEmptyRuleArray(),
-        description: "Rules for replacing text using string matching."
+        description: "Regole per sostituire il testo tramite corrispondenza di stringhe."
     },
     regexRules: {
         type: OptionType.CUSTOM,
         default: makeEmptyRuleArray(),
-        description: "Rules for replacing text using regular expressions."
+        description: "Regole per sostituire il testo tramite espressioni regolari."
     }
 });
 
@@ -240,7 +240,7 @@ function TextReplace({ title, description, rulesArray, isRegex = false }: TextRe
                 <Paragraph>{description}</Paragraph>
                 <div className={cl("search-input")}>
                     <TextInput
-                        placeholder="Search for a rule..."
+                        placeholder="Cerca una regola..."
                         value={searchQuery}
                         onChange={setSearchQuery}
                     />
@@ -248,7 +248,7 @@ function TextReplace({ title, description, rulesArray, isRegex = false }: TextRe
             </div>
             <Flex flexDirection="column" style={{ gap: "0.5em", paddingBottom: "1.25em" }}>
                 {!filteredRules.length && searchQuery && (
-                    <Paragraph>No rules match your search criteria.</Paragraph>
+                    <Paragraph>Nessuna regola corrisponde ai criteri di ricerca.</Paragraph>
                 )}
                 {filteredRules.map(({ rule, index }) =>
                     <div
@@ -268,25 +268,25 @@ function TextReplace({ title, description, rulesArray, isRegex = false }: TextRe
                                 <>
                                     <div className={cl("input-grid")}>
                                         <TextRow
-                                            label="Name"
+                                            label="Nome"
                                             description="An optional name to help you identify this rule."
                                             value={rule.name ?? ""}
                                             onChange={e => onChange(e, index, "name")}
                                         />
                                         <TextRow
-                                            label="Find"
+                                            label="Trova"
                                             description={isRegex ? "The regex pattern" : "The text to replace"}
                                             value={rule.find}
                                             onChange={e => onChange(e, index, "find")}
                                         />
                                         <TextRow
-                                            label="Replace"
+                                            label="Sostituisci"
                                             description="The text to replace the found text with"
                                             value={rule.replace}
                                             onChange={e => onChange(e, index, "replace")}
                                         />
                                         <TextRow
-                                            label="Only if includes"
+                                            label="Solo se contiene"
                                             description="Optionally, only apply this rule if the message includes this text."
                                             value={rule.onlyIfIncludes}
                                             onChange={e => onChange(e, index, "onlyIfIncludes")}
@@ -298,7 +298,7 @@ function TextReplace({ title, description, rulesArray, isRegex = false }: TextRe
                                         variant="dangerPrimary"
                                         onClick={() => onClickRemove(index)}
                                     >
-                                        Delete Rule
+                                        Elimina regola
                                     </Button>
                                 </>
                             )}
@@ -334,7 +334,7 @@ function TextReplace({ title, description, rulesArray, isRegex = false }: TextRe
                     }}
                     disabled={rulesArray.length > 0 && isEmptyRule(rulesArray[rulesArray.length - 1])}
                 >
-                    Add Rule
+                    Aggiungi regola
                 </Button>
             </Flex>
         </>
@@ -346,10 +346,10 @@ function TextReplaceTesting() {
 
     return (
         <div>
-            <HeadingSecondary>Rule Tester</HeadingSecondary>
+            <HeadingSecondary>Test regole</HeadingSecondary>
             <Flex flexDirection="column" gap={6}>
-                <TextInput placeholder="Type a message to test rules on" onChange={setValue} />
-                <TextInput placeholder="Message with rules applied" editable={false} value={applyRules(value)} style={{ opacity: 0.7 }} />
+                <TextInput placeholder="Scrivi un messaggio per testare le regole" onChange={setValue} />
+                <TextInput placeholder="Messaggio con regole applicate" editable={false} value={applyRules(value)} style={{ opacity: 0.7 }} />
             </Flex>
         </div>
     );
@@ -386,7 +386,7 @@ function applyRules(content: string): string {
 const TEXT_REPLACE_RULES_CHANNEL_ID = "1102784112584040479";
 export default definePlugin({
     name: "TextReplace",
-    description: "Replace text in your messages. You can find pre-made rules in the #textreplace-rules channel in Vencord's Server",
+    description: "Sostituisce il testo nei tuoi messaggi. Puoi trovare regole già pronte nel canale #textreplace-rules del server Vencord",
     tags: ["Chat", "Customisation", "Utility"],
     authors: [Devs.AutumnVN, Devs.TheKodeToad],
 

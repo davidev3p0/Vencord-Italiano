@@ -32,15 +32,15 @@ interface UsrbgApiReturn {
 
 const settings = definePluginSettings({
     nitroFirst: {
-        description: "Banner to use if both Nitro and USRBG banners are present",
+        description: "Banner da usare se sono presenti sia il banner Nitro sia quello USRBG",
         type: OptionType.SELECT,
         options: [
-            { label: "Nitro banner", value: true, default: true },
-            { label: "USRBG banner", value: false },
+            { label: "Banner Nitro", value: true, default: true },
+            { label: "Banner USRBG", value: false },
         ]
     },
     voiceBackground: {
-        description: "Use USRBG banners as voice chat backgrounds",
+        description: "Usa i banner USRBG come sfondi delle chat vocali",
         type: OptionType.BOOLEAN,
         default: true,
         restartNeeded: true
@@ -49,7 +49,7 @@ const settings = definePluginSettings({
 
 export default definePlugin({
     name: "USRBG",
-    description: "Displays user banners from USRBG, allowing anyone to get a banner without Nitro",
+    description: "Mostra i banner utente da USRBG, consentendo a chiunque di avere un banner senza Nitro",
     tags: ["Appearance", "Customisation"],
     authors: [Devs.AutumnVN, Devs.katlyn, Devs.pylix, Devs.TheKodeToad],
     settings,
@@ -87,7 +87,7 @@ export default definePlugin({
     settingsAboutComponent: () => {
         return (
             <LinkButton href="https://github.com/AutumnVN/usrbg#how-to-request-your-own-usrbg-banner" variant="primary">
-                Get your own USRBG banner
+                Ottieni il tuo banner USRBG
             </LinkButton>
         );
     },

@@ -30,10 +30,10 @@ export function UIElementsButton() {
             <Card className={cl("button")} defaultPadding>
                 <div className={cl("button-description")}>
                     <Paragraph size="md" weight="semibold">
-                        Manage plugin UI elements
+                        Gestisci elementi interfaccia dei plugin
                     </Paragraph>
                     <Paragraph size="xs">
-                        Allows you to hide buttons you don't like
+                        Consente di nascondere i pulsanti che non vuoi vedere
                     </Paragraph>
                 </div>
                 <svg
@@ -81,7 +81,7 @@ function Section(props: {
             <div className={cl("switches")}>
                 {switches.length === 0 && (
                     <Paragraph weight="medium" className={cl("switches-row")} style={{ color: "var(--text-muted)" }}>
-                        Buttons of enabled plugins will appear here.
+                        Qui appariranno i pulsanti dei plugin abilitati.
                     </Paragraph>
                 )}
                 {switches}
@@ -94,17 +94,17 @@ function UIElementsModal(props: RenderModalProps) {
     const { uiElements } = useSettings(["uiElements.*"]);
 
     return (
-        <Modal {...props} size="md" title="Manage plugin UI elements">
+        <Modal {...props} size="md" title="Gestisci elementi interfaccia dei plugin">
             <div className={cl("modal-content")}>
                 <Section
-                    title="Chatbar Buttons"
-                    description="These are the buttons on the right side of the chat input bar"
+                    title="Pulsanti barra chat"
+                    description="Questi sono i pulsanti sul lato destro della barra di inserimento della chat"
                     buttonMap={ChatBarButtonMap}
                     settings={uiElements.chatBarButtons}
                 />
                 <Section
-                    title="Message Popover Buttons"
-                    description="These are the floating buttons on the right when you hover over a message"
+                    title="Pulsanti popup messaggi"
+                    description="Questi sono i pulsanti mobili a destra quando passi sopra un messaggio"
                     buttonMap={MessagePopoverButtonMap}
                     settings={uiElements.messagePopoverButtons}
                 />

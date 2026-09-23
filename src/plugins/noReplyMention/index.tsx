@@ -25,35 +25,35 @@ import { ChannelStore, GuildMemberStore } from "@webpack/common";
 const settings = definePluginSettings({
     userList: {
         description:
-            "List of user ids to allow or exempt pings for (separated by commas or spaces)",
+            "Elenco di ID utente per cui consentire o escludere le notifiche, separati da virgole o spazi",
         type: OptionType.STRING,
         default: "1234567890123445,1234567890123445",
         multiline: true
     },
     roleList: {
         description:
-            "List of role ids to allow or exempt pings for (separated by commas or spaces)",
+            "Elenco di ID ruolo per cui consentire o escludere le notifiche, separati da virgole o spazi",
         type: OptionType.STRING,
         default: "1234567890123445,1234567890123445",
         multiline: true
     },
     shouldPingListed: {
-        description: "Behaviour",
+        description: "Comportamento",
         type: OptionType.SELECT,
         options: [
             {
-                label: "Do not ping the listed users / roles",
+                label: "Non notificare gli utenti/ruoli elencati",
                 value: false,
             },
             {
-                label: "Only ping the listed users / roles",
+                label: "Notifica solo gli utenti/ruoli elencati",
                 value: true,
                 default: true,
             },
         ],
     },
     inverseShiftReply: {
-        description: "Invert Discord's shift replying behaviour (enable to make shift reply mention user)",
+        description: "Inverti il comportamento di risposta con Maiusc di Discord (abilita per menzionare l'utente con Maiusc+Rispondi)",
         type: OptionType.BOOLEAN,
         default: false,
     }
@@ -61,7 +61,7 @@ const settings = definePluginSettings({
 
 export default definePlugin({
     name: "NoReplyMention",
-    description: "Disables reply pings by default",
+    description: "Disabilita per impostazione predefinita le notifiche nelle risposte",
     tags: ["Chat", "Notifications"],
     authors: [Devs.DustyAngel47, Devs.rae, Devs.pylix, Devs.outfoxxed],
     settings,

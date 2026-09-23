@@ -39,42 +39,42 @@ const isOptInEnabledForGuild = findByCodeLazy(".COMMUNITY)||", ".isOptInEnabled(
 
 const settings = definePluginSettings({
     guild: {
-        description: "Mute Guild automatically",
+        description: "Silenzia automaticamente il server",
         type: OptionType.BOOLEAN,
         default: true
     },
     messages: {
-        description: "Server Notification Settings",
+        description: "Impostazioni notifiche server",
         type: OptionType.SELECT,
         options: [
-            { label: "All messages", value: 0 },
-            { label: "Only @mentions", value: 1 },
-            { label: "Nothing", value: 2 },
-            { label: "Server default", value: 3, default: true }
+            { label: "Tutti i messaggi", value: 0 },
+            { label: "Solo @menzioni", value: 1 },
+            { label: "Niente", value: 2 },
+            { label: "Predefinito del server", value: 3, default: true }
         ],
     },
     everyone: {
-        description: "Suppress @everyone and @here",
+        description: "Silenzia @everyone e @here",
         type: OptionType.BOOLEAN,
         default: true
     },
     role: {
-        description: "Suppress All Role @mentions",
+        description: "Silenzia tutte le @menzioni dei ruoli",
         type: OptionType.BOOLEAN,
         default: true
     },
     highlights: {
-        description: "Suppress Highlights automatically",
+        description: "Disattiva automaticamente gli Highlights",
         type: OptionType.BOOLEAN,
         default: true
     },
     events: {
-        description: "Mute New Events automatically",
+        description: "Silenzia automaticamente i nuovi eventi",
         type: OptionType.BOOLEAN,
         default: true
     },
     showAllChannels: {
-        description: "Show all channels automatically",
+        description: "Mostra automaticamente tutti i canali",
         type: OptionType.BOOLEAN,
         default: true
     }
@@ -86,7 +86,7 @@ const makeContextMenuPatch: (shouldAddIcon: boolean) => NavContextMenuPatchCallb
     const group = findGroupChildrenByChildId("privacy", children);
     group?.push(
         <Menu.MenuItem
-            label="Apply NewGuildSettings"
+            label="Applica NewGuildSettings"
             id="vc-newguildsettings-apply"
             icon={shouldAddIcon ? CogWheel : void 0}
             leadingAccessory={shouldAddIcon ? { type: "icon", icon: CogWheel } : void 0}
@@ -118,7 +118,7 @@ function applyDefaultSettings(guildId: string | null) {
 
 export default definePlugin({
     name: "NewGuildSettings",
-    description: "Automatically mute new servers and change various other settings upon joining",
+    description: "Silenzia automaticamente i nuovi server e modifica varie altre impostazioni quando entri",
     tags: ["Servers", "Customisation"],
     searchTerms: ["MuteNewGuild", "mute", "server"],
     authors: [Devs.Glitch, Devs.Nuckyz, Devs.carince, Devs.Mopi, Devs.GabiRP],

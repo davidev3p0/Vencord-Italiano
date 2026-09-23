@@ -142,8 +142,8 @@ function DevBuildConfirmModal(props: RenderModalProps) {
     return (
         <ConfirmModal
             {...props}
-            title="Hold on!"
-            confirmText="Understood"
+            title="Attenzione!"
+            confirmText="Ho capito"
             variant="primary"
             checkboxProps={{
                 checked: s.dismissedDevBuildWarning === true,
@@ -151,14 +151,13 @@ function DevBuildConfirmModal(props: RenderModalProps) {
             }}
         >
             <div>
-                <Forms.FormText>You are using a custom build of Vencord, which we do not provide support for!</Forms.FormText>
+                <Forms.FormText>Stai usando una build personalizzata di Vencord, per la quale non viene fornito supporto!</Forms.FormText>
 
                 <Forms.FormText className={Margins.top8}>
-                    We only provide support for <Link href="https://vencord.dev/download">official builds</Link>.
-                    Either <Link href="https://vencord.dev/download">switch to an official build</Link> or figure your issue out yourself.
+                    Forniamo supporto solo per <Link href="https://vencord.dev/download">build ufficiali</Link>. Puoi <Link href="https://vencord.dev/download">passare a una build ufficiale</Link> oppure risolvere autonomamente il problema.
                 </Forms.FormText>
 
-                <Text variant="text-md/bold" className={Margins.top8}>You will be banned from receiving support if you ignore this rule.</Text>
+                <Text variant="text-md/bold" className={Margins.top8}>Se ignori questa regola potresti perdere l’accesso al supporto.</Text>
             </div>
         </ConfirmModal>
     );
@@ -167,7 +166,7 @@ function DevBuildConfirmModal(props: RenderModalProps) {
 export default definePlugin({
     name: "SupportHelper",
     required: true,
-    description: "Helps us provide support to you",
+    description: "Ci aiuta a fornirti supporto",
     authors: [Devs.Ven],
     dependencies: ["UserSettingsAPI"],
 
@@ -184,13 +183,13 @@ export default definePlugin({
     commands: [
         {
             name: "vencord-debug",
-            description: "Send Vencord debug info",
+            description: "Invia informazioni di debug di Vencord",
             predicate: ctx => isPluginDev(UserStore.getCurrentUser()?.id) || isSupportAllowedChannel(ctx.channel),
             execute: async () => ({ content: await generateDebugInfoMessage() })
         },
         {
             name: "vencord-plugins",
-            description: "Send Vencord plugin list",
+            description: "Invia l'elenco dei plugin di Vencord",
             predicate: ctx => isPluginDev(UserStore.getCurrentUser()?.id) || isSupportAllowedChannel(ctx.channel),
             execute: () => ({ content: generatePluginList() })
         }
@@ -212,19 +211,19 @@ export default definePlugin({
                         <ConfirmModal
                             {...props}
                             variant="primary"
-                            title="Hold on!"
-                            confirmText="Update & Restart Now"
-                            cancelText="View Updates"
+                            title="Attenzione!"
+                            confirmText="Aggiorna e riavvia ora"
+                            cancelText="Visualizza aggiornamenti"
                             onConfirm={forceUpdate}
                             onCancel={() => openSettingsTabModal(UpdaterTab!)}
                         >
                             <div>
-                                <Forms.FormText>You are using an outdated version of Vencord! Chances are, your issue is already fixed.</Forms.FormText>
+                                <Forms.FormText>Stai usando una versione obsoleta di Vencord! È possibile che il problema sia già stato risolto.</Forms.FormText>
                                 <Forms.FormText className={Margins.top8}>
-                                    Please first update before asking for support!
+                                    Aggiorna Vencord prima di chiedere supporto!
                                 </Forms.FormText>
                                 <Forms.FormText className={Margins.top8}>
-                                    If you know what you're doing or cannot update, you can dismiss this prompt.
+                                    Se sai cosa stai facendo o non puoi aggiornare, puoi ignorare questo avviso.
                                 </Forms.FormText>
                             </div>
                         </ConfirmModal>
@@ -240,15 +239,14 @@ export default definePlugin({
                 openModal(props => (
                     <ConfirmModal
                         {...props}
-                        title="Hold on!"
+                        title="Attenzione!"
                         confirmText="OK"
                         variant="primary"
                     >
                         <div>
-                            <Forms.FormText>You are using an externally updated Vencord version, which we do not provide support for!</Forms.FormText>
+                            <Forms.FormText>Stai usando una versione di Vencord aggiornata esternamente, per la quale non viene fornito supporto!</Forms.FormText>
                             <Forms.FormText className={Margins.top8}>
-                                Please either switch to an <Link href="https://vencord.dev/download">officially supported version of Vencord</Link>, or
-                                contact your package maintainer for support instead.
+                                Passa a una <Link href="https://vencord.dev/download">versione di Vencord supportata ufficialmente</Link>, oppure contatta il manutentore del pacchetto per ricevere supporto.
                             </Forms.FormText>
                         </div>
                     </ConfirmModal>
@@ -284,16 +282,16 @@ export default definePlugin({
                     onClick={async () => {
                         try {
                             if (await forceUpdate())
-                                showToast("Success! Restarting...", Toasts.Type.SUCCESS);
+                                showToast("Operazione riuscita! Riavvio in corso...", Toasts.Type.SUCCESS);
                             else
-                                showToast("Already up to date!", Toasts.Type.MESSAGE);
+                                showToast("Già aggiornato!", Toasts.Type.MESSAGE);
                         } catch (e) {
                             new Logger(this.name).error("Error while updating:", e);
-                            showToast("Failed to update :(", Toasts.Type.FAILURE);
+                            showToast("Aggiornamento non riuscito :(", Toasts.Type.FAILURE);
                         }
                     }}
                 >
-                    Update Now
+                    Aggiorna ora
                 </Button>
             );
         }
@@ -306,14 +304,14 @@ export default definePlugin({
                         color={Button.Colors.PRIMARY}
                         onClick={async () => sendMessage(props.channel.id, { content: await generateDebugInfoMessage() })}
                     >
-                        Run /vencord-debug
+                        Esegui /vencord-debug
                     </Button>,
                     <Button
                         key="vc-plg-list"
                         color={Button.Colors.PRIMARY}
                         onClick={async () => sendMessage(props.channel.id, { content: generatePluginList() })}
                     >
-                        Run /vencord-plugins
+                        Esegui /vencord-plugins
                     </Button>
                 );
             }
@@ -328,14 +326,14 @@ export default definePlugin({
                         onClick={async () => {
                             try {
                                 await AsyncFunction(match[1])();
-                                showToast("Success!", Toasts.Type.SUCCESS);
+                                showToast("Operazione riuscita!", Toasts.Type.SUCCESS);
                             } catch (e) {
                                 new Logger(this.name).error("Error while running snippet:", e);
-                                showToast("Failed to run snippet :(", Toasts.Type.FAILURE);
+                                showToast("Esecuzione dello snippet non riuscita :(", Toasts.Type.FAILURE);
                             }
                         }}
                     >
-                        Run Snippet
+                        Esegui snippet
                     </Button>
                 );
             }
@@ -353,9 +351,9 @@ export default definePlugin({
 
         return (
             <Card variant="warning" className={Margins.top8} defaultPadding>
-                Please do not private message Vencord plugin developers for support!
+                Non contattare in privato gli sviluppatori dei plugin Vencord per ricevere supporto!
                 <br />
-                Instead, use the Vencord support channel: {Parser.parse("https://discord.com/channels/1015060230222131221/1026515880080842772")}
+                Usa invece il canale di supporto Vencord: {Parser.parse("https://discord.com/channels/1015060230222131221/1026515880080842772")}
                 {!ChannelStore.getChannel(SUPPORT_CHANNEL_ID) && " (Click the link to join)"}
             </Card>
         );

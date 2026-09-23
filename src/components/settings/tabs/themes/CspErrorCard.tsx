@@ -41,10 +41,10 @@ export function CspErrorCard() {
         openModal(props => (
             <ConfirmModal
                 {...props}
-                title="Restart Required"
-                subtitle="A restart is required to apply this change"
-                confirmText="Restart now"
-                cancelText="Later!"
+                title="Riavvio necessario"
+                subtitle="È necessario riavviare per applicare questa modifica"
+                confirmText="Riavvia ora"
+                cancelText="Più tardi!"
                 variant="primary"
                 onConfirm={relaunch}
             />
@@ -55,14 +55,14 @@ export function CspErrorCard() {
 
     return (
         <ErrorCard>
-            <Forms.FormTitle tag="h5">Blocked Resources</Forms.FormTitle>
-            <Forms.FormText>Some images, styles, or fonts were blocked because they come from disallowed domains.</Forms.FormText>
-            <Forms.FormText>It is highly recommended to move them to GitHub or Imgur. But you may also allow domains if you fully trust them.</Forms.FormText>
+            <Forms.FormTitle tag="h5">Risorse bloccate</Forms.FormTitle>
+            <Forms.FormText>Alcune immagini, stili o font sono stati bloccati perché provengono da domini non consentiti.</Forms.FormText>
+            <Forms.FormText>È fortemente consigliato spostarli su GitHub o Imgur. Puoi anche consentire i domini se ti fidi completamente.</Forms.FormText>
             <Forms.FormText>
-                After allowing a domain, you have to fully close (from tray / task manager) and restart {IS_DISCORD_DESKTOP ? "Discord" : "Vesktop"} to apply the change.
+                Dopo aver consentito un dominio, devi chiudere completamente (dall’area di notifica / Gestione attività) e riavviare {IS_DISCORD_DESKTOP ? "Discord" : "Vesktop"} per applicare la modifica.
             </Forms.FormText>
 
-            <Forms.FormTitle tag="h5" className={classes(Margins.top16, Margins.bottom8)}>Blocked URLs</Forms.FormTitle>
+            <Forms.FormTitle tag="h5" className={classes(Margins.top16, Margins.bottom8)}>URL bloccati</Forms.FormTitle>
             <div className="vc-settings-csp-list">
                 {errors.map((url, i) => (
                     <div key={url}>
@@ -70,7 +70,7 @@ export function CspErrorCard() {
                         <div className="vc-settings-csp-row">
                             <Link href={url}>{url}</Link>
                             <Button color={Button.Colors.PRIMARY} onClick={() => allowUrl(url)} disabled={isImgurHtmlDomain(url)}>
-                                Allow
+                                Consenti
                             </Button>
                         </div>
                     </div>
@@ -81,9 +81,9 @@ export function CspErrorCard() {
                 <>
                     <Divider className={classes(Margins.top8, Margins.bottom16)} />
                     <Forms.FormText>
-                        Imgur links should be direct links in the form of <code>https://i.imgur.com/...</code>
+                        I link Imgur devono essere link diretti nel formato <code>https://i.imgur.com/...</code>
                     </Forms.FormText>
-                    <Forms.FormText>To obtain a direct link, right-click the image and select "Copy image address".</Forms.FormText>
+                    <Forms.FormText>Per ottenere un link diretto, fai clic destro sull’immagine e seleziona "Copia indirizzo immagine".</Forms.FormText>
                 </>
             )}
         </ErrorCard>

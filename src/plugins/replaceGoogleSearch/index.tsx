@@ -32,22 +32,22 @@ const enum ReplacementEngineValue {
 
 const settings = definePluginSettings({
     customEngineName: {
-        description: "Name of the custom search engine",
+        description: "Nome del motore di ricerca personalizzato",
         type: OptionType.STRING,
         placeholder: "Google"
     },
     customEngineURL: {
-        displayName: "Custom Engine URL",
-        description: "The URL of your Engine",
+        displayName: "URL motore personalizzato",
+        description: "URL del tuo motore di ricerca",
         type: OptionType.STRING,
         placeholder: "https://google.com/search?q="
     },
     replacementEngine: {
-        description: "Replace with a specific search engine instead of adding a menu",
+        description: "Sostituisci con un motore di ricerca specifico invece di aggiungere un menu",
         type: OptionType.SELECT,
         options: [
-            { label: "Off", value: ReplacementEngineValue.OFF, default: true },
-            { label: "Custom Engine", value: ReplacementEngineValue.CUSTOM },
+            { label: "Disattivato", value: ReplacementEngineValue.OFF, default: true },
+            { label: "Motore personalizzato", value: ReplacementEngineValue.CUSTOM },
             ...Object.keys(DefaultEngines).map(engine => ({ label: engine, value: engine }))
         ]
     }
@@ -86,7 +86,7 @@ function makeSearchItem(src: string) {
 
     return (
         <Menu.MenuItem
-            label="Search Text"
+            label="Cerca testo"
             key="search-text"
             id="vc-search-text"
             leadingAccessory={{ type: "icon", icon: SearchIcon }}
@@ -120,7 +120,7 @@ const messageContextMenuPatch: NavContextMenuPatchCallback = (children, _props) 
 
 export default definePlugin({
     name: "ReplaceGoogleSearch",
-    description: "Replaces the Google search with different Engine(s)",
+    description: "Sostituisce la ricerca Google con altri motori di ricerca",
     tags: ["Utility", "Customisation"],
     authors: [Devs.Moxxie, Devs.Ethan],
 

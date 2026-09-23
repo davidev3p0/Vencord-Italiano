@@ -209,7 +209,7 @@ async function doClone(guildId: string, data: Sticker | Emoji) {
 
         new Logger("ExpressionCloner").error("Failed to clone", data.name, "to", guildId, e);
         Toasts.show({
-            message: "Failed to clone: " + message,
+            message: "Clonazione non riuscita: " + message,
             type: Toasts.Type.FAILURE,
             id: Toasts.genId()
         });
@@ -234,7 +234,7 @@ function CloneModal({ data }: { data: Sticker | Emoji; }) {
 
     return (
         <>
-            <Forms.FormTitle>Custom Name</Forms.FormTitle>
+            <Forms.FormTitle>Nome personalizzato</Forms.FormTitle>
             <CheckedTextInput
                 initialValue={name}
                 onChange={v => {
@@ -348,7 +348,7 @@ function buildMenuItem(type: "Emoji" | "Sticker", fetchData: () => Promisable<Om
                                         height={24}
                                         width={24}
                                     />
-                                    <BaseText tag="h3" size="md" weight="medium">Clone {data.name}</BaseText>
+                                    <BaseText tag="h3" size="md" weight="medium">Clona {data.name}</BaseText>
                                 </Flex>
                             }
                         >
@@ -416,7 +416,7 @@ const expressionPickerPatch: NavContextMenuPatchCallback = (children, props: { t
 migratePluginSettings("ExpressionCloner", "EmoteCloner");
 export default definePlugin({
     name: "ExpressionCloner",
-    description: "Allows you to clone Emotes & Stickers to your own server (right click them)",
+    description: "Consente di clonare emoji e adesivi nel tuo server (clic destro su di essi)",
     tags: ["Emotes", "Servers"],
     searchTerms: ["StickerCloner", "EmoteCloner", "EmojiCloner"],
     authors: [Devs.Ven, Devs.Nuckyz],

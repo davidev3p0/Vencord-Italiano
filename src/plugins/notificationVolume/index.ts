@@ -11,7 +11,7 @@ import definePlugin, { OptionType } from "@utils/types";
 const settings = definePluginSettings({
     notificationVolume: {
         type: OptionType.SLIDER,
-        description: "Notification volume",
+        description: "Volume notifiche",
         markers: [0, 25, 50, 75, 100],
         default: 100,
         stickToMarkers: false
@@ -20,7 +20,7 @@ const settings = definePluginSettings({
 
 export default definePlugin({
     name: "NotificationVolume",
-    description: "Save your ears and set a separate volume for notifications and in-app sounds",
+    description: "Proteggi le orecchie impostando un volume separato per notifiche e suoni dell'app",
     tags: ["Notifications", "Voice"],
     authors: [Devs.philipbry],
     settings,

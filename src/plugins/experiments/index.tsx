@@ -34,7 +34,7 @@ const altKey = IS_MAC ? "opt" : "alt";
 
 export default definePlugin({
     name: "Experiments",
-    description: "Enable Access to Experiments & other dev-only features in Discord!",
+    description: "Abilita l'accesso agli Esperimenti e ad altre funzioni di Discord riservate agli sviluppatori!",
     tags: ["Developers", "Utility"],
     authors: [
         Devs.Megu,
@@ -60,7 +60,7 @@ export default definePlugin({
             }
         },
         {
-            find: 'placeholder:"Search experiments"',
+            find: 'placeholder: "Cerca esperimenti"',
             replacement: [
                 {
                     match: /(?<=children:\[)(?=null!=.{0,150}"Installation ID:)/,
@@ -121,7 +121,7 @@ export default definePlugin({
     settingsAboutComponent: () => {
         return (
             <Paragraph size="md">
-                Tip: You can open Discord's DevTools via {" "}
+                Suggerimento: puoi aprire gli strumenti per sviluppatori di Discord con {" "}
                 <div className={KbdStyles.combo} style={{ display: "inline-flex" }}>
                     <kbd className={KbdStyles.key}>{modKey}</kbd>{" "}
                     <kbd className={KbdStyles.key}>{altKey}</kbd>{" "}
@@ -134,20 +134,18 @@ export default definePlugin({
     WarningCard: ErrorBoundary.wrap(() => (
         <ErrorCard id="vc-experiments-warning-card" className={Margins.bottom16}>
             <Flex flexDirection="column" gap={8}>
-                <BaseText tag="h2" weight="bold" size="lg">Hold on!!</BaseText>
+                <BaseText tag="h2" weight="bold" size="lg">Attenzione!!</BaseText>
 
                 <Paragraph>
-                    Experiments are unreleased Discord features. They might not work, or even break your client or get your account disabled.
+                    Gli esperimenti sono funzionalità di Discord non ancora pubblicate. Potrebbero non funzionare, danneggiare il client o persino causare la disabilitazione dell’account.
                 </Paragraph>
 
                 <Paragraph>
-                    Only use experiments if you know what you're doing. Vencord is not responsible for any damage caused by enabling experiments.
-
-                    If you don't know what an experiment does, ignore it. Do not ask us what experiments do either, we probably don't know.
+                    Usa gli esperimenti solo se sai cosa stai facendo. Vencord non è responsabile di eventuali problemi causati dalla loro attivazione. Se non sai cosa fa un esperimento, ignoralo. Non chiedere al supporto cosa faccia: probabilmente non lo sappiamo.
                 </Paragraph>
 
                 <Paragraph>
-                    <b>You cannot use server-side features like checking the "Send to Client" box.</b>
+                    <b>Non puoi usare funzionalità lato server, come selezionare la casella "Invia al client".</b>
                 </Paragraph>
             </Flex>
         </ErrorCard>

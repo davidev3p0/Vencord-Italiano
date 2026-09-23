@@ -56,39 +56,39 @@ function Switches() {
     const Switches = [
         {
             key: "useQuickCss",
-            title: "Enable Custom CSS",
-            description: "Apply your configured QuickCSS"
+            title: "Abilita CSS personalizzato",
+            description: "Applica il QuickCSS configurato"
         },
         !IS_WEB && (!IS_DISCORD_DESKTOP || !IS_WINDOWS ? {
             key: "frameless",
-            title: "Disable the window frame",
+            title: "Disabilita cornice finestra",
             restartRequired: true
         } : {
             key: "winNativeTitleBar",
-            title: "Use Windows' native title bar instead of Discord's custom one",
+            title: "Usa la barra del titolo nativa di Windows invece di quella personalizzata di Discord",
             restartRequired: true
         }),
         !IS_WEB && {
             key: "transparent",
-            title: "Enable window transparency",
-            description: "A theme that supports transparency is required or this will do nothing. Stops the window from being resizable as a side effect",
+            title: "Abilita trasparenza finestra",
+            description: "È necessario un tema che supporti la trasparenza, altrimenti non avrà effetto. Come effetto collaterale impedisce il ridimensionamento della finestra",
             restartRequired: true
         },
         IS_DISCORD_DESKTOP && {
             key: "disableMinSize",
-            title: "Disable minimum window size",
-            description: "Allows you to resize the window to any size, even smaller than Discord's minimum size",
+            title: "Disabilita dimensione minima finestra",
+            description: "Consente di ridimensionare la finestra a qualsiasi dimensione, anche inferiore al minimo di Discord",
             restartRequired: true
         },
         !IS_WEB && IS_WINDOWS && {
             key: "winCtrlQ",
-            title: "Register Ctrl+Q as shortcut to close Discord (Alternative to Alt+F4)",
+            title: "Registra Ctrl+Q come scorciatoia per chiudere Discord (alternativa ad Alt+F4)",
             restartRequired: true
         },
         !IS_WEB && {
             key: "enableReactDevtools",
-            title: "Enable React Developer Tools",
-            description: "Mainly useful for plugin developers. Ignore this if you don't know what it is",
+            title: "Abilita React Developer Tools",
+            description: "Utile soprattutto agli sviluppatori di plugin. Ignora questa opzione se non sai cosa sia",
             restartRequired: true
         },
     ] satisfies Array<false | {
@@ -119,10 +119,10 @@ function Switches() {
                         openModal(props => (
                             <ConfirmModal
                                 {...props}
-                                title="Restart Required"
-                                subtitle="A restart is required to apply this change"
-                                confirmText="Restart now"
-                                cancelText="Later!"
+                                title="Riavvio necessario"
+                                subtitle="È necessario riavviare per applicare questa modifica"
+                                confirmText="Riavvia ora"
+                                cancelText="Più tardi!"
                                 variant="primary"
                                 onConfirm={relaunch}
                             />
@@ -147,9 +147,9 @@ function VencordSettings() {
             {isDonor(user?.id)
                 ? (
                     <SpecialCard
-                        title="Donations"
-                        subtitle="Thank you for donating!"
-                        description="You can manage your perks at any time by messaging @vending.machine."
+                        title="Donazioni"
+                        subtitle="Grazie per la donazione!"
+                        description="Puoi gestire i tuoi vantaggi in qualsiasi momento scrivendo a @vending.machine."
                         cardImage={VENNIE_DONATOR_IMAGE}
                         backgroundImage={DONOR_BACKGROUND_IMAGE}
                         backgroundColor="#ED87A9"
@@ -159,8 +159,8 @@ function VencordSettings() {
                 )
                 : (
                     <SpecialCard
-                        title="Support the Project"
-                        description="Please consider supporting the development of Vencord by donating!"
+                        title="Sostieni il progetto"
+                        description="Valuta di sostenere lo sviluppo di Vencord con una donazione!"
                         cardImage={donateImage}
                         backgroundImage={DONOR_BACKGROUND_IMAGE}
                         backgroundColor="#c3a3ce"
@@ -172,48 +172,48 @@ function VencordSettings() {
 
             {isPluginDev(user?.id) && (
                 <SpecialCard
-                    title="Contributions"
-                    subtitle="Thank you for contributing!"
-                    description="Since you've contributed to Vencord you now have a cool new badge!"
+                    title="Contributi"
+                    subtitle="Grazie per il tuo contributo!"
+                    description="Dato che hai contribuito a Vencord, ora hai un nuovo badge!"
                     cardImage={COZY_CONTRIB_IMAGE}
                     backgroundImage={CONTRIB_BACKGROUND_IMAGE}
                     backgroundColor="#EDCC87"
-                    buttonTitle="See what you've contributed to"
+                    buttonTitle="Vedi a cosa hai contribuito"
                     buttonOnClick={() => openContributorModal(user)}
                 />
             )}
 
             <section>
-                <Forms.FormTitle tag="h5">Quick Actions</Forms.FormTitle>
+                <Forms.FormTitle tag="h5">Azioni rapide</Forms.FormTitle>
 
                 <QuickActionCard>
                     <QuickAction
                         Icon={LogIcon}
-                        text="Notification Log"
+                        text="Registro notifiche"
                         action={openNotificationLogModal}
                     />
                     <QuickAction
                         Icon={PaintbrushIcon}
-                        text="Edit QuickCSS"
+                        text="Modifica QuickCSS"
                         action={() => VencordNative.quickCss.openEditor()}
                     />
                     {!IS_WEB && (
                         <>
                             <QuickAction
                                 Icon={RestartIcon}
-                                text="Relaunch Discord"
+                                text="Riavvia Discord"
                                 action={relaunch}
                             />
                             <QuickAction
                                 Icon={FolderIcon}
-                                text="Open Settings Folder"
+                                text="Apri cartella impostazioni"
                                 action={() => VencordNative.settings.openFolder()}
                             />
                         </>
                     )}
                     <QuickAction
                         Icon={GithubIcon}
-                        text="View Source Code"
+                        text="Visualizza codice sorgente"
                         action={() => VencordNative.native.openExternal("https://github.com/" + gitRemote)}
                     />
                 </QuickActionCard>
@@ -222,11 +222,11 @@ function VencordSettings() {
             <Divider />
 
             <section className={Margins.top16}>
-                <Forms.FormTitle tag="h5">Settings</Forms.FormTitle>
+                <Forms.FormTitle tag="h5">Impostazioni</Forms.FormTitle>
                 <Forms.FormText className={Margins.bottom20} style={{ color: "var(--text-muted)" }}>
-                    Hint: You can change the position of this settings section in the{" "}
+                    Suggerimento: puoi cambiare la posizione di questa sezione delle impostazioni nelle{" "}
                     <a onClick={() => openPluginModal(SettingsPlugin)}>
-                        settings of the Settings plugin
+                        impostazioni del plugin Impostazioni
                     </a>!
                 </Forms.FormText>
 
@@ -244,4 +244,4 @@ function VencordSettings() {
     );
 }
 
-export default wrapTab(VencordSettings, "Vencord Settings");
+export default wrapTab(VencordSettings, "Impostazioni Vencord");

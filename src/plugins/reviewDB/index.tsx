@@ -47,7 +47,7 @@ const guildPopoutPatch: NavContextMenuPatchCallback = (children, { guild }: { gu
     if (!guild) return;
     children.push(
         <Menu.MenuItem
-            label="View Reviews"
+            label="Visualizza recensioni"
             id="vc-rdb-server-reviews"
             icon={OpenExternalIcon}
             leadingAccessory={{ type: "icon", icon: OpenExternalIcon }}
@@ -60,7 +60,7 @@ const userContextPatch: NavContextMenuPatchCallback = (children, { user }: { use
     if (!user) return;
     children.push(
         <Menu.MenuItem
-            label="View Reviews"
+            label="Visualizza recensioni"
             id="vc-rdb-user-reviews"
             icon={OpenExternalIcon}
             leadingAccessory={{ type: "icon", icon: OpenExternalIcon }}
@@ -71,7 +71,7 @@ const userContextPatch: NavContextMenuPatchCallback = (children, { user }: { use
 
 export default definePlugin({
     name: "ReviewDB",
-    description: "Review other users (Adds a new settings to profiles)",
+    description: "Recensisci altri utenti (aggiunge una nuova sezione ai profili)",
     tags: ["Friends", "Servers"],
     authors: [Devs.mantikafasi, Devs.Ven],
 
@@ -125,7 +125,7 @@ export default definePlugin({
                     if (lastReviewId && lastReviewId < user.lastReviewID) {
                         s.lastReviewId = user.lastReviewID;
                         if (user.lastReviewID !== 0)
-                            showToast("You have new reviews on your profile!");
+                            showToast("Hai nuove recensioni sul tuo profilo!");
                     }
                 }
 
@@ -180,7 +180,7 @@ export default definePlugin({
                             onClick={() => !reviewData?.hasOptedOut && openReviewsModal(user.id, user.username, ReviewType.User)}
                         >
                             <div className={classes(ProfileCardOverlayClasses.overlay, ProfileCardContainerClasses.innerContainer, ProfileCardClasses.card)}>
-                                <Paragraph size={isSideBar ? "sm" : "xs"} weight="medium">User Reviews</Paragraph>
+                                <Paragraph size={isSideBar ? "sm" : "xs"} weight="medium">Recensioni utenti</Paragraph>
                                 {!!reviewData?.reviewCount
                                     ? (
                                         <div className={ProfileCardContainerClasses.icons}>

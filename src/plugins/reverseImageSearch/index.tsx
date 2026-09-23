@@ -39,7 +39,7 @@ function search(src: string, engine: string) {
 function makeSearchItem(src: string) {
     return (
         <Menu.MenuItem
-            label="Search Image"
+            label="Cerca immagine"
             key="search-image"
             id="search-image"
             leadingAccessory={{ type: "icon", icon: SearchIcon }}
@@ -59,7 +59,7 @@ function makeSearchItem(src: string) {
             <Menu.MenuItem
                 key="search-image-all"
                 id="search-image-all"
-                label="All"
+                label="Tutti"
                 leadingAccessory={{ type: "icon", icon: OpenExternalIcon }}
                 action={() => Object.values(Engines).forEach(e => search(src, e))}
             />
@@ -85,7 +85,7 @@ const imageContextMenuPatch: NavContextMenuPatchCallback = (children, props) => 
 
 export default definePlugin({
     name: "ReverseImageSearch",
-    description: "Adds ImageSearch to image context menus",
+    description: "Aggiunge la ricerca immagini ai menu contestuali delle immagini",
     tags: ["Media", "Utility"],
     authors: [Devs.Ven, Devs.Nuckyz],
     searchTerms: ["ImageUtilities"],

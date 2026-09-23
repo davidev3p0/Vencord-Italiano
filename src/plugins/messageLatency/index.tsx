@@ -28,29 +28,29 @@ const DISCORD_KT_DELAY = 1471228928;
 
 export default definePlugin({
     name: "MessageLatency",
-    description: "Displays an indicator for messages that took ≥n seconds to send",
+    description: "Mostra un indicatore per i messaggi che hanno impiegato ≥n secondi a essere inviati",
     tags: ["Chat", "Utility"],
     authors: [Devs.arHSM],
 
     settings: definePluginSettings({
         latency: {
             type: OptionType.NUMBER,
-            description: "Threshold in seconds for latency indicator",
+            description: "Soglia in secondi per l'indicatore di latenza",
             default: 2
         },
         detectDiscordKotlin: {
             type: OptionType.BOOLEAN,
-            description: "Detect old Discord Android clients",
+            description: "Rileva i vecchi client Discord Android",
             default: true
         },
         showMillis: {
             type: OptionType.BOOLEAN,
-            description: "Show milliseconds",
+            description: "Mostra millisecondi",
             default: false
         },
         ignoreSelf: {
             type: OptionType.BOOLEAN,
-            description: "Don't add indicator to your own messages",
+            description: "Non aggiungere l'indicatore ai tuoi messaggi",
             default: false
         }
     }),

@@ -27,7 +27,7 @@ function buildPluginMenu() {
     return (
         <Menu.MenuItem
             id="plugins"
-            label="Plugins"
+            label="Plugin"
             action={() => openSettingsTabModal(PluginsTab)}
         >
             {pluginEntries}
@@ -103,7 +103,7 @@ export function buildPluginMenuEntries(includeEmpty = false) {
                                         checked={s[key]}
                                         action={() => {
                                             s[key] = !s[key];
-                                            if (option.restartNeeded) showToast("Restart to apply the change");
+                                            if (option.restartNeeded) showToast("Riavvia per applicare la modifica");
                                         }}
                                     />
                                 );
@@ -120,7 +120,7 @@ export function buildPluginMenuEntries(includeEmpty = false) {
                                                 checked={s[key] === opt.value}
                                                 action={() => {
                                                     s[key] = opt.value;
-                                                    if (option.restartNeeded) showToast("Restart to apply the change");
+                                                    if (option.restartNeeded) showToast("Riavvia per applicare la modifica");
                                                 }}
                                             />
                                         ))}
@@ -188,7 +188,7 @@ export function buildThemeMenu() {
     return (
         <Menu.MenuItem
             id="themes"
-            label="Themes"
+            label="Temi"
             action={() => openSettingsTabModal(ThemesTab)}
         >
             {buildThemeMenuEntries()}
@@ -212,12 +212,12 @@ export function buildThemeMenuEntries() {
             />
             <Menu.MenuItem
                 id="edit-quickcss"
-                label="Edit QuickCSS"
+                label="Modifica QuickCSS"
                 action={() => VencordNative.quickCss.openEditor()}
             />
             <Menu.MenuItem
                 id="manage-themes"
-                label="Manage Themes"
+                label="Gestisci temi"
                 action={() => openSettingsTabModal(ThemesTab)}
             />
             {!!themes?.length && (
@@ -304,7 +304,7 @@ export function renderPopout(onClose: () => void) {
         >
             <Menu.MenuItem
                 id="notifications"
-                label="Open Notification Log"
+                label="Apri registro notifiche"
                 action={openNotificationLogModal}
             />
 

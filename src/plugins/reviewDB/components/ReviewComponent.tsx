@@ -57,13 +57,13 @@ export default function ReviewComponent({ review, refetch, profileId }: { review
         openVencordModal(props => (
             <ConfirmModal
                 {...props}
-                title="Are you sure?"
-                subtitle="Do you really want to delete this review?"
-                confirmText="Delete"
-                cancelText="Nevermind"
+                title="Sei sicuro?"
+                subtitle="Vuoi davvero eliminare questa recensione?"
+                confirmText="Elimina"
+                cancelText="Annulla"
                 onConfirm={async () => {
                     if (!(await getToken())) {
-                        return showToast("You must be logged in to delete reviews.");
+                        return showToast("Devi aver effettuato l’accesso per eliminare le recensioni.");
                     }
                     const res = await deleteReview(review.id);
                     if (res) refetch();
@@ -76,13 +76,13 @@ export default function ReviewComponent({ review, refetch, profileId }: { review
         openVencordModal(props => (
             <ConfirmModal
                 {...props}
-                title="Are you sure?"
-                subtitle="Do you really want to report this review?"
-                confirmText="Report"
-                cancelText="Nevermind"
+                title="Sei sicuro?"
+                subtitle="Vuoi davvero segnalare questa recensione?"
+                confirmText="Segnala"
+                cancelText="Annulla"
                 onConfirm={async () => {
                     if (!(await getToken())) {
-                        return showToast("You must be logged in to report reviews.");
+                        return showToast("Devi aver effettuato l’accesso per segnalare le recensioni.");
                     }
                     await reportReview(review.id);
                 }}
@@ -99,13 +99,13 @@ export default function ReviewComponent({ review, refetch, profileId }: { review
         openVencordModal(props => (
             <ConfirmModal
                 {...props}
-                title="Are you sure?"
-                subtitle="Do you really want to block this user? They will be unable to leave further reviews on your profile. You can unblock users in the plugin settings."
-                confirmText="Block"
-                cancelText="Nevermind"
+                title="Sei sicuro?"
+                subtitle="Vuoi davvero bloccare questo utente? Non potrà più lasciare recensioni sul tuo profilo. Puoi sbloccarlo nelle impostazioni del plugin."
+                confirmText="Blocca"
+                cancelText="Annulla"
                 onConfirm={async () => {
                     if (!(await getToken())) {
-                        return showToast("You must be logged in to block users.");
+                        return showToast("Devi aver effettuato l’accesso per bloccare gli utenti.");
                     }
                     await blockUser(review.sender.discordID);
                 }}
@@ -117,7 +117,7 @@ export default function ReviewComponent({ review, refetch, profileId }: { review
         if (isVoting) return;
 
         if (review.sender.discordID === Auth.user?.discordID) {
-            return showToast("You cannot vote on your own review.");
+            return showToast("Non puoi votare la tua recensione.");
         }
 
         setIsVoting(true);
@@ -204,7 +204,7 @@ export default function ReviewComponent({ review, refetch, profileId }: { review
                         className={classes(BotTagClasses.botTagVerified, BotTagClasses.botTagRegular, BotTagClasses.px, BotTagClasses.rem)}
                         style={{ marginLeft: "4px" }}>
                         <span className={BotTagClasses.botText}>
-                            System
+                            Sistema
                         </span>
                     </span>
                 )}
@@ -232,7 +232,7 @@ export default function ReviewComponent({ review, refetch, profileId }: { review
                         <>
                             {Parser.parseGuildEventDescription(review.comment.substring(0, 200))}...
                             <br />
-                            <a onClick={() => setShowAll(true)}>Read more</a>
+                            <a onClick={() => setShowAll(true)}>Leggi altro</a>
                         </>
                     )
                     : Parser.parseGuildEventDescription(review.comment)}

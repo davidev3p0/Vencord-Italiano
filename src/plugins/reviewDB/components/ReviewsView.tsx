@@ -116,7 +116,7 @@ function ReviewList({ refetch, reviews, hideOwnReview, profileId, type }: { refe
 
             {reviews?.length === 0 && (
                 <Forms.FormText className={cl("placeholder")}>
-                    Looks like nobody reviewed this {type === ReviewType.User ? "user" : "server"} yet. You could be the first!
+                    Sembra che nessuno abbia ancora recensito {type === ReviewType.User ? "user" : "server"} Puoi essere il primo!
                 </Forms.FormText>
             )}
         </div>
@@ -138,7 +138,7 @@ export function ReviewsInputComponent(
         <>
             <div onClick={() => {
                 if (!token) {
-                    showToast("Opening authorization window...");
+                    showToast("Apertura finestra di autorizzazione...");
                     authorize();
                 }
             }}>

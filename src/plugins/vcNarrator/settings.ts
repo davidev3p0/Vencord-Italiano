@@ -37,61 +37,61 @@ export const settings = definePluginSettings({
     },
     volume: {
         type: OptionType.SLIDER,
-        description: "Narrator Volume",
+        description: "Volume narratore",
         default: 1,
         markers: [0, 0.25, 0.5, 0.75, 1],
         stickToMarkers: false
     },
     rate: {
         type: OptionType.SLIDER,
-        description: "Narrator Speed",
+        description: "Velocità narratore",
         default: 1,
         markers: [0.1, 0.5, 1, 2, 5, 10],
         stickToMarkers: false
     },
     sayOwnName: {
-        description: "Say own name",
+        description: "Pronuncia il proprio nome",
         type: OptionType.BOOLEAN,
         default: false
     },
     latinOnly: {
-        description: "Strip non latin characters from names before saying them",
+        description: "Rimuovi i caratteri non latini dai nomi prima di pronunciarli",
         type: OptionType.BOOLEAN,
         default: false
     },
     joinMessage: {
         type: OptionType.STRING,
-        description: "Join Message",
-        default: "{{USER}} joined"
+        description: "Messaggio di entrata",
+        default: "{{USER}} è entrato"
     },
     leaveMessage: {
         type: OptionType.STRING,
-        description: "Leave Message",
-        default: "{{USER}} left"
+        description: "Messaggio di uscita",
+        default: "{{USER}} è uscito"
     },
     moveMessage: {
         type: OptionType.STRING,
-        description: "Move Message",
-        default: "{{USER}} moved to {{CHANNEL}}"
+        description: "Messaggio di spostamento",
+        default: "{{USER}} si è spostato in {{CHANNEL}}"
     },
     muteMessage: {
         type: OptionType.STRING,
-        description: "Mute Message (only self for now)",
-        default: "{{USER}} muted"
+        description: "Messaggio microfono disattivato (per ora solo se stessi)",
+        default: "{{USER}} ha disattivato il microfono"
     },
     unmuteMessage: {
         type: OptionType.STRING,
-        description: "Unmute Message (only self for now)",
-        default: "{{USER}} unmuted"
+        description: "Messaggio microfono riattivato (per ora solo se stessi)",
+        default: "{{USER}} ha riattivato il microfono"
     },
     deafenMessage: {
         type: OptionType.STRING,
-        description: "Deafen Message (only self for now)",
-        default: "{{USER}} deafened"
+        description: "Messaggio audio disattivato (per ora solo se stessi)",
+        default: "{{USER}} ha disattivato l'audio"
     },
     undeafenMessage: {
         type: OptionType.STRING,
-        description: "Undeafen Message (only self for now)",
-        default: "{{USER}} undeafened"
+        description: "Messaggio audio riattivato (per ora solo se stessi)",
+        default: "{{USER}} ha riattivato l'audio"
     }
 });

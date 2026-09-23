@@ -131,12 +131,12 @@ function fallbackToGoogle(text: string, sourceLang: string, targetLang: string):
 }
 
 const showDeeplApiQuotaToast = onlyOnce(
-    () => showToast("Deepl API quota exceeded. Falling back to Google Translate", Toasts.Type.FAILURE)
+    () => showToast("Quota API DeepL superata. Passaggio a Google Translate", Toasts.Type.FAILURE)
 );
 
 async function deeplTranslate(text: string, sourceLang: string, targetLang: string): Promise<TranslationValue> {
     if (!settings.store.deeplApiKey) {
-        showToast("DeepL API key is not set. Resetting to Google", Toasts.Type.FAILURE);
+        showToast("La chiave API DeepL non è impostata. Ripristino di Google", Toasts.Type.FAILURE);
 
         settings.store.service = "google";
         resetLanguageDefaults();

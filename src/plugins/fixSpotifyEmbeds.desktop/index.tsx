@@ -11,7 +11,7 @@ import definePlugin, { makeRange, OptionType } from "@utils/types";
 const settings = definePluginSettings({
     volume: {
         type: OptionType.SLIDER,
-        description: "The volume % to set for spotify embeds. Anything above 10% is veeeery loud",
+        description: "Percentuale di volume per gli incorporamenti Spotify. Qualsiasi valore sopra il 10% è mooolto alto",
         markers: makeRange(0, 100, 10),
         stickToMarkers: false,
         default: 10
@@ -21,7 +21,7 @@ const settings = definePluginSettings({
 // The entire code of this plugin can be found in ipcPlugins
 export default definePlugin({
     name: "FixSpotifyEmbeds",
-    description: "Fixes spotify embeds being incredibly loud by letting you customise the volume",
+    description: "Corregge il volume eccessivo degli incorporamenti Spotify permettendoti di personalizzarlo",
     authors: [Devs.Ven],
     tags: ["Media", "Customisation"],
     settings,

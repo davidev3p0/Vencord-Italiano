@@ -21,7 +21,7 @@ import definePlugin from "@utils/types";
 
 export default definePlugin({
     name: "MessageUpdaterAPI",
-    description: "API for updating and re-rendering messages.",
+    description: "API per aggiornare e ridisegnare i messaggi.",
     authors: [Devs.Nuckyz],
 
     patches: [

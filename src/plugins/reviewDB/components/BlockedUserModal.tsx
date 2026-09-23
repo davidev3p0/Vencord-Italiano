@@ -14,7 +14,7 @@ import { Forms, Modal,openModal, Tooltip, useState } from "@webpack/common";
 
 function UnblockButton(props: { onClick?(): void; }) {
     return (
-        <Tooltip text="Unblock user">
+        <Tooltip text="Sblocca utente">
             {tooltipProps => (
                 <div
                     {...tooltipProps}
@@ -64,9 +64,9 @@ function BlockedUsersList() {
     if (pending)
         return null;
     if (error)
-        return <Forms.FormText>Failed to fetch blocks: ${String(error)}</Forms.FormText>;
+        return <Forms.FormText>Impossibile recuperare gli utenti bloccati: ${String(error)}</Forms.FormText>;
     if (!blocks.length)
-        return <Forms.FormText>No blocked users.</Forms.FormText>;
+        return <Forms.FormText>Nessun utente bloccato.</Forms.FormText>;
 
     return (
         <>
@@ -86,10 +86,10 @@ export function openBlockModal() {
     openModal(modalProps => (
         <Modal
             {...modalProps}
-            title="Blocked Users"
+            title="Utenti bloccati"
         >
             <div className={cl("block-modal")}>
-                {Auth.token ? <BlockedUsersList /> : <Forms.FormText>You are not logged into ReviewDB!</Forms.FormText>}
+                {Auth.token ? <BlockedUsersList /> : <Forms.FormText>Non hai effettuato l’accesso a ReviewDB!</Forms.FormText>}
             </div>
         </Modal>
     ));

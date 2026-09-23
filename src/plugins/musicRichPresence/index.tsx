@@ -77,7 +77,7 @@ function setActivity(activity: Activity | null) {
 
 export const settings = definePluginSettings({
     scrobblerBackend: {
-        description: "The scrobbler backend to use.",
+        description: "Servizio di scrobbling da utilizzare.",
         type: OptionType.SELECT,
         options: [
             {
@@ -96,133 +96,133 @@ export const settings = definePluginSettings({
         ] as const
     },
     instanceBaseURL: {
-        description: "The base url of your ListenBrainz instance.",
+        description: "URL di base della tua istanza ListenBrainz.",
         type: OptionType.STRING,
         placeholder: "https://example.org",
         onChange: invalidateListenBrainzCache
     },
     instanceAPIBaseUrl: {
-        description: "The base url of your ListenBrainz API.",
+        description: "URL di base dell'API ListenBrainz.",
         type: OptionType.STRING,
         placeholder: "https://api.example.org",
         onChange: invalidateListenBrainzCache
     },
     apiKey: {
-        displayName: "API Key",
-        description: "Last.fm API key. Not required but highly recommended to avoid rate limiting with our shared key",
+        displayName: "Chiave API",
+        description: "Chiave API Last.fm. Non è obbligatoria, ma è fortemente consigliata per evitare limiti di richieste con la chiave condivisa",
         type: OptionType.STRING,
     },
     username: {
-        description: "Username",
+        description: "Nome utente",
         type: OptionType.STRING,
     },
     shareUsername: {
-        description: "Show link to scrobbler profile",
+        description: "Mostra il collegamento al profilo del servizio di scrobbling",
         type: OptionType.BOOLEAN,
         default: false,
     },
     clickableLinks: {
-        description: "Make track, artist and album names clickable links",
+        description: "Rendi cliccabili i nomi di brano, artista e album",
         type: OptionType.BOOLEAN,
         default: true,
     },
     hideWithSpotify: {
-        description: "Hide presence if Spotify is running",
+        description: "Nascondi la presenza se Spotify è in esecuzione",
         type: OptionType.BOOLEAN,
         default: true,
     },
     hideWithActivity: {
-        description: "Hide presence if you have any other presence",
+        description: "Nascondi la presenza se hai già un'altra attività",
         type: OptionType.BOOLEAN,
         default: false,
     },
     statusName: {
-        description: "Custom status text. You can use the following variables: {artist} | {album} | {title}",
+        description: "Testo di stato personalizzato. Puoi usare le seguenti variabili: {artist} | {album} | {title}",
         type: OptionType.STRING,
         default: "some music",
     },
     statusDisplayType: {
-        description: "Show the track / artist name in the member list",
+        description: "Mostra il nome del brano/artista nell'elenco membri",
         type: OptionType.SELECT,
         options: [
             {
-                label: "Don't show (shows generic listening message)",
+                label: "Non mostrare (mostra un messaggio di ascolto generico)",
                 value: "off"
             },
             {
-                label: "Show artist name",
+                label: "Mostra il nome dell'artista",
                 value: "artist",
                 default: true
             },
             {
-                label: "Show track name",
+                label: "Mostra il nome del brano",
                 value: "track"
             }
         ]
     },
     nameFormat: {
-        description: "Show name of song and artist in status name",
+        description: "Mostra il nome del brano e dell'artista nel nome dello stato",
         type: OptionType.SELECT,
         options: [
             {
-                label: "Use custom status name",
+                label: "Usa un nome di stato personalizzato",
                 value: NameFormat.StatusName,
                 default: true
             },
             {
-                label: "Use music service name (falls back to custom status text)",
+                label: "Usa il nome del servizio musicale (in alternativa usa il testo di stato personalizzato)",
                 value: NameFormat.ServiceName
             },
             {
-                label: "Use format 'artist - song'",
+                label: "Usa il formato 'artista - brano'",
                 value: NameFormat.ArtistFirst
             },
             {
-                label: "Use format 'song - artist'",
+                label: "Usa il formato 'brano - artista'",
                 value: NameFormat.SongFirst
             },
             {
-                label: "Use artist name only",
+                label: "Usa solo il nome dell'artista",
                 value: NameFormat.ArtistOnly
             },
             {
-                label: "Use song name only",
+                label: "Usa solo il nome del brano",
                 value: NameFormat.SongOnly
             },
             {
-                label: "Use album name (falls back to custom status text if song has no album)",
+                label: "Usa il nome dell'album (se il brano non ha un album usa il testo di stato personalizzato)",
                 value: NameFormat.AlbumName
             }
         ],
     },
     useListeningStatus: {
-        description: 'Show "Listening to" status instead of "Playing"',
+        description: 'Mostra lo stato "In ascolto" invece di "In riproduzione"',
         type: OptionType.BOOLEAN,
         default: false,
     },
     missingArt: {
-        description: "When album or album art is missing",
+        description: "Quando mancano l'album o la copertina",
         type: OptionType.SELECT,
         options: [
             {
-                label: "Use large scrobbler logo",
+                label: "Usa il logo grande del servizio di scrobbling",
                 value: "logo",
                 default: true
             },
             {
-                label: "Use generic placeholder",
+                label: "Usa un segnaposto generico",
                 value: "placeholder"
             }
         ],
     },
     showLogo: {
-        displayName: "Show Scrobbler Logo",
-        description: "Show the scrobbler service logo by the album cover",
+        displayName: "Mostra logo del servizio di scrobbling",
+        description: "Mostra il logo del servizio di scrobbling accanto alla copertina dell'album",
         type: OptionType.BOOLEAN,
         default: true,
     },
     showAlbumCover: {
-        description: "Show album cover. Disabling this will display a placeholder. Useful if your music has inappropriate art",
+        description: "Mostra la copertina dell'album. Disabilitando l'opzione verrà mostrato un segnaposto. Utile se la musica ha copertine inappropriate",
         type: OptionType.BOOLEAN,
         default: true,
     }
@@ -236,7 +236,7 @@ migratePluginSettings("MusicRichPresence", "LastFMRichPresence");
 migratePluginSetting("MusicRichPresence", "showLastFmLogo", "showLogo");
 export default definePlugin({
     name: "MusicRichPresence",
-    description: "Rich Presence for Last.FM/Listenbrainz",
+    description: "Rich Presence per Last.FM/ListenBrainz",
     tags: ["Activity", "Media"],
     searchTerms: ["lastfm", "LastFMRichPresence"],
     authors: [Devs.Rini, Devs.Ven, Devs.angelcube, Devs.RuiNtD, Devs.blahajZip, Devs.archeruwu],
@@ -250,9 +250,9 @@ export default definePlugin({
         return (
             <Card>
                 <Heading tag="h2">Last.FM</Heading>
-                <Heading tag="h5">How to create an API key</Heading>
-                <Paragraph>Set <strong>Application name</strong> and <strong>Application description</strong> to anything and leave the rest blank.</Paragraph>
-                <LinkButton size="small" href="https://www.last.fm/api/account/create" className={Margins.top8}>Create API Key</LinkButton>
+                <Heading tag="h5">Come creare una chiave API</Heading>
+                <Paragraph>Imposta <strong>Nome applicazione</strong> e <strong>Descrizione applicazione</strong> con qualsiasi valore e lascia vuoto il resto.</Paragraph>
+                <LinkButton size="small" href="https://www.last.fm/api/account/create" className={Margins.top8}>Crea chiave API</LinkButton>
             </Card>
         );
     },

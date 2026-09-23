@@ -16,14 +16,14 @@ import definePlugin, { OptionType } from "@utils/types";
 const settings = definePluginSettings({
     originalImagesInChat: {
         type: OptionType.BOOLEAN,
-        description: "Also load the original image in Chat. WARNING: Read the caveats above",
+        description: "Carica anche l'immagine originale nella chat. ATTENZIONE: leggi le avvertenze sopra",
         default: false,
     }
 });
 
 export default definePlugin({
     name: "FixImagesQuality",
-    description: "Improves quality of images by loading them at their original resolution",
+    description: "Migliora la qualità delle immagini caricandole alla risoluzione originale",
     tags: ["Media", "Appearance"],
     authors: [Devs.Nuckyz, Devs.Ven],
     settings,
@@ -42,18 +42,18 @@ export default definePlugin({
         return (
             <Card variant="normal">
                 <Flex flexDirection="column" gap="4px">
-                    <Paragraph size="md" weight="semibold">The default behaviour is the following:</Paragraph>
+                    <Paragraph size="md" weight="semibold">Il comportamento predefinito è il seguente:</Paragraph>
                     <Paragraph>
                         <ul>
-                            <li>&mdash; In chat, optimised but full resolution images will be loaded.</li>
-                            <li>&mdash; In the image modal, the original image will be loaded.</li>
+                            <li>&mdash; In chat verranno caricate immagini ottimizzate ma a piena risoluzione.</li>
+                            <li>&mdash; Nella finestra dell’immagine verrà caricata l’immagine originale.</li>
                         </ul>
                     </Paragraph>
-                    <Paragraph size="md" weight="semibold" className={Margins.top8}>You can also enable original image in chat, but beware of the following caveats:</Paragraph>
+                    <Paragraph size="md" weight="semibold" className={Margins.top8}>Puoi anche abilitare l’immagine originale in chat, ma considera le seguenti limitazioni:</Paragraph>
                     <Paragraph>
                         <ul>
-                            <li>&mdash; Animated images (GIF, WebP, etc.) in chat will always animate, regardless of if the App is focused.</li>
-                            <li>&mdash; May cause lag.</li>
+                            <li>&mdash; Le immagini animate (GIF, WebP, ecc.) in chat saranno sempre animate, anche quando l’app non è in primo piano.</li>
+                            <li>&mdash; Potrebbe causare rallentamenti.</li>
                         </ul>
                     </Paragraph>
                 </Flex>

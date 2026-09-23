@@ -70,18 +70,18 @@ function CreateTagDialog({ initialValue, modalProps }: { initialValue: Tag; moda
         >
             <Flex flexDirection="column" gap={12}>
                 <section>
-                    <HeadingSecondary>Name</HeadingSecondary>
+                    <HeadingSecondary>Nome</HeadingSecondary>
                     <TextInput value={name} onChange={setName} placeholder="greet" />
                 </section>
 
                 <section>
-                    <HeadingSecondary>Response</HeadingSecondary>
+                    <HeadingSecondary>Risposta</HeadingSecondary>
                     <TextArea value={message} onChange={setMessage} placeholder={EXAMPLE_RESPONSE} autosize />
                 </section>
 
                 {detectedArguments.length > 0 && (
                     <section>
-                        <HeadingSecondary>Detected Arguments</HeadingSecondary>
+                        <HeadingSecondary>Argomenti rilevati</HeadingSecondary>
                         <Paragraph>
                             <ul>
                                 {detectedArguments.map(arg => (
@@ -98,23 +98,23 @@ function CreateTagDialog({ initialValue, modalProps }: { initialValue: Tag; moda
                     renderContent={() => (
                         <Flex flexDirection="column" gap={12}>
                             <Paragraph>
-                                Your response can include variables wrapped in double curly braces which will become command arguments, for example <InlineCode>{"Hello {{user}}"}</InlineCode>.
+                                La risposta può includere variabili racchiuse tra doppie parentesi graffe, che diventeranno argomenti del comando, ad esempio <InlineCode>{"Hello {{user}}"}</InlineCode>.
                             </Paragraph>
                             <Paragraph>
-                                You can specify arguments with default values by using an equals sign, for example <InlineCode>{"Hello {{user = pal}}"}</InlineCode>.
+                                Puoi specificare argomenti con valori predefiniti usando il segno di uguale, ad esempio <InlineCode>{"Hello {{user = pal}}"}</InlineCode>.
                             </Paragraph>
 
                             <section>
-                                <Paragraph><b>Example Command response:</b> <InlineCode>{EXAMPLE_RESPONSE}</InlineCode></Paragraph>
-                                <Paragraph><b>Example usage:</b> <InlineCode>{"/greet user:@Clyde"}</InlineCode></Paragraph>
-                                <Paragraph><b>Example output:</b> <InlineCode>{"Hello @Clyde! I am feeling great."}</InlineCode></Paragraph>
+                                <Paragraph><b>Esempio di risposta del comando:</b> <InlineCode>{EXAMPLE_RESPONSE}</InlineCode></Paragraph>
+                                <Paragraph><b>Esempio di utilizzo:</b> <InlineCode>{"/greet user:@Clyde"}</InlineCode></Paragraph>
+                                <Paragraph><b>Esempio di output:</b> <InlineCode>{"Ciao @Clyde! Sto benissimo."}</InlineCode></Paragraph>
                             </section>
                         </Flex>
                     )}
                 >
                     <Flex alignItems="center" gap={8}>
                         <InfoIcon color="var(--text-muted)" height={16} width={16} />
-                        View Arguments guide
+                        Visualizza guida agli argomenti
                     </Flex>
                 </ExpandableSection>
             </Flex>

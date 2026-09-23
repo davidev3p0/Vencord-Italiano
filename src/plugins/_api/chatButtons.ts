@@ -9,7 +9,7 @@ import definePlugin from "@utils/types";
 
 export default definePlugin({
     name: "ChatInputButtonAPI",
-    description: "API to add buttons to the chat input",
+    description: "API per aggiungere pulsanti al campo di testo della chat",
     authors: [Devs.Ven],
 
     patches: [

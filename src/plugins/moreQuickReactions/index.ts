@@ -10,7 +10,7 @@ import definePlugin, { OptionType } from "@utils/types";
 
 const settings = definePluginSettings({
     reactionCount: {
-        description: "Number of reactions (0-42)",
+        description: "Numero di reazioni (0-42)",
         type: OptionType.NUMBER,
         default: 5
     },
@@ -18,7 +18,7 @@ const settings = definePluginSettings({
 
 export default definePlugin({
     name: "MoreQuickReactions",
-    description: "Increases the number of reactions available in the Quick React hover menu",
+    description: "Aumenta il numero di reazioni disponibili nel menu Reazione rapida al passaggio del mouse",
     authors: [Devs.iamme],
     tags: ["Emotes", "Reactions", "Customisation", "Shortcuts"],
     settings,

@@ -25,7 +25,7 @@ const iconClasses = findCssClassesLazy("button", "wrapper", "disabled", "separat
 
 export function DeleteButton({ onClick }: { onClick(): void; }) {
     return (
-        <Tooltip text="Delete Review">
+        <Tooltip text="Elimina recensione">
             {props => (
                 <div
                     {...props}
@@ -42,7 +42,7 @@ export function DeleteButton({ onClick }: { onClick(): void; }) {
 
 export function ReportButton({ onClick }: { onClick(): void; }) {
     return (
-        <Tooltip text="Report Review">
+        <Tooltip text="Segnala recensione">
             {props => (
                 <div
                     {...props}

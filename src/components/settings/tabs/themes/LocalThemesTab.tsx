@@ -125,22 +125,22 @@ export function LocalThemesTab() {
     return (
         <Flex flexDirection="column" gap="1em">
             <Card>
-                <Forms.FormTitle tag="h5">Find Themes:</Forms.FormTitle>
+                <Forms.FormTitle tag="h5">Trova temi:</Forms.FormTitle>
                 <Flex gap="0.4em" flexDirection="column" justifyContent="flex-start" className={Margins.bottom8}>
-                    <span>&ndash; <Link href="https://betterdiscord.app/themes">BetterDiscord theme list</Link></span>
+                    <span>&ndash; <Link href="https://betterdiscord.app/themes">Elenco temi BetterDiscord</Link></span>
                     <span>&ndash; <Link href="https://github.com/search?q=discord+theme">GitHub</Link></span>
                 </Flex>
-                <Forms.FormText>If using the BD site, click on "Download" and place the downloaded .theme.css file into your themes folder.</Forms.FormText>
+                <Forms.FormText>Se usi il sito BD, fai clic su "Download" e sposta il file .theme.css scaricato nella cartella dei temi.</Forms.FormText>
             </Card>
 
             <Card>
-                <Forms.FormTitle tag="h5">External Resources</Forms.FormTitle>
-                <Forms.FormText>For security reasons, loading resources (styles, fonts, images, ...) from most sites is blocked.</Forms.FormText>
-                <Forms.FormText>Make sure all your assets are hosted on GitHub, GitLab, Codeberg, Imgur, Discord or Google Fonts.</Forms.FormText>
+                <Forms.FormTitle tag="h5">Risorse esterne</Forms.FormTitle>
+                <Forms.FormText>Per motivi di sicurezza, il caricamento di risorse (stili, font, immagini, ...) dalla maggior parte dei siti è bloccato.</Forms.FormText>
+                <Forms.FormText>Assicurati che tutte le risorse siano ospitate su GitHub, GitLab, Codeberg, Imgur, Discord o Google Fonts.</Forms.FormText>
             </Card>
 
             <section>
-                <Forms.FormTitle tag="h5">Local Themes</Forms.FormTitle>
+                <Forms.FormTitle tag="h5">Temi locali</Forms.FormTitle>
                 <QuickActionCard>
                     <>
                         {IS_WEB ?
@@ -148,7 +148,7 @@ export function LocalThemesTab() {
                                 <QuickAction
                                     text={
                                         <span>
-                                            Upload Theme
+                                            Carica tema
                                             <FileInput
                                                 ref={fileInputRef}
                                                 onChange={async e => {
@@ -165,25 +165,25 @@ export function LocalThemesTab() {
                                 />
                             ) : (
                                 <QuickAction
-                                    text="Open Themes Folder"
+                                    text="Apri cartella temi"
                                     action={() => VencordNative.themes.openFolder()}
                                     Icon={FolderIcon}
                                 />
                             )}
                         <QuickAction
-                            text="Load missing Themes"
+                            text="Carica temi mancanti"
                             action={refreshLocalThemes}
                             Icon={RestartIcon}
                         />
                         <QuickAction
-                            text="Edit QuickCSS"
+                            text="Modifica QuickCSS"
                             action={() => VencordNative.quickCss.openEditor()}
                             Icon={PaintbrushIcon}
                         />
 
                         {isPluginEnabled(ClientThemePlugin.name) && (
                             <QuickAction
-                                text="Edit ClientTheme"
+                                text="Modifica ClientTheme"
                                 action={() => openPluginModal(ClientThemePlugin)}
                                 Icon={PencilIcon}
                             />

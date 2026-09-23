@@ -59,13 +59,13 @@ const ReadAllButton = () => (
         onClick={onClick}
         className="vc-ranb-button"
     >
-        Read All
+        Segna tutto come letto
     </TextButton>
 );
 
 export default definePlugin({
     name: "ReadAllNotificationsButton",
-    description: "Read all server notifications with a single button click!",
+    description: "Segna come lette tutte le notifiche dei server con un solo clic!",
     tags: ["Notifications", "Shortcuts"],
     authors: [Devs.kemo],
     dependencies: ["ServerListAPI"],

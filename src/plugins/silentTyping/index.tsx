@@ -28,17 +28,17 @@ const settings = definePluginSettings({
     showIcon: {
         type: OptionType.BOOLEAN,
         default: false,
-        description: "Show an icon for toggling the plugin",
+        description: "Mostra un'icona per attivare/disattivare il plugin",
         restartNeeded: true,
     },
     contextMenu: {
         type: OptionType.BOOLEAN,
-        description: "Add option to toggle the functionality in the chat input context menu",
+        description: "Aggiungi un'opzione per attivare/disattivare la funzione nel menu contestuale del campo chat",
         default: true
     },
     isEnabled: {
         type: OptionType.BOOLEAN,
-        description: "Toggle functionality",
+        description: "Attiva/disattiva funzionalità",
         default: true,
     }
 });
@@ -78,7 +78,7 @@ const SilentTypingToggle: ChatBarButtonFactory = ({ isMainChat }) => {
 
     return (
         <ChatBarButton
-            tooltip={isEnabled ? "Disable Silent Typing" : "Enable Silent Typing"}
+            tooltip={isEnabled ? "Disable Silent Typing" : "Abilita digitazione silenziosa"}
             onClick={toggle}
         >
             {isEnabled ? <SilentTypingEnabledIcon /> : <SilentTypingIcon />}
@@ -100,7 +100,7 @@ const ChatBarContextCheckbox: NavContextMenuPatchCallback = children => {
     group.splice(idx + 1, 0,
         <Menu.MenuCheckboxItem
             id="vc-silent-typing"
-            label="Enable Silent Typing"
+            label="Abilita digitazione silenziosa"
             checked={isEnabled}
             action={() => settings.store.isEnabled = !settings.store.isEnabled}
         />
@@ -111,7 +111,7 @@ const ChatBarContextCheckbox: NavContextMenuPatchCallback = children => {
 export default definePlugin({
     name: "SilentTyping",
     authors: [Devs.Ven, Devs.Rini, Devs.ImBanana],
-    description: "Hide that you are typing",
+    description: "Nascondi che stai scrivendo",
     tags: ["Chat", "Privacy"],
     settings,
 
@@ -131,12 +131,12 @@ export default definePlugin({
 
     commands: [{
         name: "silenttype",
-        description: "Toggle whether you're hiding that you're typing or not.",
+        description: "Attiva/disattiva la possibilità di nascondere che stai scrivendo.",
         inputType: ApplicationCommandInputType.BUILT_IN,
         options: [
             {
                 name: "value",
-                description: "Whether to hide or not that you're typing (default is toggle)",
+                description: "Scegli se nascondere che stai scrivendo (predefinito: alterna)",
                 required: false,
                 type: ApplicationCommandOptionType.BOOLEAN,
             },

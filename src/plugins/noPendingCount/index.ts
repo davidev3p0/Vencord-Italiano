@@ -26,19 +26,19 @@ const MessageRequestStore = findByPropsLazy("getMessageRequestsCount");
 const settings = definePluginSettings({
     hideFriendRequestsCount: {
         type: OptionType.BOOLEAN,
-        description: "Hide incoming friend requests count",
+        description: "Nascondi il conteggio delle richieste di amicizia in arrivo",
         default: true,
         restartNeeded: true
     },
     hideMessageRequestsCount: {
         type: OptionType.BOOLEAN,
-        description: "Hide message requests count",
+        description: "Nascondi il conteggio delle richieste di messaggi",
         default: true,
         restartNeeded: true
     },
     hidePremiumOffersCount: {
         type: OptionType.BOOLEAN,
-        description: "Hide nitro offers count",
+        description: "Nascondi il conteggio delle offerte Nitro",
         default: true,
         restartNeeded: true
     }
@@ -46,7 +46,7 @@ const settings = definePluginSettings({
 
 export default definePlugin({
     name: "NoPendingCount",
-    description: "Removes the ping count of incoming friend requests, message requests, and nitro offers.",
+    description: "Rimuove il conteggio delle notifiche per richieste di amicizia, richieste di messaggi e offerte Nitro.",
     tags: ["Notifications", "Appearance"],
     authors: [Devs.amia],
 

@@ -31,10 +31,10 @@ export async function checkCloudUrlCsp() {
         openModal(props => (
             <ConfirmModal
                 {...props}
-                title="Cloud Integration enabled"
+                title="Integrazione cloud abilitata"
                 subtitle={`${host} has been added to the whitelist. Please restart the app for the changes to take effect.`}
-                confirmText="Restart now"
-                cancelText="Later!"
+                confirmText="Riavvia ora"
+                cancelText="Più tardi"
                 variant="primary"
                 onConfirm={relaunch}
             />

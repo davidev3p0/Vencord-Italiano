@@ -11,13 +11,13 @@ import type { Channel, Emoji } from "@vencord/discord-types";
 
 const settings = definePluginSettings({
     shownEmojis: {
-        description: "The types of emojis to show in the autocomplete menu.",
+        description: "Tipi di emoji da mostrare nel menu di completamento automatico.",
         type: OptionType.SELECT,
         default: "onlyUnicode",
         options: [
-            { label: "Only unicode emojis", value: "onlyUnicode" },
-            { label: "Unicode emojis and server emojis from current server", value: "currentServer" },
-            { label: "Unicode emojis and all server emojis (Discord default)", value: "all" }
+            { label: "Solo emoji Unicode", value: "onlyUnicode" },
+            { label: "Emoji Unicode ed emoji del server corrente", value: "currentServer" },
+            { label: "Emoji Unicode e tutte le emoji dei server (predefinito Discord)", value: "all" }
         ]
     }
 });
@@ -25,7 +25,7 @@ const settings = definePluginSettings({
 export default definePlugin({
     name: "NoServerEmojis",
     authors: [Devs.UlyssesZhan],
-    description: "Do not show server emojis in the autocomplete menu.",
+    description: "Non mostrare le emoji dei server nel menu di completamento automatico.",
     tags: ["Emotes", "Servers"],
     settings,
 

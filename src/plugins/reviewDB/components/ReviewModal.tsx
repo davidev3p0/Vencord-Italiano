@@ -49,8 +49,8 @@ function ReviewsModal({ modalProps, modalKey, discordId, name, type }: { modalPr
             size="lg"
             title={
                 <Text variant="heading-lg/semibold" className={cl("modal-header")}>
-                    {name}'s Reviews
-                    {!!reviewCount && <span> ({reviewCount} Reviews)</span>}
+                    {name} - Recensioni
+                    {!!reviewCount && <span> ({reviewCount} recensioni)</span>}
                 </Text>
             }
             preview={

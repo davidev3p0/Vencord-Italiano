@@ -25,13 +25,13 @@ import { SettingsRouter } from "@webpack/common";
 const settings = definePluginSettings({
     showNavigationButtons: {
         type: OptionType.BOOLEAN,
-        description: "Show the back/forward navigation buttons in the title bar.",
+        description: "Mostra i pulsanti di navigazione indietro/avanti nella barra del titolo.",
         default: true,
         restartNeeded: true
     },
     overrideCommonKeybinds: {
         type: OptionType.BOOLEAN,
-        description: "Allows discord to override the most common tab navigation keybinds (ctrl+t, ctrl+shift+t, ctrl+tab, ctrl+shift+tab, ctrl+n). Only works in a few select browsers that allow website keybinds to take priority over native ones.",
+        description: "Consente a Discord di sostituire le scorciatoie più comuni per la navigazione tra schede (Ctrl+T, Ctrl+Maiusc+T, Ctrl+Tab, Ctrl+Maiusc+Tab, Ctrl+N). Funziona solo in alcuni browser che permettono alle scorciatoie dei siti di avere priorità su quelle native.",
         default: IS_VESKTOP,
         restartNeeded: true,
     }
@@ -39,7 +39,7 @@ const settings = definePluginSettings({
 
 export default definePlugin({
     name: "WebKeybinds",
-    description: "Re-adds keybinds missing in the web version of Discord. Only works fully on Vesktop/Legcord, not inside your browser",
+    description: "Ripristina le scorciatoie mancanti nella versione web di Discord. Funziona completamente solo su Vesktop/Legcord, non nel browser",
     tags: ["Shortcuts"],
     authors: [Devs.Ven, Devs.Davri],
     enabledByDefault: true,

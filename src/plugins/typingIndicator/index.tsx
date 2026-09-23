@@ -135,38 +135,38 @@ function TypingIndicator({ channelId, guildId }: { channelId: string; guildId: s
 const settings = definePluginSettings({
     includeCurrentChannel: {
         type: OptionType.BOOLEAN,
-        description: "Whether to show the typing indicator for the currently selected channel",
+        description: "Mostra l'indicatore di digitazione per il canale selezionato",
         default: true
     },
     includeMutedChannels: {
         type: OptionType.BOOLEAN,
-        description: "Whether to show the typing indicator for muted channels.",
+        description: "Mostra l'indicatore di digitazione per i canali silenziati.",
         default: false
     },
     includeIgnoredUsers: {
         type: OptionType.BOOLEAN,
-        description: "Whether to show the typing indicator for ignored users.",
+        description: "Mostra l'indicatore di digitazione per gli utenti ignorati.",
         default: false
     },
     includeBlockedUsers: {
         type: OptionType.BOOLEAN,
-        description: "Whether to show the typing indicator for blocked users.",
+        description: "Mostra l'indicatore di digitazione per gli utenti bloccati.",
         default: false
     },
     indicatorMode: {
         type: OptionType.SELECT,
-        description: "How should the indicator be displayed?",
+        description: "Come deve essere visualizzato l'indicatore?",
         options: [
-            { label: "Avatars and animated dots", value: IndicatorMode.Dots | IndicatorMode.Avatars, default: true },
-            { label: "Animated dots", value: IndicatorMode.Dots },
-            { label: "Avatars", value: IndicatorMode.Avatars },
+            { label: "Avatar e puntini animati", value: IndicatorMode.Dots | IndicatorMode.Avatars, default: true },
+            { label: "Puntini animati", value: IndicatorMode.Dots },
+            { label: "Avatar", value: IndicatorMode.Avatars },
         ],
     }
 });
 
 export default definePlugin({
     name: "TypingIndicator",
-    description: "Adds an indicator if someone is typing on a channel.",
+    description: "Aggiunge un indicatore quando qualcuno sta scrivendo in un canale.",
     tags: ["Notifications", "Appearance", "Servers"],
     authors: [Devs.Nuckyz, Devs.fawn, Devs.Sqaaakoi],
     settings,
