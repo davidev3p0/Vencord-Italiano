@@ -29,6 +29,7 @@ import { classNameFactory } from "@utils/css";
 import { proxyLazy } from "@utils/lazy";
 import { Margins } from "@utils/margins";
 import { italianPluginTag } from "@utils/italian";
+import { getItalianPluginName } from "@utils/italianPluginNames";
 import { classes } from "@utils/misc";
 import { OptionType, Plugin, PluginTag } from "@utils/types";
 import { RenderModalProps, User } from "@vencord/discord-types";
@@ -174,7 +175,7 @@ export default function PluginModal({ plugin, onRestartNeeded, onClose, transiti
             size="lg"
             title={
                 <div className={cl("header")}>
-                    <BaseText tag="h1" weight="semibold" size="lg">{plugin.name}</BaseText>
+                    <BaseText tag="h1" weight="semibold" size="lg">{getItalianPluginName(plugin.name)}</BaseText>
                     {!pluginMeta.userPlugin && (
                         <div className="vc-settings-modal-links">
                             <FavoriteButton
@@ -235,7 +236,7 @@ export default function PluginModal({ plugin, onRestartNeeded, onClose, transiti
                 {!!plugin.settingsAboutComponent && (
                     <div className={Margins.top16}>
                         <section>
-                            <ErrorBoundary message="Si ÃƒÆ’Ã‚Â¨ verificato un errore durante il rendering del componente informativo personalizzato del plugin">
+                            <ErrorBoundary message="Si ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¨ verificato un errore durante il rendering del componente informativo personalizzato del plugin">
                                 <plugin.settingsAboutComponent />
                             </ErrorBoundary>
                         </section>

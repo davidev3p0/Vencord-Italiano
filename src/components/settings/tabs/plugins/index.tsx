@@ -31,6 +31,7 @@ import { ChangeList } from "@utils/ChangeList";
 import { classNameFactory } from "@utils/css";
 import { isTruthy } from "@utils/guards";
 import { italianPluginTag } from "@utils/italian";
+import { getItalianPluginName } from "@utils/italianPluginNames";
 import { Logger } from "@utils/Logger";
 import { Margins } from "@utils/margins";
 import { classes } from "@utils/misc";
@@ -130,7 +131,7 @@ function PluginSettings() {
                     {...props}
                     title="Riavvio necessario"
                     confirmText="Riavvia ora"
-                    cancelText="Più tardi!"
+                    cancelText="PiÃ¹ tardi!"
                     variant="primary"
                     onConfirm={() => location.reload()}
                 >
@@ -139,7 +140,7 @@ function PluginSettings() {
                         <div>{changes.map((s, i) => (
                             <React.Fragment key={s}>
                                 {i > 0 && ", "}
-                                {Parser.parse("`" + s.split(".")[0] + "`")}
+                                {Parser.parse("`" + getItalianPluginName(s.split(".")[0]) + "`")}
                             </React.Fragment>
                         ))}</div>
                     </>
@@ -162,7 +163,7 @@ function PluginSettings() {
     }, []);
 
     const sortedPlugins = useMemo(() =>
-        Object.values(Plugins).sort((a, b) => a.name.localeCompare(b.name)),
+        Object.values(Plugins).sort((a, b) => getItalianPluginName(a.name).localeCompare(getItalianPluginName(b.name))),
         []
     )
         .toSorted((a, b) => Number(settings.plugins[b.name]?.isFavorite ?? false) - Number(settings.plugins[a.name]?.isFavorite ?? false));
@@ -203,6 +204,7 @@ function PluginSettings() {
         if (!search.length) return true;
 
         return (
+            getItalianPluginName(plugin.name).toLowerCase().includes(search) ||
             plugin.name.toLowerCase().includes(search) ||
             plugin.name.match(/[A-Z]/g)?.join("").toLowerCase().includes(search) || // acronyms like BF for BetterFolders
             plugin.description.toLowerCase().includes(search) ||
@@ -241,7 +243,7 @@ function PluginSettings() {
 
         if (isRequired) {
             const tooltipText = p.required || !depMap[p.name]
-                ? "Questo plugin è necessario per il funzionamento di Vencord."
+                ? "Questo plugin Ã¨ necessario per il funzionamento di Vencord."
                 : makeDependencyList(depMap[p.name]?.filter(d => settings.plugins[d].enabled));
 
             requiredPlugins.push(
@@ -354,8 +356,8 @@ function PluginSettings() {
 function makeDependencyList(deps: string[]) {
     return (
         <>
-            <Paragraph>Questo plugin è richiesto da:</Paragraph>
-            {deps.map((dep: string) => <Paragraph key={dep} className={cl("dep-text")}>{dep}</Paragraph>)}
+            <Paragraph>Questo plugin Ã¨ richiesto da:</Paragraph>
+            {deps.map((dep: string) => <Paragraph key={dep} className={cl("dep-text")}>{getItalianPluginName(dep)}</Paragraph>)}
         </>
     );
 }

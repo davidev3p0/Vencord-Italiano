@@ -9,6 +9,7 @@ import { hasAnyVisibleSettings, isPluginEnabled, pluginRequiresRestart, startDep
 import { Settings } from "@api/Settings";
 import { CogWheel, InfoIcon } from "@components/Icons";
 import { AddonCard } from "@components/settings/AddonCard";
+import { getItalianPluginName } from "@utils/italianPluginNames";
 import { Plugin } from "@utils/types";
 import { React, showToast, Toasts } from "@webpack/common";
 
@@ -66,7 +67,7 @@ export function PluginCard({ plugin, disabled, onRestartNeeded, onMouseEnter, on
         if (!result) {
             settings.enabled = false;
 
-            const msg = `Errore durante ${wasEnabled ? "l’arresto" : "l’avvio"} del plugin ${plugin.name}`;
+            const msg = `Errore durante ${wasEnabled ? "lâ€™arresto" : "lâ€™avvio"} del plugin ${plugin.name}`;
             showToast(msg, Toasts.Type.FAILURE, {
                 position: Toasts.Position.BOTTOM,
             });
@@ -79,7 +80,7 @@ export function PluginCard({ plugin, disabled, onRestartNeeded, onMouseEnter, on
 
     return (
         <AddonCard
-            name={plugin.name}
+            name={getItalianPluginName(plugin.name)}
             description={plugin.description}
             isNew={isNew}
             enabled={isEnabled()}
