@@ -1,6 +1,7 @@
 /*
- * Nomi italiani visualizzati dei plugin.
- * IMPORTANTE: non modifica mai gli ID interni dei plugin.
+ * Vencord, a Discord client mod
+ * Copyright (c) 2026 Vendicated and contributors
+ * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
 const italianPluginNames: Record<string, string> = {
