@@ -194,7 +194,7 @@ function shouldIgnoreClick(event: MouseEvent): boolean {
     const selection = window.getSelection()?.toString().trim();
     if (selection) return true;
 
-    const target = event.target;
+    const { target } = event;
     if (target instanceof Element && target.closest(
         "a, button, input, textarea, select, option, [role='button'], [role='menuitem'], [contenteditable='true']"
     )) return true;
