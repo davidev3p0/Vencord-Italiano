@@ -5,8 +5,8 @@
  */
 
 import { classNameFactory } from "@utils/css";
-import { classes } from "@utils/misc";
 import { italianSettingName } from "@utils/italian";
+import { classes } from "@utils/misc";
 import { DefinedSettings, PluginSettingDefCommon } from "@utils/types";
 import { Text } from "@webpack/common";
 import { PropsWithChildren } from "react";
