@@ -1,8 +1,7 @@
 /*
- * Vencord Italian localization helpers.
- *
- * This file intentionally localizes only user-facing labels. Internal plugin names,
- * setting keys, enum values and API identifiers stay untouched for compatibility.
+ * Vencord, a Discord client mod
+ * Copyright (c) 2026 Vendicated and contributors
+ * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
 import type { PluginTag } from "./types";
