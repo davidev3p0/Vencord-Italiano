@@ -21,17 +21,17 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
       - name: Configura pnpm
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@v6
         with:
           version: 11.9.0
 
       - name: Configura Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: 24
           cache: pnpm
@@ -42,7 +42,7 @@ jobs:
       - name: Compila Vencord Italiano
         env:
           VENCORD_REMOTE: davidev3p0/Vencord-Italiano
-        run: pnpm build
+        run: pnpm buildStandalone
 
       - name: Leggi hash build
         id: build
