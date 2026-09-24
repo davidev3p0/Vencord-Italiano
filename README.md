@@ -2,6 +2,14 @@
 
 ## Vencord Italiano
 
+Fork personalizzato con interfaccia italiana, RealVoiceTTS, release pubbliche e aggiornamenti automatici.
+
+## Code signing policy
+
+La politica di firma del progetto è documentata in [CODE_SIGNING_POLICY.md](CODE_SIGNING_POLICY.md). La privacy policy è in [PRIVACY.md](PRIVACY.md) e le informazioni di sicurezza in [SECURITY.md](SECURITY.md).
+
+## Vencord Italiano
+
 Build italiana personalizzata con traduzione dell'interfaccia, nomi plugin localizzati, RealVoiceTTS e aggiornamenti automatici tramite le GitHub Releases di questo repository.
 
 ![](https://img.shields.io/github/package-json/v/Vendicated/Vencord?style=for-the-badge&logo=github&logoColor=d3869b&label=&color=1d2021&labelColor=282828)
