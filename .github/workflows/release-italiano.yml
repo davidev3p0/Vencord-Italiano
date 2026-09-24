@@ -1,0 +1,86 @@
+name: Pubblica aggiornamento Vencord Italiano
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Versione da pubblicare (es. 1.0.5)"
+        required: true
+        default: "1.0.5"
+  push:
+    tags:
+      - "italiano-v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Build e release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configura pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 11.9.0
+
+      - name: Configura Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - name: Installa dipendenze
+        run: pnpm install --frozen-lockfile
+
+      - name: Compila Vencord Italiano
+        env:
+          VENCORD_REMOTE: davidev3p0/Vencord-Italiano
+        run: pnpm build
+
+      - name: Leggi hash build
+        id: build
+        shell: bash
+        run: echo "hash=$(git rev-parse --short HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Verifica artefatti
+        shell: bash
+        run: |
+          test -f dist/patcher.js
+          test -f dist/preload.js
+          test -f dist/renderer.js
+          test -f dist/renderer.css
+
+      - name: Determina versione
+        id: release
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            VERSION="${{ inputs.version }}"
+            TAG="italiano-v${VERSION}"
+          else
+            TAG="${GITHUB_REF_NAME}"
+            VERSION="${TAG#italiano-v}"
+          fi
+          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
+          echo "tag=${TAG}" >> "$GITHUB_OUTPUT"
+
+      - name: Pubblica release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          gh release create "${{ steps.release.outputs.tag }}" \
+            dist/patcher.js \
+            dist/preload.js \
+            dist/renderer.js \
+            dist/renderer.css \
+            --target "${GITHUB_SHA}" \
+            --title "Vencord Italiano ${{ steps.build.outputs.hash }}" \
+            --notes "Aggiornamento automatico Vencord Italiano v${{ steps.release.outputs.version }}. Include traduzione italiana, plugin personalizzati e RealVoiceTTS."
