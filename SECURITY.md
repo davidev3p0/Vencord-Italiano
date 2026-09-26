@@ -2,20 +2,26 @@
 
 ## Supported releases
 
-Security fixes are provided through the latest public Vencord Italiano release.
+Le correzioni di sicurezza specifiche di Vencord Italiano vengono distribuite tramite l'ultima release pubblica.
+
+Per vulnerabilità che riguardano il progetto upstream Vencord, usa i canali di sicurezza previsti dal progetto upstream.
 
 ## Reporting a vulnerability
 
-Please report security issues privately to the project maintainer rather than opening a public issue that contains exploit details.
+Non pubblicare token Discord, credenziali, cookie, dati personali o dettagli di exploit non ancora corretti in una issue pubblica.
 
-For non-sensitive bugs, use the GitHub Issues page.
+Per problemi non sensibili puoi usare GitHub Issues.
 
 ## Release integrity
 
-Public Windows installer releases include:
+Gli asset runtime di Vencord Italiano vengono prodotti tramite workflow GitHub Actions versionati nel repository.
 
-- a SHA-256 checksum;
-- GitHub build provenance / artifact attestation;
-- source-controlled build workflows.
+L'installer Windows è un progetto separato:
 
-Code signing is performed only through the project's documented code-signing policy.
+https://github.com/davidev3p0/Vencord-Italiano-Installer
+
+Il repository installer pubblica sorgente, SHA-256 e GitHub build provenance per le proprie release.
+
+## Supply chain
+
+Il progetto non richiede agli utenti finali di installare Git, Node.js o pnpm quando usano l'installer pubblico. Le dipendenze di sviluppo sono gestite tramite il lockfile upstream.
