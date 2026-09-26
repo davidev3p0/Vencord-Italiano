@@ -1,35 +1,35 @@
 # Code signing policy
 
-## Provider
+## Scope
 
-Free code signing provided by SignPath.io, certificate by SignPath Foundation.
+Vencord Italiano pubblica principalmente gli asset runtime JavaScript/CSS utilizzati dall'updater interno di Vencord.
 
-Vencord Italiano uses automated builds from the public GitHub repository and intends to sign release installers only from verified GitHub Actions workflows.
+L'installer Windows è mantenuto separatamente in:
 
-## Team roles
+- https://github.com/davidev3p0/Vencord-Italiano-Installer
 
-At this stage the project is maintained by a single maintainer.
+La relativa policy di firma è pubblicata in quel repository.
 
-- Committer: [davidev3p0](https://github.com/davidev3p0)
-- Reviewer: [davidev3p0](https://github.com/davidev3p0)
-- Approver: [davidev3p0](https://github.com/davidev3p0)
+## Build provenance
 
-If additional maintainers are added, these roles will be updated before they participate in release signing.
+Le release Vencord Italiano devono essere generate da GitHub Actions a partire da una revisione pubblica del repository.
 
-## Release signing rules
+Regole:
 
-- Only release artifacts produced by GitHub Actions from this repository may be submitted for signing.
-- Release signing must use GitHub-hosted runners.
-- The repository, commit and workflow origin must be verifiable.
-- The installer must not use packers, executable encryption, obfuscation intended to conceal behavior or antivirus bypass techniques.
-- Every signed release requires explicit approval.
-- SHA-256 hashes and build provenance are published with release artifacts.
-- The private signing key is never exported to project maintainers.
+- niente packer o cifratura degli artefatti per nascondere il comportamento;
+- niente offuscamento introdotto con lo scopo di eludere strumenti di sicurezza;
+- gli artefatti devono corrispondere a un commit pubblico;
+- checksum e/o build provenance devono essere pubblicati quando disponibili;
+- eventuali binari Windows devono essere prodotti dal repository installer dedicato.
+
+## Maintainer
+
+- [davidev3p0](https://github.com/davidev3p0)
 
 ## Privacy
 
-See [PRIVACY.md](PRIVACY.md).
+Vedi [PRIVACY.md](PRIVACY.md).
 
 ## Security
 
-See [SECURITY.md](SECURITY.md).
+Vedi [SECURITY.md](SECURITY.md).
