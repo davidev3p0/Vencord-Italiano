@@ -1,11 +1,11 @@
 blank_issues_enabled: false
 contact_links:
-  - name: 💬 Discord Community
+  - name: 🇮🇹 Supporto Vencord Italiano
+    url: https://github.com/davidev3p0/Vencord-Italiano/blob/vencord-italiano/SUPPORT_ITALIANO.md
+    about: Prima di aprire una issue, verifica quale repository gestisce il problema.
+  - name: 🪟 Vencord Italiano Installer
+    url: https://github.com/davidev3p0/Vencord-Italiano-Installer/issues
+    about: Per installazione, riparazione o disinstallazione Windows usa il repository installer.
+  - name: 💬 Discord Community upstream
     url: https://discord.gg/D9uwnFnqmd
-    about: For plugin requests, support questions, and general help - join our Discord server
-  - name: 🔌 Plugin Requests
-    url: https://discord.gg/D9uwnFnqmd
-    about: Want a new plugin? Request it in our Discord community, not here
-  - name: ❓ Support & Questions
-    url: https://discord.gg/D9uwnFnqmd
-    about: Need help? Ask in our Discord server for faster responses
+    about: Supporto generale relativo al progetto Vencord upstream.
