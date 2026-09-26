@@ -1,23 +1,84 @@
-# Vencord
+# Vencord Italiano
 
-## Vencord Italiano
+[![Test](https://github.com/davidev3p0/Vencord-Italiano/actions/workflows/test.yml/badge.svg?branch=vencord-italiano)](https://github.com/davidev3p0/Vencord-Italiano/actions/workflows/test.yml)
+[![Release](https://github.com/davidev3p0/Vencord-Italiano/actions/workflows/release-italiano.yml/badge.svg)](https://github.com/davidev3p0/Vencord-Italiano/actions/workflows/release-italiano.yml)
+[![Latest release](https://img.shields.io/github/v/release/davidev3p0/Vencord-Italiano?include_prereleases&sort=semver)](https://github.com/davidev3p0/Vencord-Italiano/releases/latest)
+[![License](https://img.shields.io/github/license/davidev3p0/Vencord-Italiano)](LICENSE)
 
-Fork personalizzato con interfaccia italiana, RealVoiceTTS, release pubbliche e aggiornamenti automatici.
+Fork/community build di Vencord con interfaccia italiana, nomi plugin localizzati, **RealVoiceTTS** e aggiornamenti automatici collegati alle release di questo repository.
 
-## Code signing policy
+> **Nota:** questo progetto non è il Vencord ufficiale e non è affiliato con Discord Inc. Il codice upstream deriva da Vencord e mantiene le relative licenze e attribuzioni.
 
-La politica di firma del progetto è documentata in [CODE_SIGNING_POLICY.md](CODE_SIGNING_POLICY.md). La privacy policy è in [PRIVACY.md](PRIVACY.md) e le informazioni di sicurezza in [SECURITY.md](SECURITY.md).
+## Download consigliato
 
-## Vencord Italiano
+Per gli utenti Windows consigliamo l'installer dedicato e open source:
 
-Build italiana personalizzata con traduzione dell'interfaccia, nomi plugin localizzati, RealVoiceTTS e aggiornamenti automatici tramite le GitHub Releases di questo repository.
+**[Scarica Vencord Italiano Installer](https://github.com/davidev3p0/Vencord-Italiano-Installer/releases/latest)**
 
-![](https://img.shields.io/github/package-json/v/Vendicated/Vencord?style=for-the-badge&logo=github&logoColor=d3869b&label=&color=1d2021&labelColor=282828)
-[![Codeberg Mirror](https://img.shields.io/static/v1?style=for-the-badge&label=Codeberg%20Mirror&message=codeberg.org/Vee/cord&color=2185D0&logo=data:image/png;base64,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)](https://codeberg.org/Vee/cord)
+Repository installer:
 
-The cutest Discord client mod
+- [davidev3p0/Vencord-Italiano-Installer](https://github.com/davidev3p0/Vencord-Italiano-Installer)
 
-![](https://github.com/user-attachments/assets/3fac98c0-c411-4d2a-97a3-13b7da8687a2)
+L'installer supporta Discord Stable, Canary e PTB, verifica i file della release e non richiede Git, Node.js o pnpm.
+
+## Cosa include
+
+- interfaccia e descrizioni Vencord localizzate in italiano;
+- nomi visualizzati dei plugin in italiano senza cambiare gli ID interni;
+- **RealVoiceTTS**, con lettura vocale dei messaggi;
+- aggiornamenti automatici dal repository `davidev3p0/Vencord-Italiano`;
+- release pubbliche riproducibili tramite GitHub Actions;
+- SHA-256 e GitHub build provenance per gli artefatti pubblicati;
+- compatibilità mantenuta con la struttura upstream Vencord.
+
+## Aggiornamenti automatici
+
+Le build standalone sono compilate con:
+
+```text
+VENCORD_REMOTE=davidev3p0/Vencord-Italiano
+```
+
+In Discord, **Impostazioni Vencord → Aggiornamenti** mostra questo repository come origine. Quando viene pubblicata una nuova release, Vencord Italiano può scaricarla e applicarla automaticamente.
+
+## RealVoiceTTS
+
+RealVoiceTTS è incluso come user plugin del fork. La configurazione attuale supporta la lettura dei messaggi tramite **Ctrl + clic** e usa le voci disponibili tramite Discord/Chromium e il sistema operativo.
+
+## Sicurezza e trasparenza
+
+- sorgente pubblico;
+- build GitHub Actions;
+- release con checksum e provenienza verificabile;
+- nessun packer o offuscamento introdotto dal progetto italiano;
+- nessuna telemetria specifica aggiunta dal progetto;
+- installer mantenuto in un repository separato e verificabile.
+
+Documentazione:
+
+- [Privacy policy](PRIVACY.md)
+- [Security policy](SECURITY.md)
+- [Code signing policy](CODE_SIGNING_POLICY.md)
+- [Supporto Vencord Italiano](SUPPORT_ITALIANO.md)
+- [Roadmap Vencord Italiano](ROADMAP_ITALIANO.md)
+- [Changelog Vencord Italiano](CHANGELOG_ITALIANO.md)
+
+## Build da sorgente
+
+Per una build locale:
+
+```powershell
+pnpm install --frozen-lockfile
+$env:VENCORD_REMOTE="davidev3p0/Vencord-Italiano"
+pnpm buildStandalone
+pnpm inject
+```
+
+Per contribuire al codice upstream conserva e rispetta anche le regole originali in [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## Upstream Vencord
+
+Le sezioni seguenti derivano dalla documentazione upstream di Vencord.
 
 ## Features
 
