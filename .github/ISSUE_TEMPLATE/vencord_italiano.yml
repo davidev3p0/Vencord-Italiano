@@ -1,0 +1,49 @@
+name: Vencord Italiano - Bug o traduzione
+description: Segnala un problema specifico della build italiana
+title: "[Italiano] "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Usa questo modulo solo per problemi specifici di Vencord Italiano. Non inserire token Discord o altri dati sensibili.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Traduzione / testo
+        - Nome plugin
+        - RealVoiceTTS
+        - Aggiornamento automatico
+        - Altro problema specifico della build italiana
+    validations:
+      required: true
+  - type: dropdown
+    id: client
+    attributes:
+      label: Client Discord
+      options:
+        - Stable
+        - Canary
+        - PTB
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problema
+      description: Descrivi cosa accade e dove.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Comportamento o testo atteso
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Dettagli utili
+      description: Versione, screenshot e passaggi per riprodurre. Rimuovi dati sensibili.
